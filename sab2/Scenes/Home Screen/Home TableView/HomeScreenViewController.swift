@@ -16,39 +16,66 @@ class HomeScreenViewController: UIViewController,UITableViewDelegate,UITableView
     var materialObj2 = Material()
     var materialObj3 = Material()
     var tableData = [StructTableSection]()
+        var networkManager = NetworkManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
         homeTableView.rowHeight = UITableView.automaticDimension
-        
-//        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
-//        header.backgroundColor = .red
-//
-//        self.homeTableView.tableHeaderView = header
-        
-        
+
         let defaultCellNib = UINib(nibName: "HomeTableViewCell", bundle: nil)
         homeTableView.register(defaultCellNib, forCellReuseIdentifier: "HomeTableViewCell")
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
         homeTableView.register(sliderCellNib, forCellReuseIdentifier: "SliderTableViewCell")
-        
-//        let headerNib = UINib.init(nibName: "SliderTableViewCell", bundle: Bundle.main)
-//        homeTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "SliderTableViewCell")
-        
-        // this is the full table
-        
+
         materialObj.newsBlueLabel = "title"
         materialObj.postTitleLabel = "post"
         materialObj1.newsBlueLabel = "title1"
         materialObj1.postTitleLabel = "post1"
-        
         materialObj2.newsBlueLabel = "title1"
         materialObj2.postTitleLabel = "post1"
         materialObj3.newsBlueLabel = "title1"
         materialObj3.postTitleLabel = "post1"
         PopulateTableData()
+        
+        
+        
+      
+        getList(forPage: 1) { result in
+                        switch result {
+                        case .success(let apiResponse):
+            
+                            print(apiResponse)
+                           // self.view?.getres(array: apiResponse as! [Person] )
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+        
+        
     }
+    
+    
+    
+    
+        func getList(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void){
+            networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
+                do {
+                    let res = try result.get()
+
+                    var personArray = res.slider
+                    print("sliderrrrrrrrrr",res.slider)
+                    compelation(.success(personArray) )
+                }
+                catch {
+                    print(error.localizedDescription)
+                    compelation(.failure(error))
+                }
+    
+            }
+    }
+    
+    
     func PopulateTableData(){
         tableData.removeAll()
         tableData.append(StructTableSection(Header: "jjj", Cells: [materialObj,materialObj1,materialObj2,materialObj3], ShowHeader:false));
@@ -92,7 +119,8 @@ class HomeScreenViewController: UIViewController,UITableViewDelegate,UITableView
             
         case 1: //first cells
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+            guard var  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
+            
             var obj = tableData[indexPath.section].Cells[indexPath.row]
             cell.newsBlueLabel.text = obj.newsBlueLabel
             return cell
@@ -101,40 +129,6 @@ class HomeScreenViewController: UIViewController,UITableViewDelegate,UITableView
         default:
             return UITableViewCell()
         }
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
-        //        var obj = tableData[indexPath.section].Cells[indexPath.row]
-        //        cell.newsBlueLabel.text = obj.newsBlueLabel
-        //        return cell
-        
-        //        if (indexPath.section == 0){
-        //            var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell")
-        //            if cell == nil {
-        //                cell = SliderTableViewCell.sliderTableViewCustomCell
-        //
-        //
-        //            }
-        //
-        //            var obj = tableData[indexPath.section].Cells[indexPath.row]
-        //
-        //
-        //            return cell!
-        //
-        //
-        //        }
-        //        else{
-        //
-        //
-        //        }
-        
-        
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SliderTableViewCell") as! SliderTableViewCell
-        
-        
-        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

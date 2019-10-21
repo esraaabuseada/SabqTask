@@ -12,8 +12,6 @@ import UIKit
 class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,13 +21,11 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         self.sliderCollectionView.collectionViewLayout = flowLayout
-        
         self.sliderCollectionView.dataSource = self
         self.sliderCollectionView.delegate = self
         
         let cellNib = UINib(nibName: "SliderCollectionViewCell", bundle: nil)
         self.sliderCollectionView.register(cellNib, forCellWithReuseIdentifier:"SliderCollectionViewCell")
-        
     }
     
    
@@ -40,8 +36,6 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier:"SliderCollectionViewCell" , for: indexPath) as! SliderCollectionViewCell
-        
-        
         collectionCell.sliderBigTittle.text = "hhhhh"
         return collectionCell
     }

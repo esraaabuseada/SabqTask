@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
        /// da yetfasaaaaaal
-        
+      setupNetworking()
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white
         let rootViewController = TabBarViewController()

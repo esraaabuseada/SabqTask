@@ -18,13 +18,36 @@
 		A19A8CE5BEC94E3476482ABC /* Pods_sab2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A235C68F15994E6C7D05E6FA /* Pods_sab2.framework */; };
 		CE05CE7A235DAF1E009355A9 /* SliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE78235DAF1E009355A9 /* SliderTableViewCell.swift */; };
 		CE05CE7B235DAF1E009355A9 /* SliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE05CE79235DAF1E009355A9 /* SliderTableViewCell.xib */; };
+		CE05CE81235DE6ED009355A9 /* ListApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE80235DE6ED009355A9 /* ListApiResponse.swift */; };
+		CE05CE83235DE6F3009355A9 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE82235DE6F3009355A9 /* Materials.swift */; };
+		CE05CE85235DE6FB009355A9 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE84235DE6FB009355A9 /* Slider.swift */; };
+		CE05CE87235DE701009355A9 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE86235DE701009355A9 /* Tags.swift */; };
+		CE05CE90235DEE6F009355A9 /* StaticHeaderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE8F235DEE6F009355A9 /* StaticHeaderPlugin.swift */; };
+		CE05CE92235DEE77009355A9 /* NetworkDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE91235DEE77009355A9 /* NetworkDefaults.swift */; };
+		CE05CE94235DEE7F009355A9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE93235DEE7F009355A9 /* NetworkError.swift */; };
+		CE05CE96235DEE86009355A9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE95235DEE86009355A9 /* NetworkManager.swift */; };
+		CE05CE9B235DEEB7009355A9 /* NetworkService+ActorsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE9A235DEEB7009355A9 /* NetworkService+ActorsService.swift */; };
+		CE05CE9D235DEEBC009355A9 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE9C235DEEBC009355A9 /* ProductService.swift */; };
+		CE05CEA3235DEF34009355A9 /* BasePresenterProtocals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEA2235DEF34009355A9 /* BasePresenterProtocals.swift */; };
+		CE05CEA5235DEF39009355A9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEA4235DEF39009355A9 /* BaseViewController.swift */; };
+		CE05CEA7235DEF3E009355A9 /* BaseViewProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEA6235DEF3E009355A9 /* BaseViewProtocal.swift */; };
+		CE05CEA9235DEF42009355A9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEA8235DEF42009355A9 /* UIViewController+Extension.swift */; };
+		CE05CEAB235DEF48009355A9 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEAA235DEF48009355A9 /* BaseModel.swift */; };
+		CE05CEAD235DEF4D009355A9 /* BaseModelProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEAC235DEF4D009355A9 /* BaseModelProtocal.swift */; };
+		CE05CEAF235DF05C009355A9 /* BaseAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEAE235DF05C009355A9 /* BaseAdapterProtocol.swift */; };
+		CE05CEB1235DF112009355A9 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB0235DF112009355A9 /* BasePresenter.swift */; };
+		CE05CEB3235DF1F1009355A9 /* ListProtocals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB2235DF1F1009355A9 /* ListProtocals.swift */; };
+		CE05CEB5235DF1FA009355A9 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB4235DF1FA009355A9 /* ListAdapter.swift */; };
+		CE05CEB7235DF203009355A9 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB6235DF203009355A9 /* ListModel.swift */; };
+		CE05CEB9235DF212009355A9 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB8235DF212009355A9 /* ListPresenter.swift */; };
+		CE05CEBB235DF21E009355A9 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEBA235DF21D009355A9 /* ListModule.swift */; };
+		CE05CEBD235DF63A009355A9 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEBC235DF63A009355A9 /* Material.swift */; };
+		CE05CEC2235DFCC9009355A9 /* AppDelegate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEC1235DFCC9009355A9 /* AppDelegate+Extensions.swift */; };
 		CE0E1613235C5A5400ACDD7D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E1611235C5A5400ACDD7D /* HomeTableViewCell.swift */; };
 		CE0E1614235C5A5400ACDD7D /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0E1612235C5A5400ACDD7D /* HomeTableViewCell.xib */; };
-		CE0E1629235C775600ACDD7D /* SliderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E1628235C775600ACDD7D /* SliderCollectionView.swift */; };
 		CE0E1630235C791E00ACDD7D /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E162E235C791E00ACDD7D /* SliderCollectionViewCell.swift */; };
 		CE0E1631235C791E00ACDD7D /* SliderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0E162F235C791E00ACDD7D /* SliderCollectionViewCell.xib */; };
 		CE0E1633235CA99500ACDD7D /* StructTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E1632235CA99500ACDD7D /* StructTableSection.swift */; };
-		CE0E1635235CB77400ACDD7D /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E1634235CB77400ACDD7D /* Material.swift */; };
 		CE1B1D622358984800C23FE9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B1D612358984800C23FE9 /* TabBarViewController.swift */; };
 		CE1B1D6B23589D1100C23FE9 /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B1D6923589D1100C23FE9 /* DetailsScreenViewController.swift */; };
 		CE1B1D6C23589D1100C23FE9 /* DetailsScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */; };
@@ -73,13 +96,36 @@
 		BA0593F494E646470E937FF7 /* Pods-sab2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sab2UITests.debug.xcconfig"; path = "Target Support Files/Pods-sab2UITests/Pods-sab2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE05CE78235DAF1E009355A9 /* SliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
 		CE05CE79235DAF1E009355A9 /* SliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderTableViewCell.xib; sourceTree = "<group>"; };
+		CE05CE80235DE6ED009355A9 /* ListApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListApiResponse.swift; path = ../../../../Downloads/codegen_5dadae90028bd/ListApiResponse.swift; sourceTree = "<group>"; };
+		CE05CE82235DE6F3009355A9 /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Materials.swift; path = ../../../../Downloads/codegen_5dadae90028bd/Materials.swift; sourceTree = "<group>"; };
+		CE05CE84235DE6FB009355A9 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Slider.swift; path = ../../../../Downloads/codegen_5dadae90028bd/Slider.swift; sourceTree = "<group>"; };
+		CE05CE86235DE701009355A9 /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tags.swift; path = ../../../../Downloads/codegen_5dadae90028bd/Tags.swift; sourceTree = "<group>"; };
+		CE05CE8F235DEE6F009355A9 /* StaticHeaderPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticHeaderPlugin.swift; sourceTree = "<group>"; };
+		CE05CE91235DEE77009355A9 /* NetworkDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDefaults.swift; sourceTree = "<group>"; };
+		CE05CE93235DEE7F009355A9 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CE05CE95235DEE86009355A9 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CE05CE9A235DEEB7009355A9 /* NetworkService+ActorsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkService+ActorsService.swift"; sourceTree = "<group>"; };
+		CE05CE9C235DEEBC009355A9 /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		CE05CEA2235DEF34009355A9 /* BasePresenterProtocals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenterProtocals.swift; sourceTree = "<group>"; };
+		CE05CEA4235DEF39009355A9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CE05CEA6235DEF3E009355A9 /* BaseViewProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewProtocal.swift; sourceTree = "<group>"; };
+		CE05CEA8235DEF42009355A9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CE05CEAA235DEF48009355A9 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		CE05CEAC235DEF4D009355A9 /* BaseModelProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModelProtocal.swift; sourceTree = "<group>"; };
+		CE05CEAE235DF05C009355A9 /* BaseAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAdapterProtocol.swift; sourceTree = "<group>"; };
+		CE05CEB0235DF112009355A9 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		CE05CEB2235DF1F1009355A9 /* ListProtocals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProtocals.swift; sourceTree = "<group>"; };
+		CE05CEB4235DF1FA009355A9 /* ListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAdapter.swift; sourceTree = "<group>"; };
+		CE05CEB6235DF203009355A9 /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		CE05CEB8235DF212009355A9 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		CE05CEBA235DF21D009355A9 /* ListModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
+		CE05CEBC235DF63A009355A9 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		CE05CEC1235DFCC9009355A9 /* AppDelegate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extensions.swift"; sourceTree = "<group>"; };
 		CE0E1611235C5A5400ACDD7D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CE0E1612235C5A5400ACDD7D /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
-		CE0E1628235C775600ACDD7D /* SliderCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionView.swift; sourceTree = "<group>"; };
 		CE0E162E235C791E00ACDD7D /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE0E162F235C791E00ACDD7D /* SliderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE0E1632235CA99500ACDD7D /* StructTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructTableSection.swift; sourceTree = "<group>"; };
-		CE0E1634235CB77400ACDD7D /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		CE1B1D612358984800C23FE9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CE1B1D6923589D1100C23FE9 /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsScreenViewController.xib; sourceTree = "<group>"; };
@@ -181,6 +227,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE05CE88235DEE1B009355A9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CE05CE8F235DEE6F009355A9 /* StaticHeaderPlugin.swift */,
+				CE05CE91235DEE77009355A9 /* NetworkDefaults.swift */,
+				CE05CE93235DEE7F009355A9 /* NetworkError.swift */,
+				CE05CE95235DEE86009355A9 /* NetworkManager.swift */,
+			);
+			name = Core;
+			path = sab2/Networking/Core;
+			sourceTree = "<group>";
+		};
+		CE05CE99235DEE9C009355A9 /* Slider - Material */ = {
+			isa = PBXGroup;
+			children = (
+				CE05CE9A235DEEB7009355A9 /* NetworkService+ActorsService.swift */,
+				CE05CE9C235DEEBC009355A9 /* ProductService.swift */,
+			);
+			path = "Slider - Material";
+			sourceTree = "<group>";
+		};
+		CE05CEC0235DFCB5009355A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE05CEC1235DFCC9009355A9 /* AppDelegate+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE0E1610235C5A1C00ACDD7D /* Home TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +279,6 @@
 		CE0E1619235C736800ACDD7D /* Slider CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				CE0E1628235C775600ACDD7D /* SliderCollectionView.swift */,
 				CE0E162E235C791E00ACDD7D /* SliderCollectionViewCell.swift */,
 				CE0E162F235C791E00ACDD7D /* SliderCollectionViewCell.xib */,
 				CE05CE78235DAF1E009355A9 /* SliderTableViewCell.swift */,
@@ -216,6 +290,7 @@
 		CE1B1D5823586DE400C23FE9 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				CE05CEC0235DFCB5009355A9 /* Extensions */,
 				84476B852358295D00DF393F /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
@@ -232,6 +307,14 @@
 		CE1B1D5A23586E1900C23FE9 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CE05CEAE235DF05C009355A9 /* BaseAdapterProtocol.swift */,
+				CE05CEA2235DEF34009355A9 /* BasePresenterProtocals.swift */,
+				CE05CEB0235DF112009355A9 /* BasePresenter.swift */,
+				CE05CEA6235DEF3E009355A9 /* BaseViewProtocal.swift */,
+				CE05CEA4235DEF39009355A9 /* BaseViewController.swift */,
+				CE05CEA8235DEF42009355A9 /* UIViewController+Extension.swift */,
+				CE05CEAA235DEF48009355A9 /* BaseModel.swift */,
+				CE05CEAC235DEF4D009355A9 /* BaseModelProtocal.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -239,7 +322,11 @@
 		CE1B1D5B23586E2800C23FE9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				CE0E1634235CB77400ACDD7D /* Material.swift */,
+				CE05CE80235DE6ED009355A9 /* ListApiResponse.swift */,
+				CE05CE82235DE6F3009355A9 /* Materials.swift */,
+				CE05CE84235DE6FB009355A9 /* Slider.swift */,
+				CE05CE86235DE701009355A9 /* Tags.swift */,
+				CE05CEBC235DF63A009355A9 /* Material.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -255,6 +342,8 @@
 		CE1B1D5D23586E4700C23FE9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				CE05CE88235DEE1B009355A9 /* Core */,
+				CE05CE99235DEE9C009355A9 /* Slider - Material */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -279,6 +368,11 @@
 		CE1B1D60235897D500C23FE9 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CE05CEB2235DF1F1009355A9 /* ListProtocals.swift */,
+				CE05CEB4235DF1FA009355A9 /* ListAdapter.swift */,
+				CE05CEB6235DF203009355A9 /* ListModel.swift */,
+				CE05CEB8235DF212009355A9 /* ListPresenter.swift */,
+				CE05CEBA235DF21D009355A9 /* ListModule.swift */,
 				CE0E1615235C6DB800ACDD7D /* Collection Views */,
 				CE0E1610235C5A1C00ACDD7D /* Home TableView */,
 				CE1B1D6323589C4F00C23FE9 /* TabBar */,
@@ -577,17 +671,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE05CE83235DE6F3009355A9 /* Materials.swift in Sources */,
+				CE05CEB9235DF212009355A9 /* ListPresenter.swift in Sources */,
+				CE05CE94235DEE7F009355A9 /* NetworkError.swift in Sources */,
 				84476B8E2358295D00DF393F /* sab2.xcdatamodeld in Sources */,
+				CE05CEB3235DF1F1009355A9 /* ListProtocals.swift in Sources */,
+				CE05CE87235DE701009355A9 /* Tags.swift in Sources */,
+				CE05CE9D235DEEBC009355A9 /* ProductService.swift in Sources */,
+				CE05CEA5235DEF39009355A9 /* BaseViewController.swift in Sources */,
+				CE05CEAB235DEF48009355A9 /* BaseModel.swift in Sources */,
+				CE05CE90235DEE6F009355A9 /* StaticHeaderPlugin.swift in Sources */,
+				CE05CEC2235DFCC9009355A9 /* AppDelegate+Extensions.swift in Sources */,
+				CE05CEAD235DEF4D009355A9 /* BaseModelProtocal.swift in Sources */,
+				CE05CEA9235DEF42009355A9 /* UIViewController+Extension.swift in Sources */,
 				CE0E1613235C5A5400ACDD7D /* HomeTableViewCell.swift in Sources */,
 				CE1B1D6B23589D1100C23FE9 /* DetailsScreenViewController.swift in Sources */,
+				CE05CEB7235DF203009355A9 /* ListModel.swift in Sources */,
 				CE1B1D622358984800C23FE9 /* TabBarViewController.swift in Sources */,
+				CE05CE81235DE6ED009355A9 /* ListApiResponse.swift in Sources */,
+				CE05CEAF235DF05C009355A9 /* BaseAdapterProtocol.swift in Sources */,
 				84476B862358295D00DF393F /* AppDelegate.swift in Sources */,
+				CE05CEBD235DF63A009355A9 /* Material.swift in Sources */,
+				CE05CE96235DEE86009355A9 /* NetworkManager.swift in Sources */,
+				CE05CEA7235DEF3E009355A9 /* BaseViewProtocal.swift in Sources */,
 				CE0E1630235C791E00ACDD7D /* SliderCollectionViewCell.swift in Sources */,
-				CE0E1629235C775600ACDD7D /* SliderCollectionView.swift in Sources */,
-				CE0E1635235CB77400ACDD7D /* Material.swift in Sources */,
+				CE05CEB1235DF112009355A9 /* BasePresenter.swift in Sources */,
+				CE05CEB5235DF1FA009355A9 /* ListAdapter.swift in Sources */,
+				CE05CEA3235DEF34009355A9 /* BasePresenterProtocals.swift in Sources */,
+				CE05CE9B235DEEB7009355A9 /* NetworkService+ActorsService.swift in Sources */,
 				CE1B1D6F23589D2C00C23FE9 /* HomeScreenViewController.swift in Sources */,
 				CE05CE7A235DAF1E009355A9 /* SliderTableViewCell.swift in Sources */,
 				CE0E1633235CA99500ACDD7D /* StructTableSection.swift in Sources */,
+				CE05CE92235DEE77009355A9 /* NetworkDefaults.swift in Sources */,
+				CE05CE85235DE6FB009355A9 /* Slider.swift in Sources */,
+				CE05CEBB235DF21E009355A9 /* ListModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
