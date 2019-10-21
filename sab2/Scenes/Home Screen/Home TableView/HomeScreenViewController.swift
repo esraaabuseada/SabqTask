@@ -20,11 +20,21 @@ class HomeScreenViewController: UIViewController,UITableViewDelegate,UITableView
         super.viewDidLoad()
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
+        homeTableView.rowHeight = UITableView.automaticDimension
+        
+//        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
+//        header.backgroundColor = .red
+//
+//        self.homeTableView.tableHeaderView = header
+        
         
         let defaultCellNib = UINib(nibName: "HomeTableViewCell", bundle: nil)
         homeTableView.register(defaultCellNib, forCellReuseIdentifier: "HomeTableViewCell")
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
         homeTableView.register(sliderCellNib, forCellReuseIdentifier: "SliderTableViewCell")
+        
+//        let headerNib = UINib.init(nibName: "SliderTableViewCell", bundle: Bundle.main)
+//        homeTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "SliderTableViewCell")
         
         // this is the full table
         
@@ -41,46 +51,94 @@ class HomeScreenViewController: UIViewController,UITableViewDelegate,UITableView
     }
     func PopulateTableData(){
         tableData.removeAll()
-        tableData.append(StructTableSection(Header: "jjj", Cells: [materialObj,materialObj1], ShowHeader:false));
+        tableData.append(StructTableSection(Header: "jjj", Cells: [materialObj,materialObj1,materialObj2,materialObj3], ShowHeader:false));
         tableData.append(StructTableSection(Header: "collection", Cells: [materialObj2,materialObj3], ShowHeader:false));
 
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:     return 400
+        case 1:     return 150
+        default:    return 0
+            
+        }
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableData.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        switch section {
+        case 0:     return 1
+        case 1:     return 2
+        default:    return 0
+          
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.section == 0){
-            var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell")
-            if cell == nil {
-                cell = SliderTableViewCell.sliderTableViewCustomCell
-              
-                
-            }
+        switch indexPath.section {
+        case 0: //Slider
+            guard var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
+            cell.frame = tableView.bounds
+            cell.layoutIfNeeded()
+            cell.sliderCollectionView.reloadData()
         
-            var obj = tableData[indexPath.section].Cells[indexPath.row]
             
+            return cell
             
-            return cell!
+        case 1: //first cells
             
-           
-        }
-        else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
             var obj = tableData[indexPath.section].Cells[indexPath.row]
             cell.newsBlueLabel.text = obj.newsBlueLabel
             return cell
-           
+            
+            
+        default:
+            return UITableViewCell()
         }
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        //        var obj = tableData[indexPath.section].Cells[indexPath.row]
+        //        cell.newsBlueLabel.text = obj.newsBlueLabel
+        //        return cell
+        
+        //        if (indexPath.section == 0){
+        //            var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell")
+        //            if cell == nil {
+        //                cell = SliderTableViewCell.sliderTableViewCustomCell
+        //
+        //
+        //            }
+        //
+        //            var obj = tableData[indexPath.section].Cells[indexPath.row]
+        //
+        //
+        //            return cell!
+        //
+        //
+        //        }
+        //        else{
+        //
+        //
+        //        }
         
         
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SliderTableViewCell") as! SliderTableViewCell
+        
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+   
 }
