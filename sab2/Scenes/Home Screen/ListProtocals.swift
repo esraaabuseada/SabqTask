@@ -12,8 +12,8 @@ protocol ListPresenterProtocal: BasePresenterProtocol {
     
     var currentPage:Int { get set }
     
-    func loadSlider()->[Slider]
-    func loadMaterial()->[Materials]
+    func loadSlider()
+    func loadMaterial()
     
     
 }

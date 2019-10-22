@@ -29,15 +29,4 @@ protocol BasePresenterProtocol:PresenterLifeCycleProtocol {
     
 }
 
-//protocol BasePresenterAssembable {
-//    
-//    associatedtype View where View : BaseViewProtocal
-//    associatedtype Model where Model : BaseModelProtocal
-//    
-//    /// weak refrance to view
-//    var view: View? { get set }
-//    /// strong refrance to model
-//    var model: Model { get set }
-//    
-//    init(view: View, model: Model)
-//}
+

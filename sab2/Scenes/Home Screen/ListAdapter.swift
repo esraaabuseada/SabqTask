@@ -7,58 +7,74 @@
 //
 
 import Foundation
-
-//class  ListAdapter: ListAdapterProtocal {
-//    typealias DataType = <#type#>
-//    
-//    typealias DataType = <#type#>
-//    
-//   
-//    
-//    typealias DataType = Person
-//    
-//    var list: [Person]? = [Person]()
-//    
-//    var reloadData: (() -> Void)?
-//    
-//    var showEmptyState: ((Bool) -> Void)?
-//    
-//    
-//    func add(item: Person) {
-//        
-//    }
-//    
-//    func getPerson(index: Int)-> Person{
-//        return list![index]
-//    
-//    }
-//    
-//    func add(items: [Person]) {
-//        list?.append(contentsOf: items)
-//        reloadData?()
-//    }
-//    
-//    func update(item: Person) {
-//        
-//    }
-//    
-//    func count() -> Int {
-//        
-//        return list?.count ?? 0
-//    }
-//    
-//     func isLastIndex(index: IndexPath) -> Bool {
-//        
-//        return true
-//    }
-//    
-//    func clear(reload: Bool) {
-//        
-//    }
-//    
-//   
-//    
-//    
-//    
-//    
-//}
+class ListAdapter: ListAdapterProtocal {
+    
+    typealias DataType = ListApiResponse
+        var list: [ListApiResponse]? = [ListApiResponse]()
+     var sliderList = [Slider]()
+     var materialsList = [Materials]()
+        var reloadData: (() -> Void)?
+    
+        var showEmptyState: ((Bool) -> Void)?
+    
+    
+        func add(item: ListApiResponse) {
+            
+    
+        }
+    
+        func getListResponse(index: Int)->ListApiResponse {
+            return list![index]
+    
+        }
+    
+    
+        func add(items: [ListApiResponse]) {
+            list?.append(contentsOf: items)
+            reloadData?()
+        }
+    
+    func addSlider(items: [Slider]) {
+        sliderList.append(contentsOf: items)
+        reloadData?()
+    }
+    func addMaterials(items: [Materials]) {
+        materialsList.append(contentsOf: items)
+        reloadData?()
+    }
+    
+        func update(item: ListApiResponse) {
+    
+        }
+    
+        func count() -> Int {
+    
+            return list?.count ?? 0
+        }
+    
+         func isLastIndex(index: IndexPath) -> Bool {
+    
+            return true
+        }
+    
+        func clear(reload: Bool) {
+    
+        }
+    
+    func getSliderCount()->Int{
+       
+        for i in list! {
+            sliderList = list![0].slider!
+        }
+        return sliderList.count
+    }
+    
+    func getMaterialsCount()->Int{
+       
+        for i in list! {
+            materialsList = list![0].materials!
+        }
+        return materialsList.count
+    }
+    
+}

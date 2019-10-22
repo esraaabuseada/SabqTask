@@ -10,8 +10,15 @@ import UIKit
 
 class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProtocal,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var homeTableView: UITableView!
+    var adapter = ListAdapter()
+    var listPresenter: ListPresenterProtocal?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listPresenter?.loadMaterial()
+        listPresenter?.loadSlider()
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
         homeTableView.rowHeight = UITableView.automaticDimension
@@ -20,14 +27,27 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         homeTableView.register(defaultCellNib, forCellReuseIdentifier: "HomeTableViewCell")
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
         homeTableView.register(sliderCellNib, forCellReuseIdentifier: "SliderTableViewCell")
+        
+        adapter.reloadData = reloadData
+        
+      
     
     }
     
+    
     func getSlider(array: [Slider]) {
+        adapter.addSlider(items: array)
+       // print("slideraraaaaay",array)
         
     }
     func getMaterial(array: [Materials]) {
-        
+        adapter.addMaterials(items: array)
+       // print("materiaaalsssaraaaaay",array)
+        var count = adapter.getMaterialsCount()
+        print("materials count",count)
+    }
+    func reloadData(){
+        homeTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -46,7 +66,7 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:     return 1
-        case 1:     return 2
+        case 1:     return adapter.getMaterialsCount()
         default:    return 0
           
         }
@@ -67,7 +87,7 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         case 1: //first cells
             
             guard var  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
-            cell.newsBlueLabel.text = obj.newsBlueLabel
+           
             return cell
             
             
@@ -78,6 +98,9 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
+    }
+    override func setPresenter(presenter: ListPresenter) {
+        listPresenter = presenter
     }
    
 }

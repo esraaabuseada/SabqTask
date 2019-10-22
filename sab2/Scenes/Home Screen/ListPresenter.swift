@@ -30,7 +30,7 @@ class ListPresenter: BasePresenter,ListPresenterProtocal {
     
     
     
-    func loadSlider() -> [Slider] {
+    func loadSlider(){
         model?.getSliderResponse(forPage: currentPage) { result in
             switch result {
             case .success(let sliderResponse):
@@ -43,8 +43,8 @@ class ListPresenter: BasePresenter,ListPresenterProtocal {
         }
     }
     
-    func loadMaterial() -> [Materials] {
-        model?.getSliderResponse(forPage: currentPage) { result in
+    func loadMaterial()  {
+        model?.getMaterialResponse(forPage: currentPage) { result in
             switch result {
             case .success(let materialResponse):
                 

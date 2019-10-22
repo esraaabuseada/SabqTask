@@ -9,16 +9,18 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+var listModule = ListModule()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         setupTabBar()
     }
     
 
     func setupTabBar(){
+        
         let homeViewController = createNaveController(vc: HomeScreenViewController(), selected: #imageLiteral(resourceName: "ic_newspaper_active"), unselected: #imageLiteral(resourceName: "ic_newspaper"))
         let details = createNaveController(vc: DetailsScreenViewController(), selected: #imageLiteral(resourceName: "ic_search_active"), unselected: #imageLiteral(resourceName: "ic_search"))
         viewControllers = [homeViewController , details]
@@ -30,15 +32,16 @@ class TabBarViewController: UITabBarController {
         }
     }
     
-
-}
-extension UITabBarController{
     func createNaveController(vc:UIViewController ,selected: UIImage, unselected: UIImage) -> UINavigationController {
-        let viewController = vc
+        let viewController = listModule.createModule()
         let navController = UINavigationController(rootViewController: viewController)
         navController.tabBarItem.image = unselected
         navController.tabBarItem.selectedImage = selected
         return navController
     }
     
+
 }
+
+    
+
