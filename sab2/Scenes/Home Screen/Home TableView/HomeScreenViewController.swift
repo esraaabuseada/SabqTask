@@ -24,10 +24,10 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     }
     
     func getSlider(array: [Slider]) {
-        <#code#>
+        
     }
     func getMaterial(array: [Materials]) {
-        <#code#>
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
