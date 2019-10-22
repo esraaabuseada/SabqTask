@@ -12,20 +12,21 @@ protocol ListPresenterProtocal: BasePresenterProtocol {
     
     var currentPage:Int { get set }
     
-    func activateSearch()
-    func cancelSearch()
-    func loadActors()
-    func refreshActores()
-    func loadMoreActores()
+    func loadSlider()->[Slider]
+    func loadMaterial()->[Materials]
+    
     
 }
 
 protocol ListViewProtocal:BaseViewProtocal {
-    //func getList(array: [Person])
+    func getSlider(array: [Slider])
+    func getMaterial(array: [Materials])
+    
 }
 
 protocol ListModelProtocal:BaseModelProtocal {
-   // func getActors(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
+    func getSliderResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
+     func getMaterialResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
 }
 
 

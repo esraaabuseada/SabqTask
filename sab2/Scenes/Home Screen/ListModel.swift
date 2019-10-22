@@ -7,32 +7,41 @@
 //
 
 import Foundation
-//class ListModel :BaseModel,ListModelProtocal {
-//    
-//    
-//    
-//    var networkManager = NetworkManager()
-//    func getActors(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void){
-//        networkManager.getActors(pageNumber: page) { result,statusCode  in
-//            do {
-//                let res = try result.get()
-//               
-//                var personArray = res.results
-//                compelation(.success(personArray) )
-//            }
-//            catch {
-//                print(error.localizedDescription)
-//                compelation(.failure(error))
-//            }
-//           
-//        }
-//      
-//        
-//    }
-//        
-//        
-//    
-//    
-//    
-//    
-//}
+class ListModel :BaseModel,ListModelProtocal {
+     var networkManager = NetworkManager()
+    
+    func getSliderResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
+        networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
+            do {
+                let res = try result.get()
+                
+                var sliderArray = res.slider
+                compelation(.success(sliderArray) )
+            }
+            catch {
+                print(error.localizedDescription)
+                compelation(.failure(error))
+            }
+            
+        }
+        
+    }
+    
+    func getMaterialResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
+        networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
+            do {
+                let res = try result.get()
+                
+                var materialsArray = res.materials
+                compelation(.success(materialsArray) )
+            }
+            catch {
+                print(error.localizedDescription)
+                compelation(.failure(error))
+            }
+            
+        }
+        
+    }
+    
+}

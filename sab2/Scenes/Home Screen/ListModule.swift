@@ -7,14 +7,14 @@
 //
 
 import Foundation
-//class  ListActorsModule {
-//    func createModule() -> ListActorsViewController{
-//        let view = ListActorsViewController()
-//        let model =  ListActorModel()
-//        let presenter = ListActorsPresenter(viewProtocole: view, modelProtocol: model)
-//        view.setPresenter(presenter: presenter)
-//        return view
-//        
-//    }
-//   
-//}
+class  ListModule {
+    func createModule() -> HomeScreenViewController{
+        let view = HomeScreenViewController()
+        let model =  ListModel()
+        let presenter = ListPresenter(viewProtocole: view, modelProtocol: model)
+        view.setPresenter(presenter: presenter)
+        return view
+        
+    }
+   
+}

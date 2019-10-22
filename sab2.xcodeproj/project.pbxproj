@@ -41,13 +41,11 @@
 		CE05CEB7235DF203009355A9 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB6235DF203009355A9 /* ListModel.swift */; };
 		CE05CEB9235DF212009355A9 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB8235DF212009355A9 /* ListPresenter.swift */; };
 		CE05CEBB235DF21E009355A9 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEBA235DF21D009355A9 /* ListModule.swift */; };
-		CE05CEBD235DF63A009355A9 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEBC235DF63A009355A9 /* Material.swift */; };
 		CE05CEC2235DFCC9009355A9 /* AppDelegate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEC1235DFCC9009355A9 /* AppDelegate+Extensions.swift */; };
 		CE0E1613235C5A5400ACDD7D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E1611235C5A5400ACDD7D /* HomeTableViewCell.swift */; };
 		CE0E1614235C5A5400ACDD7D /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0E1612235C5A5400ACDD7D /* HomeTableViewCell.xib */; };
 		CE0E1630235C791E00ACDD7D /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E162E235C791E00ACDD7D /* SliderCollectionViewCell.swift */; };
 		CE0E1631235C791E00ACDD7D /* SliderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0E162F235C791E00ACDD7D /* SliderCollectionViewCell.xib */; };
-		CE0E1633235CA99500ACDD7D /* StructTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E1632235CA99500ACDD7D /* StructTableSection.swift */; };
 		CE1B1D622358984800C23FE9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B1D612358984800C23FE9 /* TabBarViewController.swift */; };
 		CE1B1D6B23589D1100C23FE9 /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B1D6923589D1100C23FE9 /* DetailsScreenViewController.swift */; };
 		CE1B1D6C23589D1100C23FE9 /* DetailsScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */; };
@@ -119,13 +117,11 @@
 		CE05CEB6235DF203009355A9 /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		CE05CEB8235DF212009355A9 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		CE05CEBA235DF21D009355A9 /* ListModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
-		CE05CEBC235DF63A009355A9 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		CE05CEC1235DFCC9009355A9 /* AppDelegate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extensions.swift"; sourceTree = "<group>"; };
 		CE0E1611235C5A5400ACDD7D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CE0E1612235C5A5400ACDD7D /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		CE0E162E235C791E00ACDD7D /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE0E162F235C791E00ACDD7D /* SliderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCollectionViewCell.xib; sourceTree = "<group>"; };
-		CE0E1632235CA99500ACDD7D /* StructTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructTableSection.swift; sourceTree = "<group>"; };
 		CE1B1D612358984800C23FE9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CE1B1D6923589D1100C23FE9 /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsScreenViewController.xib; sourceTree = "<group>"; };
@@ -263,7 +259,6 @@
 				CE1B1D6E23589D2C00C23FE9 /* HomeScreenViewController.xib */,
 				CE0E1611235C5A5400ACDD7D /* HomeTableViewCell.swift */,
 				CE0E1612235C5A5400ACDD7D /* HomeTableViewCell.xib */,
-				CE0E1632235CA99500ACDD7D /* StructTableSection.swift */,
 			);
 			path = "Home TableView";
 			sourceTree = "<group>";
@@ -326,7 +321,6 @@
 				CE05CE82235DE6F3009355A9 /* Materials.swift */,
 				CE05CE84235DE6FB009355A9 /* Slider.swift */,
 				CE05CE86235DE701009355A9 /* Tags.swift */,
-				CE05CEBC235DF63A009355A9 /* Material.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -691,7 +685,6 @@
 				CE05CE81235DE6ED009355A9 /* ListApiResponse.swift in Sources */,
 				CE05CEAF235DF05C009355A9 /* BaseAdapterProtocol.swift in Sources */,
 				84476B862358295D00DF393F /* AppDelegate.swift in Sources */,
-				CE05CEBD235DF63A009355A9 /* Material.swift in Sources */,
 				CE05CE96235DEE86009355A9 /* NetworkManager.swift in Sources */,
 				CE05CEA7235DEF3E009355A9 /* BaseViewProtocal.swift in Sources */,
 				CE0E1630235C791E00ACDD7D /* SliderCollectionViewCell.swift in Sources */,
@@ -701,7 +694,6 @@
 				CE05CE9B235DEEB7009355A9 /* NetworkService+ActorsService.swift in Sources */,
 				CE1B1D6F23589D2C00C23FE9 /* HomeScreenViewController.swift in Sources */,
 				CE05CE7A235DAF1E009355A9 /* SliderTableViewCell.swift in Sources */,
-				CE0E1633235CA99500ACDD7D /* StructTableSection.swift in Sources */,
 				CE05CE92235DEE77009355A9 /* NetworkDefaults.swift in Sources */,
 				CE05CE85235DE6FB009355A9 /* Slider.swift in Sources */,
 				CE05CEBB235DF21E009355A9 /* ListModule.swift in Sources */,
