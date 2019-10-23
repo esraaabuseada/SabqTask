@@ -11,8 +11,12 @@ class ListAdapter: ListAdapterProtocal {
     
     typealias DataType = ListApiResponse
         var list: [ListApiResponse]? = [ListApiResponse]()
+     var listVideosImages: [VideosImagesApiResponse]? = [VideosImagesApiResponse]()
+
      var sliderList = [Slider]()
      var materialsList = [Materials]()
+     var imagesList = [Comics]()
+     var videosList = [Comics]()
         var reloadData: (() -> Void)?
     
         var showEmptyState: ((Bool) -> Void)?
@@ -40,6 +44,16 @@ class ListAdapter: ListAdapterProtocal {
     }
     func addMaterials(items: [Materials]) {
         materialsList.append(contentsOf: items)
+        reloadData?()
+    }
+    
+    func addImages(items: [Comics]) {
+        imagesList.append(contentsOf: items)
+        reloadData?()
+    }
+    
+    func addVideos(items: [Comics]) {
+        videosList.append(contentsOf: items)
         reloadData?()
     }
     
@@ -77,4 +91,19 @@ class ListAdapter: ListAdapterProtocal {
         return materialsList.count
     }
     
+    func getVideosCount()->Int{
+        
+        for i in listVideosImages! {
+            videosList = listVideosImages![0].comics!
+        }
+        return videosList.count
+    }
+    
+    func getImagesCount()->Int{
+        
+        for i in listVideosImages! {
+            imagesList = listVideosImages![0].comics!
+        }
+        return imagesList.count
+    }
 }

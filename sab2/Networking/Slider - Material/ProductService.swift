@@ -30,9 +30,9 @@ extension ListService: TargetType {
         case .slider_material:
             return "/material/homepage-light-version"
         case .videos:
-            return "/list-studio"
+            return "/studio/list-studio"
         case .images:
-            return "/list-studio"
+            return "/studio/list-studio"
         case .articles:
             return "/material/articles"
         

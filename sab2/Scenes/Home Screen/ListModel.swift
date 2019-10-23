@@ -9,6 +9,8 @@
 import Foundation
 class ListModel :BaseModel,ListModelProtocal {
      var networkManager = NetworkManager()
+
+    
     
     func getSliderResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
@@ -16,6 +18,7 @@ class ListModel :BaseModel,ListModelProtocal {
                 let res = try result.get()
                 
                 var sliderArray = res.slider
+                
                 compelation(.success(sliderArray) )
             }
             catch {
@@ -33,6 +36,7 @@ class ListModel :BaseModel,ListModelProtocal {
                 let res = try result.get()
                 
                 var materialsArray = res.materials
+               
                 compelation(.success(materialsArray) )
             }
             catch {
@@ -43,5 +47,46 @@ class ListModel :BaseModel,ListModelProtocal {
         }
         
     }
+    
+    func getVideosResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
+        networkManager.getVideosResponse() { result,statusCode  in
+            do {
+                let res = try result.get()
+                
+                var videosAraay = res.comics
+                
+           
+                compelation(.success(videosAraay) )
+            }
+            catch {
+                print(error.localizedDescription)
+                compelation(.failure(error))
+            }
+            
+        }
+    }
+    
+    func getImagesResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
+        networkManager.getImagesResponse() { result,statusCode  in
+            do {
+                let res = try result.get()
+                
+                var imagesArray = res.comics
+                compelation(.success(imagesArray) )
+            }
+            catch {
+                print(error.localizedDescription)
+                compelation(.failure(error))
+            }
+            
+        }
+    }
+    
+//    func getTableViewArray()->[Any]{
+//        print(myTableViewArray)
+//        
+//        return myTableViewArray!
+//        
+//    }
     
 }

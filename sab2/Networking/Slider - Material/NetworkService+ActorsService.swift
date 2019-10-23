@@ -23,7 +23,7 @@ extension NetworkManager {
                     do {
                         let result = try JSONDecoder().decode(ListApiResponse.self, from: response.data)
                         completion(.success(result), response.statusCode)
-                        print(result)
+                       // print(result)
                     } catch {
                         completion(.failure(NetworkError.parseError), response.statusCode)
                     }
@@ -47,7 +47,7 @@ extension NetworkManager {
     }
     
     func getVideosResponse(completion: @escaping (
-        _ result: Swift.Result<ListApiResponse, NetworkError>,
+        _ result: Swift.Result<VideosImagesApiResponse, NetworkError>,
         _ statusCode: StatusCode?
         ) -> Void) {
         
@@ -56,9 +56,9 @@ extension NetworkManager {
             case .success(let response):
                 if (200...299 ~= response.statusCode) {
                     do {
-                        let result = try JSONDecoder().decode(ListApiResponse.self, from: response.data)
+                        let result = try JSONDecoder().decode(VideosImagesApiResponse.self, from: response.data)
                         completion(.success(result), response.statusCode)
-                        print(result)
+                      
                     } catch {
                         completion(.failure(NetworkError.parseError), response.statusCode)
                     }
@@ -83,7 +83,7 @@ extension NetworkManager {
     
     
     func getImagesResponse( completion: @escaping (
-        _ result: Swift.Result<ListApiResponse, NetworkError>,
+        _ result: Swift.Result<VideosImagesApiResponse, NetworkError>,
         _ statusCode: StatusCode?
         ) -> Void) {
         
@@ -92,9 +92,9 @@ extension NetworkManager {
             case .success(let response):
                 if (200...299 ~= response.statusCode) {
                     do {
-                        let result = try JSONDecoder().decode(ListApiResponse.self, from: response.data)
+                        let result = try JSONDecoder().decode(VideosImagesApiResponse.self, from: response.data)
                         completion(.success(result), response.statusCode)
-                        print(result)
+                       
                     } catch {
                         completion(.failure(NetworkError.parseError), response.statusCode)
                     }

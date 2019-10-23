@@ -9,16 +9,21 @@
 import UIKit
 
 class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProtocal,UITableViewDelegate,UITableViewDataSource {
+    
+    var myTableViewArray: [Any]?
+    
     @IBOutlet weak var homeTableView: UITableView!
     var adapter = ListAdapter()
     var listPresenter: ListPresenterProtocal?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listPresenter?.loadMaterial()
         listPresenter?.loadSlider()
+          listPresenter?.loadVideos()
+        listPresenter?.loadImage()
+        
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
         homeTableView.rowHeight = UITableView.automaticDimension
@@ -27,6 +32,8 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         homeTableView.register(defaultCellNib, forCellReuseIdentifier: "HomeTableViewCell")
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
         homeTableView.register(sliderCellNib, forCellReuseIdentifier: "SliderTableViewCell")
+        let imagesCellNib = UINib(nibName: "ImagesTableViewCell", bundle: nil)
+        homeTableView.register(imagesCellNib, forCellReuseIdentifier: "ImagesTableViewCell")
         
         adapter.reloadData = reloadData
         
@@ -44,8 +51,21 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         adapter.addMaterials(items: array)
        // print("materiaaalsssaraaaaay",array)
         var count = adapter.getMaterialsCount()
-        print("materials count",count)
+       // print("materials count",count)
     }
+    func getVideos(array: [Comics]) {
+        adapter.addVideos(items: array)
+        // print("materiaaalsssaraaaaay",array)
+        var videosCount = adapter.getVideosCount()
+        print("videos count",videosCount)
+    }
+    
+    func getImages(array: [Comics]) {
+        adapter.addImages(items: array)
+        var imagesCount = adapter.getImagesCount()
+        print(imagesCount)
+    }
+    
     func reloadData(){
         homeTableView.reloadData()
     }
@@ -73,7 +93,6 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
         case 0: //Slider
             guard var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
@@ -85,10 +104,34 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
             return cell
             
         case 1: //first cells
-            
-            guard var  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
+            if (indexPath.row == 3){
            
-            return cell
+                guard var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+                cell.sliderCollectionView.reloadData()
+                //configure cell with event
+                return cell
+            }
+                else if (indexPath.row == 7){
+              
+                    guard var  cell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell") as? ImagesTableViewCell else { fatalError() }
+                    cell.frame = tableView.bounds
+                    cell.layoutIfNeeded()
+                    cell.imagesCollectionView.reloadData()
+                    //configure cell with event
+                    return cell
+                
+            }else{
+               
+                //configure cell with task
+                guard var  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
+                
+                return cell
+            
+            }
+            
+           
             
             
         default:
