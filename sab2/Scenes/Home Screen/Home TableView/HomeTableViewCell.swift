@@ -30,7 +30,7 @@ class HomeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configur(materials : Materials) {
-        var  imageURL="https://image.tmdb.org/t/p/w500/" + materials.coverPhoto!
+        var  imageURL = materials.coverPhoto!
         print(imageURL)
         let url:URL = URL(string: imageURL)!
         newsImageView.sd_setImage(with: url, placeholderImage: placeHolderImage)
