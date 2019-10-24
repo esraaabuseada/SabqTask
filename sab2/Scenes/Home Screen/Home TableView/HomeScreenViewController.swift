@@ -10,24 +10,26 @@ import UIKit
 
 class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProtocal,UITableViewDelegate,UITableViewDataSource {
     
-    var myTableViewArray: [Any]?
-    
     @IBOutlet weak var homeTableView: UITableView!
-    var adapter = ListAdapter()
-    var listPresenter: ListPresenterProtocal?
-    
+    var listPresenter :ListPresenter?
+    var newsAdapter = NewsAdapter()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         listPresenter?.loadMaterial()
         listPresenter?.loadSlider()
-          listPresenter?.loadVideos()
+        listPresenter?.loadVideos()
         listPresenter?.loadImage()
         
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
+        
+        // datasource and delegate in adapter
+        //        self.homeTableView.delegate = newsAdapter
+        //        self.homeTableView.dataSource = newsAdapter
+        
         homeTableView.rowHeight = UITableView.automaticDimension
-
+        
         let defaultCellNib = UINib(nibName: "HomeTableViewCell", bundle: nil)
         homeTableView.register(defaultCellNib, forCellReuseIdentifier: "HomeTableViewCell")
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
@@ -35,35 +37,28 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         let imagesCellNib = UINib(nibName: "ImagesTableViewCell", bundle: nil)
         homeTableView.register(imagesCellNib, forCellReuseIdentifier: "ImagesTableViewCell")
         
-        adapter.reloadData = reloadData
-        
-      
-    
+        newsAdapter.reloadData = reloadData
+        print(newsAdapter.count())
+       
     }
     
+    func getMaterial(array: [Materials]) {
+        newsAdapter.add(items: array)
+        print(newsAdapter.count())
+    }
     
     func getSlider(array: [Slider]) {
-        adapter.addSlider(items: array)
-       // print("slideraraaaaay",array)
-        
+        newsAdapter.addSlider(items: array)
     }
-    func getMaterial(array: [Materials]) {
-        adapter.addMaterials(items: array)
-       // print("materiaaalsssaraaaaay",array)
-        var count = adapter.getMaterialsCount()
-       // print("materials count",count)
-    }
+    
+    
+    
     func getVideos(array: [Comics]) {
-        adapter.addVideos(items: array)
-        // print("materiaaalsssaraaaaay",array)
-        var videosCount = adapter.getVideosCount()
-        print("videos count",videosCount)
+       newsAdapter.addVideos(items: array)
     }
     
     func getImages(array: [Comics]) {
-        adapter.addImages(items: array)
-        var imagesCount = adapter.getImagesCount()
-        print(imagesCount)
+       newsAdapter.addImages(items: array)
     }
     
     func reloadData(){
@@ -78,7 +73,7 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
             
         }
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -86,53 +81,44 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:     return 1
-        case 1:     return adapter.getMaterialsCount()
+        case 1:     return newsAdapter.count()
         default:    return 0
-          
+            
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0: //Slider
-            guard var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
+            guard let  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
             cell.frame = tableView.bounds
             cell.layoutIfNeeded()
+            var sliderArrayFromNewsAdapter = newsAdapter.getSliderArray()
+            cell.configurTableViewCell(sliderArray: sliderArrayFromNewsAdapter)
             cell.sliderCollectionView.reloadData()
-        
-            
             return cell
             
-        case 1: //first cells
-            if (indexPath.row == 3){
-           
-                guard var  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
+        case 1://first cells
+            let materialsObj = newsAdapter.getMaterialsObj(index: indexPath.row)
+            if(materialsObj.type == "images"){
+//                guard let  cell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell") as? ImagesTableViewCell else { fatalError() }
+                let cell : ImagesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell", for: indexPath) as! ImagesTableViewCell
                 cell.frame = tableView.bounds
                 cell.layoutIfNeeded()
-                cell.sliderCollectionView.reloadData()
+                cell.imagesCollectionView.reloadData()
                 //configure cell with event
                 return cell
             }
-                else if (indexPath.row == 7){
-              
-                    guard var  cell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell") as? ImagesTableViewCell else { fatalError() }
-                    cell.frame = tableView.bounds
-                    cell.layoutIfNeeded()
-                    cell.imagesCollectionView.reloadData()
-                    //configure cell with event
-                    return cell
+            else{
+                guard let  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
                 
-            }else{
-               
-                //configure cell with task
-                guard var  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
-                
+                cell.configur(materials: materialsObj)
                 return cell
+          }
             
-            }
             
-           
             
+        
             
         default:
             return UITableViewCell()
@@ -145,5 +131,5 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     override func setPresenter(presenter: ListPresenter) {
         listPresenter = presenter
     }
-   
+    
 }

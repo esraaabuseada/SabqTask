@@ -64,6 +64,12 @@
                 <constraint firstItem="A62-az-w81" firstAttribute="top" secondItem="bz3-hd-337" secondAttribute="bottom" constant="17" id="x4F-q1-6YZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="blockOverlayImage" destination="rXt-va-knT" id="L1N-Ks-lKB"/>
+                <outlet property="coverPhoto" destination="tsN-tn-2aT" id="EsI-Se-TwB"/>
+                <outlet property="timeLabel" destination="bz3-hd-337" id="VKR-41-dD4"/>
+                <outlet property="titleLabel" destination="A62-az-w81" id="pLn-fm-Pp5"/>
+            </connections>
             <point key="canvasLocation" x="44.20289855072464" y="49.21875"/>
         </collectionViewCell>
     </objects>

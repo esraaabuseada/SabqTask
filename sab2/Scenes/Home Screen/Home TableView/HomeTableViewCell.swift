@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var timeImageView: UIImageView!
@@ -17,6 +17,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var statisticsLabel: UILabel!
+    let placeHolderImage = UIImage(named: "logo")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +29,12 @@ class HomeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func configur(materials : Materials) {
+        var  imageURL="https://image.tmdb.org/t/p/w500/" + materials.coverPhoto!
+        print(imageURL)
+        let url:URL = URL(string: imageURL)!
+        newsImageView.sd_setImage(with: url, placeholderImage: placeHolderImage)
+        
+        // actorKnownfor.text = sub
+    }
 }

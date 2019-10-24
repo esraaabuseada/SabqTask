@@ -33,7 +33,6 @@
 		CE05CEAF235DF05C009355A9 /* BaseAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEAE235DF05C009355A9 /* BaseAdapterProtocol.swift */; };
 		CE05CEB1235DF112009355A9 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB0235DF112009355A9 /* BasePresenter.swift */; };
 		CE05CEB3235DF1F1009355A9 /* ListProtocals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB2235DF1F1009355A9 /* ListProtocals.swift */; };
-		CE05CEB5235DF1FA009355A9 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB4235DF1FA009355A9 /* ListAdapter.swift */; };
 		CE05CEB7235DF203009355A9 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB6235DF203009355A9 /* ListModel.swift */; };
 		CE05CEB9235DF212009355A9 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEB8235DF212009355A9 /* ListPresenter.swift */; };
 		CE05CEBB235DF21E009355A9 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CEBA235DF21D009355A9 /* ListModule.swift */; };
@@ -47,6 +46,11 @@
 		CE1B1D6C23589D1100C23FE9 /* DetailsScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */; };
 		CE1B1D6F23589D2C00C23FE9 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B1D6D23589D2C00C23FE9 /* HomeScreenViewController.swift */; };
 		CE1B1D7023589D2C00C23FE9 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1B1D6E23589D2C00C23FE9 /* HomeScreenViewController.xib */; };
+		CE3616952361AA470012DA8F /* SliderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3616942361AA470012DA8F /* SliderAdapter.swift */; };
+		CE3616972361AA5E0012DA8F /* NewsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3616962361AA5E0012DA8F /* NewsAdapter.swift */; };
+		CE3616992361AA6C0012DA8F /* ImagesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3616982361AA6C0012DA8F /* ImagesAdapter.swift */; };
+		CE36169B2361AA7B0012DA8F /* VideosAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36169A2361AA7B0012DA8F /* VideosAdapter.swift */; };
+		CE36169D2361AA8B0012DA8F /* ArticlesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36169C2361AA8B0012DA8F /* ArticlesAdapter.swift */; };
 		CEEECCEB23603F2F00C38ECA /* ListApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEECCEA23603F2F00C38ECA /* ListApiResponse.swift */; };
 		CEEECCF523603F7600C38ECA /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEECCF423603F7600C38ECA /* Materials.swift */; };
 		CEEECCF723603F7E00C38ECA /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEECCF623603F7E00C38ECA /* Slider.swift */; };
@@ -116,7 +120,6 @@
 		CE05CEAE235DF05C009355A9 /* BaseAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAdapterProtocol.swift; sourceTree = "<group>"; };
 		CE05CEB0235DF112009355A9 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		CE05CEB2235DF1F1009355A9 /* ListProtocals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProtocals.swift; sourceTree = "<group>"; };
-		CE05CEB4235DF1FA009355A9 /* ListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAdapter.swift; sourceTree = "<group>"; };
 		CE05CEB6235DF203009355A9 /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		CE05CEB8235DF212009355A9 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		CE05CEBA235DF21D009355A9 /* ListModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
@@ -130,6 +133,11 @@
 		CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsScreenViewController.xib; sourceTree = "<group>"; };
 		CE1B1D6D23589D2C00C23FE9 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		CE1B1D6E23589D2C00C23FE9 /* HomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenViewController.xib; sourceTree = "<group>"; };
+		CE3616942361AA470012DA8F /* SliderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderAdapter.swift; sourceTree = "<group>"; };
+		CE3616962361AA5E0012DA8F /* NewsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAdapter.swift; sourceTree = "<group>"; };
+		CE3616982361AA6C0012DA8F /* ImagesAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesAdapter.swift; sourceTree = "<group>"; };
+		CE36169A2361AA7B0012DA8F /* VideosAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosAdapter.swift; sourceTree = "<group>"; };
+		CE36169C2361AA8B0012DA8F /* ArticlesAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesAdapter.swift; sourceTree = "<group>"; };
 		CEEECCEA23603F2F00C38ECA /* ListApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListApiResponse.swift; sourceTree = "<group>"; };
 		CEEECCF423603F7600C38ECA /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
 		CEEECCF623603F7E00C38ECA /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
@@ -280,7 +288,7 @@
 		CE0E1615235C6DB800ACDD7D /* Collection Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEEECD01236067C300C38ECA /* New Group */,
+				CEEECD01236067C300C38ECA /* Images CollectionView */,
 				CE0E1619235C736800ACDD7D /* Slider CollectionView */,
 			);
 			path = "Collection Views";
@@ -376,8 +384,8 @@
 		CE1B1D60235897D500C23FE9 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CE3616932361AA210012DA8F /* ListAdapters */,
 				CE05CEB2235DF1F1009355A9 /* ListProtocals.swift */,
-				CE05CEB4235DF1FA009355A9 /* ListAdapter.swift */,
 				CE05CEB6235DF203009355A9 /* ListModel.swift */,
 				CE05CEB8235DF212009355A9 /* ListPresenter.swift */,
 				CE05CEBA235DF21D009355A9 /* ListModule.swift */,
@@ -403,6 +411,18 @@
 				CE1B1D6A23589D1100C23FE9 /* DetailsScreenViewController.xib */,
 			);
 			path = "Details Screen";
+			sourceTree = "<group>";
+		};
+		CE3616932361AA210012DA8F /* ListAdapters */ = {
+			isa = PBXGroup;
+			children = (
+				CE3616942361AA470012DA8F /* SliderAdapter.swift */,
+				CE3616962361AA5E0012DA8F /* NewsAdapter.swift */,
+				CE3616982361AA6C0012DA8F /* ImagesAdapter.swift */,
+				CE36169A2361AA7B0012DA8F /* VideosAdapter.swift */,
+				CE36169C2361AA8B0012DA8F /* ArticlesAdapter.swift */,
+			);
+			path = ListAdapters;
 			sourceTree = "<group>";
 		};
 		CEA0AEEDB69A59DE52A65216 /* Pods */ = {
@@ -438,7 +458,7 @@
 			path = Videos_Images;
 			sourceTree = "<group>";
 		};
-		CEEECD01236067C300C38ECA /* New Group */ = {
+		CEEECD01236067C300C38ECA /* Images CollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				CEEECD022360680400C38ECA /* ImagesTableViewCell.swift */,
@@ -446,7 +466,7 @@
 				CEEECD062360681E00C38ECA /* ImagesCollectionViewCell.swift */,
 				CEEECD072360681E00C38ECA /* ImagesCollectionViewCell.xib */,
 			);
-			name = "New Group";
+			name = "Images CollectionView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,8 +737,10 @@
 				84476B8E2358295D00DF393F /* sab2.xcdatamodeld in Sources */,
 				CE05CEB3235DF1F1009355A9 /* ListProtocals.swift in Sources */,
 				CEEECCF723603F7E00C38ECA /* Slider.swift in Sources */,
+				CE3616992361AA6C0012DA8F /* ImagesAdapter.swift in Sources */,
 				CEEECCFC2360408900C38ECA /* Comics.swift in Sources */,
 				CE05CE9D235DEEBC009355A9 /* ProductService.swift in Sources */,
+				CE36169D2361AA8B0012DA8F /* ArticlesAdapter.swift in Sources */,
 				CE05CEA5235DEF39009355A9 /* BaseViewController.swift in Sources */,
 				CEEECCF523603F7600C38ECA /* Materials.swift in Sources */,
 				CE05CEAB235DEF48009355A9 /* BaseModel.swift in Sources */,
@@ -729,6 +751,7 @@
 				CE0E1613235C5A5400ACDD7D /* HomeTableViewCell.swift in Sources */,
 				CE1B1D6B23589D1100C23FE9 /* DetailsScreenViewController.swift in Sources */,
 				CE05CEB7235DF203009355A9 /* ListModel.swift in Sources */,
+				CE3616972361AA5E0012DA8F /* NewsAdapter.swift in Sources */,
 				CE1B1D622358984800C23FE9 /* TabBarViewController.swift in Sources */,
 				CE05CEAF235DF05C009355A9 /* BaseAdapterProtocol.swift in Sources */,
 				84476B862358295D00DF393F /* AppDelegate.swift in Sources */,
@@ -739,14 +762,15 @@
 				CE0E1630235C791E00ACDD7D /* SliderCollectionViewCell.swift in Sources */,
 				CEEECD082360681E00C38ECA /* ImagesCollectionViewCell.swift in Sources */,
 				CE05CEB1235DF112009355A9 /* BasePresenter.swift in Sources */,
-				CE05CEB5235DF1FA009355A9 /* ListAdapter.swift in Sources */,
 				CE05CEA3235DEF34009355A9 /* BasePresenterProtocals.swift in Sources */,
 				CEEECCEB23603F2F00C38ECA /* ListApiResponse.swift in Sources */,
+				CE3616952361AA470012DA8F /* SliderAdapter.swift in Sources */,
 				CE05CE9B235DEEB7009355A9 /* NetworkService+ActorsService.swift in Sources */,
 				CEEECD00236056ED00C38ECA /* CustomObject.swift in Sources */,
 				CEEECCFE2360409200C38ECA /* VideosImagesApiResponse .swift in Sources */,
 				CE1B1D6F23589D2C00C23FE9 /* HomeScreenViewController.swift in Sources */,
 				CE05CE7A235DAF1E009355A9 /* SliderTableViewCell.swift in Sources */,
+				CE36169B2361AA7B0012DA8F /* VideosAdapter.swift in Sources */,
 				CE05CE92235DEE77009355A9 /* NetworkDefaults.swift in Sources */,
 				CE05CEBB235DF21E009355A9 /* ListModule.swift in Sources */,
 			);

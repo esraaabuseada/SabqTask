@@ -13,7 +13,6 @@ class ListPresenter: BasePresenter,ListPresenterProtocal {
     var view: ListViewProtocal?
     var currentPage: Int = 1
     
-   
     init(viewProtocole :ListViewProtocal , modelProtocol: ListModelProtocal ){
     
         view = viewProtocole
@@ -80,11 +79,7 @@ class ListPresenter: BasePresenter,ListPresenterProtocal {
             }
         }
     }
-    
-//    func getTableViewArray()->[Any]{
-//        let tableViewArray = model?.getTableViewArray()
-//        return tableViewArray!
-//    }
+
 }
     
 

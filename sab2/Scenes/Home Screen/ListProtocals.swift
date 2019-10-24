@@ -30,6 +30,7 @@ protocol ListViewProtocal:BaseViewProtocal {
     
 }
 
+
 protocol ListModelProtocal:BaseModelProtocal {
     func getSliderResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
      func getMaterialResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)

@@ -9,17 +9,19 @@
 import Foundation
 class ListModel :BaseModel,ListModelProtocal {
      var networkManager = NetworkManager()
-
+    var sliderArray : [Slider] = []
+    var materialsArray : [Materials] = []
+    var videosAraay : [Comics] = []
+    var imagesArray : [Comics] = []
     
     
     func getSliderResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
             do {
                 let res = try result.get()
-                
-                var sliderArray = res.slider
-                
-                compelation(.success(sliderArray) )
+                guard  self.sliderArray != nil else {return}
+               self.sliderArray = res.slider as! [Slider]
+                compelation(.success(self.sliderArray) )
             }
             catch {
                 print(error.localizedDescription)
@@ -34,10 +36,12 @@ class ListModel :BaseModel,ListModelProtocal {
         networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
             do {
                 let res = try result.get()
-                
-                var materialsArray = res.materials
-               
-                compelation(.success(materialsArray) )
+                // guard  self.materialsArray != nil else {return}
+                self.materialsArray = res.materials ?? []
+                if (!self.imagesArray.isEmpty){
+                    self.materialsArray.insert(Materials(type: "images"), at: 9)
+                    }
+                compelation(.success(self.materialsArray) )
             }
             catch {
                 print(error.localizedDescription)
@@ -52,11 +56,9 @@ class ListModel :BaseModel,ListModelProtocal {
         networkManager.getVideosResponse() { result,statusCode  in
             do {
                 let res = try result.get()
-                
-                var videosAraay = res.comics
-                
-           
-                compelation(.success(videosAraay) )
+                guard  self.videosAraay != nil else {return}
+                self.videosAraay = res.comics  as! [Comics]
+                compelation(.success(self.videosAraay) )
             }
             catch {
                 print(error.localizedDescription)
@@ -69,10 +71,18 @@ class ListModel :BaseModel,ListModelProtocal {
     func getImagesResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getImagesResponse() { result,statusCode  in
             do {
-                let res = try result.get()
+                if let res =  try? result.get(){
+//                guard  self.imagesArray != nil else {return}
+                    self.imagesArray = res.comics ?? []
+                    if(!self.materialsArray.isEmpty){
+                if (self.materialsArray[9].type != "images"){
+                    self.materialsArray.insert(Materials(type: "images"), at: 9)
+                }
+                    }
+                compelation(.success(self.imagesArray)
                 
-                var imagesArray = res.comics
-                compelation(.success(imagesArray) )
+                )
+                }
             }
             catch {
                 print(error.localizedDescription)
