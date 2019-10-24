@@ -11,7 +11,6 @@ import UIKit
 class SliderCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var sliderImageView: UIImageView!
-    
     @IBOutlet weak var sliderBigTittle: UILabel!
     @IBOutlet weak var sliderDescription: UILabel!
     @IBOutlet weak var timeImageView: UIImageView!
@@ -19,6 +18,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconhotImageView: UIImageView!
     @IBOutlet weak var statisticsLabel: UILabel!
     @IBOutlet weak var bokmarkImageview: NSLayoutConstraint!
+     let placeHolderImage = UIImage(named: "logo")
     
     class var sliderCollectionViewCustomCell : SliderCollectionViewCell {
         let cell = Bundle.main.loadNibNamed("SliderCollectionViewCell", owner: self, options: nil)?.last
@@ -28,11 +28,11 @@ class SliderCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-//    func configur(person : Person) {
-//        var  imageURL="https://image.tmdb.org/t/p/w500/" + person.profilePath!
-//        let url:URL = URL(string: imageURL)!
-//        actorImage.sd_setImage(with: url, placeholderImage: placeHolderImage)
-//        actorName.text = person.name
-//        // actorKnownfor.text = sub
-//    }
+    func configur(slioderObj : Slider) {
+        var  imageURL = slioderObj.coverPhoto ?? " "
+        print(imageURL)
+        let url:URL = URL(string: imageURL)!
+       sliderImageView.sd_setImage(with: url, placeholderImage: placeHolderImage)
+
+    }
 }

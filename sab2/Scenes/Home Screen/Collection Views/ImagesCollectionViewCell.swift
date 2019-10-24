@@ -14,15 +14,17 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var blockOverlayImage: UIImageView!
+     let placeHolderImage = UIImage(named: "logo")
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-//    func configur(person : Person) {
-//        var  imageURL="https://image.tmdb.org/t/p/w500/" + person.profilePath!
-//        let url:URL = URL(string: imageURL)!
-//        actorImage.sd_setImage(with: url, placeholderImage: placeHolderImage)
-//        actorName.text = person.name
-//        // actorKnownfor.text = sub
-//    }
+    func configur(imagesObj : Comics) {
+        var  imageURL = imagesObj.coverPhoto ?? " "
+        print(imageURL)
+        let url:URL = URL(string: imageURL)!
+       coverPhoto.sd_setImage(with: url, placeholderImage: placeHolderImage)
+        
+    }
 }

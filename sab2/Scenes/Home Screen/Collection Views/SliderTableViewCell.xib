@@ -38,7 +38,7 @@
                     <constraint firstAttribute="trailing" secondItem="gNH-mp-1IU" secondAttribute="trailing" id="euK-hu-o9g"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="0.70885978540000005" blue="0.8373822689" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="sliderCollectionView" destination="gNH-mp-1IU" id="bfl-9Y-HWk"/>

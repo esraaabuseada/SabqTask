@@ -27,6 +27,7 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
         let cellNib = UINib(nibName: "SliderCollectionViewCell", bundle: nil)
         self.sliderCollectionView.register(cellNib, forCellWithReuseIdentifier:"SliderCollectionViewCell")
          //sliderAdapter.reloadData = reloadData
+        
     }
     
 //    func getSlider(array: [Slider]) {
@@ -36,13 +37,13 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
 //        sliderCollectionView.reloadData()
 //    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return sliderAdapter.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier:"SliderCollectionViewCell" , for: indexPath) as! SliderCollectionViewCell
-        // let sliderObj =  sliderAdapter.getSliderObj(index: indexPath.row)
-        collectionCell.sliderBigTittle.text = "hhhhh"
+         let sliderObj =  sliderAdapter.getSliderObj(index: indexPath.row)
+        collectionCell.configur(slioderObj: sliderObj!)
         return collectionCell
     }
     
@@ -52,6 +53,7 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
     
     func configurTableViewCell(sliderArray:[Slider])  {
         sliderAdapter.add(items: sliderArray)
+        
         
     }
     

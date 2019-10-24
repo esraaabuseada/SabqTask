@@ -41,6 +41,9 @@ class ListModel :BaseModel,ListModelProtocal {
                 if (!self.imagesArray.isEmpty){
                     self.materialsArray.insert(Materials(type: "images"), at: 9)
                     }
+                if (!self.videosAraay.isEmpty){
+                    self.materialsArray.insert(Materials(type: "videos"), at: 4)
+                }
                 compelation(.success(self.materialsArray) )
             }
             catch {
@@ -58,6 +61,11 @@ class ListModel :BaseModel,ListModelProtocal {
                 let res = try result.get()
                 guard  self.videosAraay != nil else {return}
                 self.videosAraay = res.comics  as! [Comics]
+                if(!self.materialsArray.isEmpty){
+                    if (self.materialsArray[4].type != "videos"){
+                        self.materialsArray.insert(Materials(type: "videos"), at: 4)
+                    }
+                }
                 compelation(.success(self.videosAraay) )
             }
             catch {

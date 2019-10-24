@@ -9,8 +9,8 @@
 import UIKit
 
 class ImagesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    
     @IBOutlet weak var imagesCollectionView: UICollectionView!
+    var imagesAdapter = ImagesAdapter()
     
 
     override func awakeFromNib() {
@@ -18,7 +18,6 @@ class ImagesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        //flowLayout.itemSize = CGSize(width: 70, height: 80)
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         self.imagesCollectionView.collectionViewLayout = flowLayout
@@ -34,17 +33,26 @@ class ImagesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
 
         // Configure the view for the selected state
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        let count = imagesAdapter.count()
+        return imagesAdapter.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier:"ImagesCollectionViewCell" , for: indexPath) as! ImagesCollectionViewCell
        
+        let imagesObj =  imagesAdapter.getImagessObj(index: indexPath.row)
+        collectionCell.configur(imagesObj: imagesObj)
         return collectionCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width-50, height: collectionView.frame.size.width)
+        return CGSize(width: collectionView.frame.size.width/4, height: collectionView.frame.size.width/2)
+    }
+    func configurTableViewCell(imagesArray:[Comics])  {
+        imagesAdapter.add(items: imagesArray)
+        
+        
     }
 }

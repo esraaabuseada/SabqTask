@@ -16,18 +16,19 @@ class VideosAdapter: ListAdapterProtocal {
     
     func add(item: Comics) {}
     
-    func getImagessObj(index: Int)->Comics {
+    func getVideosObj(index: Int)->Comics {
         return list![index]
     }
     func add(items: [Comics]) {
-        list?.append(contentsOf: items)
+        list = [Comics]()
+        list = items
         reloadData?()
     }
     
     func update(item: Comics) {}
     
     func count() -> Int {
-        
+        list?.count
         return list?.count ?? 0
     }
     

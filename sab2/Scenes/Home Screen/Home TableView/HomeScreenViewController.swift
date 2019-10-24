@@ -16,6 +16,26 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nav = self.navigationController?.navigationBar
+        let logImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 27))
+       logImageView.contentMode = .scaleAspectFit
+        
+        let rightImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
+        rightImageView.contentMode = .scaleAspectFit
+        
+       
+        let logoImage = UIImage(named: "logo")
+        logImageView.image = logoImage
+        
+        let rightImage = UIBarButtonItem(image: UIImage(named:"notification-icon"), style: .plain, target: self, action: Selector("noaction"))
+        
+       // rightImageView.image = rightImage
+        
+        // 5
+        navigationItem.titleView = logImageView
+        navigationItem.rightBarButtonItem = rightImage
+        
+        
         listPresenter?.loadMaterial()
         listPresenter?.loadSlider()
         listPresenter?.loadVideos()
@@ -36,6 +56,8 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         homeTableView.register(sliderCellNib, forCellReuseIdentifier: "SliderTableViewCell")
         let imagesCellNib = UINib(nibName: "ImagesTableViewCell", bundle: nil)
         homeTableView.register(imagesCellNib, forCellReuseIdentifier: "ImagesTableViewCell")
+        let videosCellNib = UINib(nibName: "VideosTableViewCell", bundle: nil)
+        homeTableView.register(videosCellNib, forCellReuseIdentifier:"VideosTableViewCell")
         
         newsAdapter.reloadData = reloadData
         print(newsAdapter.count())
@@ -101,25 +123,31 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         case 1://first cells
             let materialsObj = newsAdapter.getMaterialsObj(index: indexPath.row)
             if(materialsObj.type == "images"){
-//                guard let  cell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell") as? ImagesTableViewCell else { fatalError() }
                 let cell : ImagesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell", for: indexPath) as! ImagesTableViewCell
                 cell.frame = tableView.bounds
                 cell.layoutIfNeeded()
+                var imagesArrayFromNewsAdapter = newsAdapter.getImagesArray()
+                cell.configurTableViewCell(imagesArray: imagesArrayFromNewsAdapter)
                 cell.imagesCollectionView.reloadData()
-                //configure cell with event
+            
                 return cell
-            }
+            } else  if(materialsObj.type == "videos"){
+                let cell : VideosTableViewCell = tableView.dequeueReusableCell(withIdentifier: "VideosTableViewCell", for: indexPath) as! VideosTableViewCell
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+                var videosArrayFromNewsAdapter = newsAdapter.getVideosArray()
+                cell.configurTableViewCell(videosArray: videosArrayFromNewsAdapter)
+                cell.videosCollectionView.reloadData()
+                
+                return cell
+            } 
             else{
                 guard let  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
                 
                 cell.configur(materials: materialsObj)
                 return cell
           }
-            
-            
-            
-        
-            
+          
         default:
             return UITableViewCell()
         }

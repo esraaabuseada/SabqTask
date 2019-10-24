@@ -19,7 +19,8 @@ class ImagesAdapter: ListAdapterProtocal {
         return list![index]
     }
     func add(items: [Comics]) {
-        list?.append(contentsOf: items)
+        list = [Comics]()
+        list = items
         reloadData?()
     }
     
