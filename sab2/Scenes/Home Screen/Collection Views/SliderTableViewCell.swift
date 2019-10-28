@@ -11,10 +11,14 @@ import UIKit
 
 class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var sliderCollectionView: UICollectionView!
+    
+    @IBOutlet weak var pageControl: UIPageControl!
     var sliderAdapter = SliderAdapter()
+    var thisWidth:CGFloat = 0
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        thisWidth = CGFloat(self.frame.width)
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: 70, height: 80)
@@ -48,14 +52,20 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         thisWidth = CGFloat(self.frame.width)
         return CGSize(width: collectionView.frame.size.width+10 , height: collectionView.frame.size.width+50)
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControl.currentPage = indexPath.row
+    }
+    
+    
     func configurTableViewCell(sliderArray:[Slider])  {
         sliderAdapter.add(items: sliderArray)
-        
-        
+
     }
+    
     
 }
 

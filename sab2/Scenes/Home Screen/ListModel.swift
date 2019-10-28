@@ -13,14 +13,15 @@ class ListModel :BaseModel,ListModelProtocal {
     var materialsArray : [Materials] = []
     var videosAraay : [Comics] = []
     var imagesArray : [Comics] = []
+     var articlesArray : [Materials] = []
     
     
     func getSliderResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
             do {
-                let res = try result.get()
+                let response = try result.get()
                 guard  self.sliderArray != nil else {return}
-               self.sliderArray = res.slider as! [Slider]
+               self.sliderArray = response.slider as! [Slider]
                 compelation(.success(self.sliderArray) )
             }
             catch {
@@ -35,14 +36,17 @@ class ListModel :BaseModel,ListModelProtocal {
     func getMaterialResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
             do {
-                let res = try result.get()
+                let response = try result.get()
                 // guard  self.materialsArray != nil else {return}
-                self.materialsArray = res.materials ?? []
+                self.materialsArray = response.materials ?? []
                 if (!self.imagesArray.isEmpty){
                     self.materialsArray.insert(Materials(type: "images"), at: 9)
                     }
                 if (!self.videosAraay.isEmpty){
                     self.materialsArray.insert(Materials(type: "videos"), at: 4)
+                }
+                if (!self.articlesArray.isEmpty){
+                    self.materialsArray.insert(Materials(type: "articles"), at: 13)
                 }
                 compelation(.success(self.materialsArray) )
             }
@@ -58,9 +62,9 @@ class ListModel :BaseModel,ListModelProtocal {
     func getVideosResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getVideosResponse() { result,statusCode  in
             do {
-                let res = try result.get()
-                guard  self.videosAraay != nil else {return}
-                self.videosAraay = res.comics  as! [Comics]
+                let response = try result.get()
+              //  guard  self.videosAraay != nil else {return}
+                self.videosAraay = response.comics ?? []
                 if(!self.materialsArray.isEmpty){
                     if (self.materialsArray[4].type != "videos"){
                         self.materialsArray.insert(Materials(type: "videos"), at: 4)
@@ -79,9 +83,9 @@ class ListModel :BaseModel,ListModelProtocal {
     func getImagesResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
         networkManager.getImagesResponse() { result,statusCode  in
             do {
-                if let res =  try? result.get(){
+                if let response =  try? result.get(){
 //                guard  self.imagesArray != nil else {return}
-                    self.imagesArray = res.comics ?? []
+                    self.imagesArray = response.comics ?? []
                     if(!self.materialsArray.isEmpty){
                 if (self.materialsArray[9].type != "images"){
                     self.materialsArray.insert(Materials(type: "images"), at: 9)
@@ -100,11 +104,28 @@ class ListModel :BaseModel,ListModelProtocal {
         }
     }
     
-//    func getTableViewArray()->[Any]{
-//        print(myTableViewArray)
-//        
-//        return myTableViewArray!
-//        
-//    }
+    func getArticlesResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
+        networkManager.getArticlesResponse{ result,statusCode  in
+            do {
+                if let response =  try? result.get(){
+                    //                guard  self.imagesArray != nil else {return}
+                    self.articlesArray = response.materials ?? []
+                    if(!self.materialsArray.isEmpty){
+                        if (self.materialsArray[13].type != "articles"){
+                            self.materialsArray.insert(Materials(type: "articles"), at: 13)
+                        }
+                    }
+                    compelation(.success(self.articlesArray)
+                        
+                    )
+                }
+            }
+            catch {
+                print(error.localizedDescription)
+                compelation(.failure(error))
+            }
+            
+        }
+    }
     
 }

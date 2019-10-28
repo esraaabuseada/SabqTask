@@ -79,6 +79,17 @@ class ListPresenter: BasePresenter,ListPresenterProtocal {
             }
         }
     }
+    
+    func loadArticles() {
+        model?.getArticlesResponse { result in
+            switch result {
+            case .success(let articlesResponse):
+                self.view?.getArticles(array: articlesResponse as! [Materials])
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 
 }
     

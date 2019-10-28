@@ -47,7 +47,7 @@ class VideosTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/4, height: collectionView.frame.size.width/2)
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
     func configurTableViewCell(videosArray:[Comics])  {
         videosAdapter.add(items: videosArray)

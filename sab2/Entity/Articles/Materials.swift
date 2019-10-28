@@ -17,21 +17,18 @@ struct Materials : Codable {
 	let title : String?
 	let secondaryTitle : String?
 	let description : String?
-	let publishDate : String?
-    let coverPhoto : String?
-    var type = "news"
-    
-	//let publishDateHijryDate : String?
+//    let publishDate : String?
+//    let publishDateHijryDate : String?
 //    let updateDate : String?
 //    let updateDateHijryDate : String?
 //    let categoryName : String?
 //    let parentCategoryName : String?
-
+	let coverPhoto : String?
 //    let coverPhotoCaption : String?
 //    let authorName : String?
 //    let url : String?
 //    let materialType : String?
-   let authorImg : String?
+//    let authorImg : String?
 //    let authorCity : String?
 //    let multipleAuthors : Bool?
 //    let imagesCount : Int?
@@ -66,19 +63,18 @@ struct Materials : Codable {
 		case title = "title"
 		case secondaryTitle = "secondaryTitle"
 		case description = "description"
-		case publishDate = "publishDate"
-        case coverPhoto = "coverPhoto"
+//        case publishDate = "publishDate"
 //        case publishDateHijryDate = "publishDateHijryDate"
 //        case updateDate = "updateDate"
 //        case updateDateHijryDate = "updateDateHijryDate"
 //        case categoryName = "categoryName"
 //        case parentCategoryName = "parentCategoryName"
-        
+		case coverPhoto = "coverPhoto"
 //        case coverPhotoCaption = "coverPhotoCaption"
 //        case authorName = "authorName"
 //        case url = "url"
 //        case materialType = "materialType"
-       case authorImg = "authorImg"
+//        case authorImg = "authorImg"
 //        case authorCity = "authorCity"
 //        case multipleAuthors = "multipleAuthors"
 //        case imagesCount = "imagesCount"
@@ -114,19 +110,18 @@ struct Materials : Codable {
 		title = try values.decodeIfPresent(String.self, forKey: .title)
 		secondaryTitle = try values.decodeIfPresent(String.self, forKey: .secondaryTitle)
 		description = try values.decodeIfPresent(String.self, forKey: .description)
-		publishDate = try values.decodeIfPresent(String.self, forKey: .publishDate)
-        coverPhoto = try values.decodeIfPresent(String.self, forKey: .coverPhoto)
+//        publishDate = try values.decodeIfPresent(String.self, forKey: .publishDate)
 //        publishDateHijryDate = try values.decodeIfPresent(String.self, forKey: .publishDateHijryDate)
 //        updateDate = try values.decodeIfPresent(String.self, forKey: .updateDate)
 //        updateDateHijryDate = try values.decodeIfPresent(String.self, forKey: .updateDateHijryDate)
 //        categoryName = try values.decodeIfPresent(String.self, forKey: .categoryName)
 //        parentCategoryName = try values.decodeIfPresent(String.self, forKey: .parentCategoryName)
-     
+		coverPhoto = try values.decodeIfPresent(String.self, forKey: .coverPhoto)
 //        coverPhotoCaption = try values.decodeIfPresent(String.self, forKey: .coverPhotoCaption)
 //        authorName = try values.decodeIfPresent(String.self, forKey: .authorName)
 //        url = try values.decodeIfPresent(String.self, forKey: .url)
 //        materialType = try values.decodeIfPresent(String.self, forKey: .materialType)
-       authorImg = try values.decodeIfPresent(String.self, forKey: .authorImg)
+//        authorImg = try values.decodeIfPresent(String.self, forKey: .authorImg)
 //        authorCity = try values.decodeIfPresent(String.self, forKey: .authorCity)
 //        multipleAuthors = try values.decodeIfPresent(Bool.self, forKey: .multipleAuthors)
 //        imagesCount = try values.decodeIfPresent(Int.self, forKey: .imagesCount)
@@ -155,16 +150,5 @@ struct Materials : Codable {
 //        commentsMinCharacters = try values.decodeIfPresent(Int.self, forKey: .commentsMinCharacters)
 //        commentsMaxCharacters = try values.decodeIfPresent(Int.self, forKey: .commentsMaxCharacters)
 	}
-    
-    init(type: String) {
-        self.type = type
-         id = "id"
-         title = "title"
-       secondaryTitle = "secondaryTitle"
-        description = "description"
-         publishDate = "publishDate"
-         coverPhoto = "coverPhoto"
-        authorImg = "authorImg"
-    }
 
 }

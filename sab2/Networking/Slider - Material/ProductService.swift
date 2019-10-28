@@ -12,13 +12,13 @@ import Moya
 //swiftlint:disable  force_unwrapping
 
 enum  ListService {
-    case slider_material( page : Int)
+    case sliderMaterial( page : Int)
     case videos
     case images
     case articles
     
 }
-//https://sabq.org/api/material/homepage-light-version/
+
 extension ListService: TargetType {
     var baseURL: URL {
         
@@ -27,7 +27,7 @@ extension ListService: TargetType {
     
     var path: String {
         switch self {
-        case .slider_material:
+        case .sliderMaterial:
             return "/material/homepage-light-version"
         case .videos:
             return "/studio/list-studio"
@@ -42,7 +42,7 @@ extension ListService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .slider_material:
+        case .sliderMaterial:
             return .get
         case .videos:
             return .get
@@ -55,7 +55,7 @@ extension ListService: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .slider_material:
+        case .sliderMaterial:
             return Data()
         case .videos:
             return Data()
@@ -68,7 +68,7 @@ extension ListService: TargetType {
     
     var task: Task {        
         switch self {
-        case .slider_material(let page) :
+        case .sliderMaterial(let page) :
 			return .requestParameters(
                 parameters: ["page":page],
 				encoding: URLEncoding.default)

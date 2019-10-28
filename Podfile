@@ -6,6 +6,7 @@ target 'sab2' do
   use_frameworks!
  pod 'Moya'
  pod 'SDWebImage', '~> 5.0'
+pod 'SwiftLint'
 
   # Pods for sab2
 
@@ -14,6 +15,7 @@ target 'sab2' do
     # Pods for testing
 pod 'Moya'
 pod 'SDWebImage', '~> 5.0'
+pod 'SwiftLint'
   end
 
   target 'sab2UITests' do
@@ -21,6 +23,7 @@ pod 'SDWebImage', '~> 5.0'
     # Pods for testing
 pod 'Moya'
 pod 'SDWebImage', '~> 5.0'
+pod 'SwiftLint'
   end
 
 end

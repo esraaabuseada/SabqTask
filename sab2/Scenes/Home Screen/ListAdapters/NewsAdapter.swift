@@ -13,6 +13,7 @@ class NewsAdapter: ListAdapterProtocal {
     var sliderList = [Slider]()
     var imagesList = [Comics]()
     var videosList = [Comics]()
+    var articlesList = [Materials]()
     var reloadData: (() -> Void)?
     var showEmptyState: ((Bool) -> Void)?
     
@@ -23,22 +24,31 @@ class NewsAdapter: ListAdapterProtocal {
         
         reloadData?()
     }
-    func addSlider(items: [Slider]) -> [Slider] {
+    func addSlider(items: [Slider]){
         sliderList = items
-        return sliderList
+        reloadData?()
     }
-    func addImages(items: [Comics]) -> [Comics] {
+    func addImages(items: [Comics]) {
         imagesList = items
-        return imagesList
+        reloadData?()
     }
     
-    func addVideos(items: [Comics]) -> [Comics] {
+    func addVideos(items: [Comics]) {
         videosList = items
-        return videosList
+        reloadData?()
+    }
+    
+    func addArticles(items: [Materials])  {
+        articlesList = items
+        reloadData?()
     }
     
     func getMaterialsObj(index: Int)->Materials {
         return list![index]
+    }
+    
+    func getMaterialsArray()->[Materials] {
+        return list!
     }
     func getSliderArray()-> [Slider]{
         return sliderList
@@ -50,6 +60,9 @@ class NewsAdapter: ListAdapterProtocal {
     
     func getVideosArray() -> [Comics] {
         return videosList
+    }
+    func getArticlesArray() -> [Materials] {
+        return articlesList
     }
     
     func update(item: Materials) {}

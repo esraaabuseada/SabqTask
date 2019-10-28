@@ -12,34 +12,20 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Comics : Codable {
-	
-	let coverPhoto : String?
-    let coverPhotoCaption : String?
-    //let vid : String?
-    let videoCaption : String?
-    let authorImg : String?
-    
+struct ArticlesApiResponse : Codable {
+	let materials : [Materials]?
+	let code : Int?
 
 	enum CodingKeys: String, CodingKey {
 
-		
-		case coverPhoto = "coverPhoto"
-        case coverPhotoCaption = "coverPhotoCaption"
-        //case vid = "vid"
-        case videoCaption = "videoCaption"
-        case authorImg = "authorImg"
-
+		case materials = "materials"
+		case code = "code"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		coverPhoto = try values.decodeIfPresent(String.self, forKey: .coverPhoto)
-        coverPhotoCaption = try values.decodeIfPresent(String.self, forKey: .coverPhotoCaption)
-        //vid = try values.decodeIfPresent(String.self, forKey: .vid)
-        videoCaption = try values.decodeIfPresent(String.self, forKey: .videoCaption)
-        authorImg = try values.decodeIfPresent(String.self, forKey: .authorImg)
-
-    }
+		materials = try values.decodeIfPresent([Materials].self, forKey: .materials)
+		code = try values.decodeIfPresent(Int.self, forKey: .code)
+	}
 
 }

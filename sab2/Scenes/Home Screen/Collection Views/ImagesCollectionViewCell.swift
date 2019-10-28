@@ -23,8 +23,8 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     func configur(imagesObj : Comics) {
         var  imageURL = imagesObj.coverPhoto ?? " "
         print(imageURL)
-        let url:URL = URL(string: imageURL)!
-       coverPhoto.sd_setImage(with: url, placeholderImage: placeHolderImage)
+        let apiUrl:URL = URL(string: imageURL)!
+       coverPhoto.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
         
     }
 }

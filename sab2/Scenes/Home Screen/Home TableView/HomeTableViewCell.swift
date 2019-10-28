@@ -32,8 +32,8 @@ class HomeTableViewCell: UITableViewCell {
     func configur(materials : Materials) {
         var  imageURL = materials.coverPhoto!
         print(imageURL)
-        let url:URL = URL(string: imageURL)!
-        newsImageView.sd_setImage(with: url, placeholderImage: placeHolderImage)
+        let apiUrl:URL = URL(string: imageURL)!
+        newsImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
         
         // actorKnownfor.text = sub
     }

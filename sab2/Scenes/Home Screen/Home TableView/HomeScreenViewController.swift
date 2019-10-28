@@ -9,37 +9,48 @@
 import UIKit
 
 class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProtocal,UITableViewDelegate,UITableViewDataSource {
-    
+   
     @IBOutlet weak var homeTableView: UITableView!
     var listPresenter :ListPresenter?
     var newsAdapter = NewsAdapter()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nav = self.navigationController?.navigationBar
+        
+        _ = self.navigationController?.navigationBar
         let logImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 27))
        logImageView.contentMode = .scaleAspectFit
-        
-        let rightImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
-        rightImageView.contentMode = .scaleAspectFit
-        
-       
         let logoImage = UIImage(named: "logo")
         logImageView.image = logoImage
-        
-        let rightImage = UIBarButtonItem(image: UIImage(named:"notification-icon"), style: .plain, target: self, action: Selector("noaction"))
-        
-       // rightImageView.image = rightImage
-        
-        // 5
         navigationItem.titleView = logImageView
-        navigationItem.rightBarButtonItem = rightImage
+    
+        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        imageview.image = UIImage(named: "user")
+        imageview.contentMode = UIView.ContentMode.scaleAspectFit
+        imageview.layer.cornerRadius = 20
+        imageview.layer.masksToBounds = true
+        containView.addSubview(imageview)
+        let leftBarButton = UIBarButtonItem(image: UIImage(named: "user")!,
+                                            style: .plain, target: self,
+                                            action:    nil)
+        leftBarButton.tintColor = .red
+        self.navigationItem.leftBarButtonItem = leftBarButton
         
-        
+        let notificationIconContainView = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
+        let notificationIconImageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
+        imageview.image = UIImage(named: "notification-icon.jpg")
+        imageview.contentMode = UIView.ContentMode.scaleAspectFit
+        imageview.layer.cornerRadius = 10
+        imageview.layer.masksToBounds = true
+        containView.addSubview(imageview)
+        let rightBarButton = UIBarButtonItem(customView: containView)
+        self.navigationItem.rightBarButtonItem = rightBarButton
         listPresenter?.loadMaterial()
         listPresenter?.loadSlider()
         listPresenter?.loadVideos()
         listPresenter?.loadImage()
+        listPresenter?.loadArticles()
         
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
@@ -58,7 +69,10 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         homeTableView.register(imagesCellNib, forCellReuseIdentifier: "ImagesTableViewCell")
         let videosCellNib = UINib(nibName: "VideosTableViewCell", bundle: nil)
         homeTableView.register(videosCellNib, forCellReuseIdentifier:"VideosTableViewCell")
+        let articlesCellNib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
+        homeTableView.register(articlesCellNib, forCellReuseIdentifier:"ArticlesTableViewCell")
         
+      
         newsAdapter.reloadData = reloadData
         print(newsAdapter.count())
        
@@ -73,8 +87,6 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         newsAdapter.addSlider(items: array)
     }
     
-    
-    
     func getVideos(array: [Comics]) {
        newsAdapter.addVideos(items: array)
     }
@@ -82,6 +94,11 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     func getImages(array: [Comics]) {
        newsAdapter.addImages(items: array)
     }
+    func getArticles(array: [Materials]) {
+        newsAdapter.addArticles(items: array)
+    }
+    
+    
     
     func reloadData(){
         homeTableView.reloadData()
@@ -89,8 +106,18 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
+            
         case 0:     return 400
-        case 1:     return 150
+        case 1:
+            var materialArrayFromAdapter = newsAdapter.getMaterialsArray()
+            if (materialArrayFromAdapter[indexPath.row].type == "images"){
+                return 347
+            } else if (materialArrayFromAdapter[indexPath.row].type == "videos"){
+                return 349
+            }else if (materialArrayFromAdapter[indexPath.row].type == "articles"){
+                return 370
+            }else{return 150}
+            
         default:    return 0
             
         }
@@ -138,9 +165,17 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
                 var videosArrayFromNewsAdapter = newsAdapter.getVideosArray()
                 cell.configurTableViewCell(videosArray: videosArrayFromNewsAdapter)
                 cell.videosCollectionView.reloadData()
+                return cell
+            } else  if(materialsObj.type == "articles"){
+                let cell : ArticlesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArticlesTableViewCell", for: indexPath) as! ArticlesTableViewCell
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+                var articlesArrayFromNewsAdapter = newsAdapter.getArticlesArray()
+                cell.configurTableViewCell(articlesArray: articlesArrayFromNewsAdapter)
+                cell.articlesCollectionView.reloadData()
                 
                 return cell
-            } 
+            }
             else{
                 guard let  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
                 

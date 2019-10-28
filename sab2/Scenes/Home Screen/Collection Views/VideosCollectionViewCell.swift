@@ -20,10 +20,10 @@ class VideosCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     func configur(videosObj : Comics) {
-        var  imageURL = videosObj.coverPhoto ?? " "
+        var  imageURL = videosObj.authorImg ?? " "
         print(imageURL)
-        let url:URL = URL(string: imageURL)!
-        coverPhoto.sd_setImage(with: url, placeholderImage: placeHolderImage)
+        let apiUrl:URL = URL(string: imageURL)!
+        coverPhoto.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
         
     }
 }

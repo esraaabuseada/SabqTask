@@ -25,6 +25,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="375" id="L5H-am-PXB"/>
                             <constraint firstAttribute="height" constant="348" id="OGF-Cd-kQP"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="arG-7D-l2L"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v09-Su-LZq">
                             <size key="itemSize" width="375" height="348"/>

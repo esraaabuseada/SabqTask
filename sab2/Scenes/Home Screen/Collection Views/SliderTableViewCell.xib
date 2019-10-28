@@ -19,28 +19,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="514.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gNH-mp-1IU">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gNH-mp-1IU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="514.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9Df-X4-p6T">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9Df-X4-p6T">
                             <size key="itemSize" width="375" height="517"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kQm-wN-5Uz">
+                        <rect key="frame" x="185" y="233" width="39" height="37"/>
+                    </pageControl>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.70885978540000005" blue="0.8373822689" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="gNH-mp-1IU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3tr-yN-UIJ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kQm-wN-5Uz" secondAttribute="bottom" constant="234" id="64i-Jr-eFm"/>
+                    <constraint firstItem="kQm-wN-5Uz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="202" id="Ewh-kC-hhi"/>
                     <constraint firstItem="gNH-mp-1IU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FGt-Lp-RQL"/>
                     <constraint firstAttribute="bottom" secondItem="gNH-mp-1IU" secondAttribute="bottom" id="PCL-j6-1o4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="kQm-wN-5Uz" secondAttribute="trailing" constant="135" id="bn7-J9-tyG"/>
+                    <constraint firstItem="kQm-wN-5Uz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="169" id="cT7-vf-jex"/>
                     <constraint firstAttribute="trailing" secondItem="gNH-mp-1IU" secondAttribute="trailing" id="euK-hu-o9g"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="pageControl" destination="kQm-wN-5Uz" id="0hB-aC-Zkj"/>
                 <outlet property="sliderCollectionView" destination="gNH-mp-1IU" id="bfl-9Y-HWk"/>
             </connections>
             <point key="canvasLocation" x="125.59999999999999" y="75.112443778110944"/>

@@ -31,8 +31,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
     func configur(slioderObj : Slider) {
         var  imageURL = slioderObj.coverPhoto ?? " "
         print(imageURL)
-        let url:URL = URL(string: imageURL)!
-       sliderImageView.sd_setImage(with: url, placeholderImage: placeHolderImage)
+        let apiUrl:URL = URL(string: imageURL)!
+       sliderImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
 
     }
 }

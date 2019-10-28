@@ -16,7 +16,7 @@ protocol ListPresenterProtocal: BasePresenterProtocol {
     func loadMaterial()
     func loadImage()
     func loadVideos()
-      //func getTableViewArray()->[Any]
+    func loadArticles()
     
     
 }
@@ -26,6 +26,8 @@ protocol ListViewProtocal:BaseViewProtocal {
     func getMaterial(array: [Materials])
     func getVideos(array: [Comics])
      func getImages(array: [Comics])
+     func getArticles(array: [Materials])
+    
   
     
 }
@@ -36,7 +38,7 @@ protocol ListModelProtocal:BaseModelProtocal {
      func getMaterialResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
     func getVideosResponse( compelation: @escaping (Result<Any,Error>) -> Void)
     func getImagesResponse( compelation: @escaping (Result<Any,Error>) -> Void)
-     // func getTableViewArray()->[Any]
+    func getArticlesResponse( compelation: @escaping (Result<Any,Error>) -> Void)
 }
 
 

@@ -48,7 +48,7 @@ class ImagesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/4, height: collectionView.frame.size.width/2)
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height+70)
     }
     func configurTableViewCell(imagesArray:[Comics])  {
         imagesAdapter.add(items: imagesArray)

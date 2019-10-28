@@ -8,7 +8,7 @@
 
 import XCTest
 
-class sab2UITests: XCTestCase {
+class Sab2UITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

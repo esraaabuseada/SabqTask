@@ -21,8 +21,8 @@ var listModule = ListModule()
 
     func setupTabBar(){
         
-        let homeViewController = createNaveController(vc: HomeScreenViewController(), selected: #imageLiteral(resourceName: "ic_newspaper_active"), unselected: #imageLiteral(resourceName: "ic_newspaper"))
-        let details = createNaveController(vc: DetailsScreenViewController(), selected: #imageLiteral(resourceName: "ic_search_active"), unselected: #imageLiteral(resourceName: "ic_search"))
+        let homeViewController = createNaveController( selected: #imageLiteral(resourceName: "ic_newspaper_active"), unselected: #imageLiteral(resourceName: "ic_newspaper"))
+        let details = createNaveController( selected: #imageLiteral(resourceName: "ic_search_active"), unselected: #imageLiteral(resourceName: "ic_search"))
         viewControllers = [homeViewController , details]
         
         guard let items = tabBar . items else {return}
@@ -32,7 +32,7 @@ var listModule = ListModule()
         }
     }
     
-    func createNaveController(vc:UIViewController ,selected: UIImage, unselected: UIImage) -> UINavigationController {
+    func createNaveController(selected: UIImage, unselected: UIImage) -> UINavigationController {
         let viewController = listModule.createModule()
         let navController = UINavigationController(rootViewController: viewController)
         navController.tabBarItem.image = unselected
