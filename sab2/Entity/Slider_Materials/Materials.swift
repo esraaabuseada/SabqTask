@@ -12,14 +12,15 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Materials : Codable {
-	let id : String?
-	let title : String?
-	let secondaryTitle : String?
-	let description : String?
-	let publishDate : String?
-    let coverPhoto : String?
+struct Materials: Codable {
+	let id: String?
+	let title: String?
+	let secondaryTitle: String?
+	let description: String?
+	let publishDate: String?
+    let coverPhoto: String?
     var type = "news"
+    let authorImg: String?
     
 	//let publishDateHijryDate : String?
 //    let updateDate : String?
@@ -31,7 +32,7 @@ struct Materials : Codable {
 //    let authorName : String?
 //    let url : String?
 //    let materialType : String?
-   let authorImg : String?
+  
 //    let authorCity : String?
 //    let multipleAuthors : Bool?
 //    let imagesCount : Int?
@@ -62,12 +63,13 @@ struct Materials : Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case id = "id"
-		case title = "title"
-		case secondaryTitle = "secondaryTitle"
-		case description = "description"
-		case publishDate = "publishDate"
-        case coverPhoto = "coverPhoto"
+		case id
+		case title
+		case secondaryTitle
+		case description
+		case publishDate
+        case coverPhoto
+        case authorImg 
 //        case publishDateHijryDate = "publishDateHijryDate"
 //        case updateDate = "updateDate"
 //        case updateDateHijryDate = "updateDateHijryDate"
@@ -78,7 +80,7 @@ struct Materials : Codable {
 //        case authorName = "authorName"
 //        case url = "url"
 //        case materialType = "materialType"
-       case authorImg = "authorImg"
+       
 //        case authorCity = "authorCity"
 //        case multipleAuthors = "multipleAuthors"
 //        case imagesCount = "imagesCount"

@@ -12,23 +12,20 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Comics : Codable {
+struct Comics: Codable {
 	
-	let coverPhoto : String?
-    let coverPhotoCaption : String?
+	let coverPhoto: String?
+    let coverPhotoCaption: String?
     //let vid : String?
-    let videoCaption : String?
-    let authorImg : String?
+    let videoCaption: String?
+    let authorImg: String?
     
-
 	enum CodingKeys: String, CodingKey {
-
-		
-		case coverPhoto = "coverPhoto"
-        case coverPhotoCaption = "coverPhotoCaption"
+		case coverPhoto
+        case coverPhotoCaption
         //case vid = "vid"
-        case videoCaption = "videoCaption"
-        case authorImg = "authorImg"
+        case videoCaption
+        case authorImg
 
 	}
 

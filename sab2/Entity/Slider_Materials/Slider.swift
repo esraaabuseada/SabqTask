@@ -12,18 +12,18 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Slider : Codable {
-	let id : String?
-	let title : String?
-	let secondaryTitle : String?
-	let description : String?
-	let publishDate : String?
+struct Slider: Codable {
+	let id: String?
+	let title: String?
+	let secondaryTitle: String?
+	let description: String?
+	let publishDate: String?
 //    let publishDateHijryDate : String?
 //    let updateDate : String?
 //    let updateDateHijryDate : String?
 //    let categoryName : String?
 //    let parentCategoryName : String?
-   let coverPhoto : String?
+   let coverPhoto: String?
 //    let coverPhotoCaption : String?
 //    let authorName : String?
 //    let url : String?
@@ -59,17 +59,18 @@ struct Slider : Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case id = "id"
-		case title = "title"
-		case secondaryTitle = "secondaryTitle"
-		case description = "description"
-		case publishDate = "publishDate"
+		case id
+		case title
+		case secondaryTitle
+		case description
+		case publishDate
+        case coverPhoto 
 //        case publishDateHijryDate = "publishDateHijryDate"
 //        case updateDate = "updateDate"
 //        case updateDateHijryDate = "updateDateHijryDate"
 //        case categoryName = "categoryName"
 //        case parentCategoryName = "parentCategoryName"
-       case coverPhoto = "coverPhoto"
+      
 //        case coverPhotoCaption = "coverPhotoCaption"
 //        case authorName = "authorName"
 //        case url = "url"

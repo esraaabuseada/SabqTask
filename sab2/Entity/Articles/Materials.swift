@@ -12,18 +12,18 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Materials : Codable {
-	let id : String?
-	let title : String?
-	let secondaryTitle : String?
-	let description : String?
+struct Materials: Codable {
+	let id: String?
+	let title: String?
+	let secondaryTitle: String?
+	let description: String?
 //    let publishDate : String?
 //    let publishDateHijryDate : String?
 //    let updateDate : String?
 //    let updateDateHijryDate : String?
 //    let categoryName : String?
 //    let parentCategoryName : String?
-	let coverPhoto : String?
+	let coverPhoto: String?
 //    let coverPhotoCaption : String?
 //    let authorName : String?
 //    let url : String?
@@ -59,17 +59,17 @@ struct Materials : Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case id = "id"
-		case title = "title"
-		case secondaryTitle = "secondaryTitle"
-		case description = "description"
+		case id
+		case title
+		case secondaryTitle
+		case description
 //        case publishDate = "publishDate"
 //        case publishDateHijryDate = "publishDateHijryDate"
 //        case updateDate = "updateDate"
 //        case updateDateHijryDate = "updateDateHijryDate"
 //        case categoryName = "categoryName"
 //        case parentCategoryName = "parentCategoryName"
-		case coverPhoto = "coverPhoto"
+		case coverPhoto 
 //        case coverPhotoCaption = "coverPhotoCaption"
 //        case authorName = "authorName"
 //        case url = "url"

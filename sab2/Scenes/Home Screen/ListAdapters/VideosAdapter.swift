@@ -16,8 +16,11 @@ class VideosAdapter: ListAdapterProtocal {
     
     func add(item: Comics) {}
     
-    func getVideosObj(index: Int)->Comics {
-        return list![index]
+    func getVideosObj(index: Int) -> Comics {
+        guard let listObj = list?[index] else {
+            fatalError("no comics provided")
+        }
+        return listObj
     }
     func add(items: [Comics]) {
         list = [Comics]()
@@ -28,7 +31,6 @@ class VideosAdapter: ListAdapterProtocal {
     func update(item: Comics) {}
     
     func count() -> Int {
-        list?.count
         return list?.count ?? 0
     }
     

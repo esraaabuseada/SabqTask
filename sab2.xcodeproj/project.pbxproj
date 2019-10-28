@@ -510,9 +510,9 @@
 			isa = PBXGroup;
 			children = (
 				CEEECD072360681E00C38ECA /* ImagesCollectionViewCell.xib */,
+				CEEECD062360681E00C38ECA /* ImagesCollectionViewCell.swift */,
 				CEEECD022360680400C38ECA /* ImagesTableViewCell.swift */,
 				CEEECD032360680400C38ECA /* ImagesTableViewCell.xib */,
-				CEEECD062360681E00C38ECA /* ImagesCollectionViewCell.swift */,
 			);
 			name = "Images CollectionView";
 			sourceTree = "<group>";

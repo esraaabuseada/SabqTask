@@ -7,14 +7,17 @@
 //
 
 import UIKit
-
-
-class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    @IBOutlet weak var sliderCollectionView: UICollectionView!
-    
-    @IBOutlet weak var pageControl: UIPageControl!
+class SliderTableViewCell: UITableViewCell,
+    UICollectionViewDataSource,
+    UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak private var sliderCollectionView: UICollectionView!
+    @IBOutlet weak private var pageControl: UIPageControl!
     var sliderAdapter = SliderAdapter()
-    var thisWidth:CGFloat = 0
+    var thisWidth: CGFloat = 0
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,46 +32,49 @@ class SliderTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
         self.sliderCollectionView.delegate = self
         
         let cellNib = UINib(nibName: "SliderCollectionViewCell", bundle: nil)
-        self.sliderCollectionView.register(cellNib, forCellWithReuseIdentifier:"SliderCollectionViewCell")
-         //sliderAdapter.reloadData = reloadData
+        self.sliderCollectionView.register(cellNib, forCellWithReuseIdentifier: "SliderCollectionViewCell")
+        //sliderAdapter.reloadData = reloadData
         
     }
     
-//    func getSlider(array: [Slider]) {
-//        sliderAdapter.add(items: array)
-//    }
-//    func reloadData(){
-//        sliderCollectionView.reloadData()
-//    }
+    func reloadCollectionView() {
+        sliderCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sliderAdapter.count()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier:"SliderCollectionViewCell" , for: indexPath) as! SliderCollectionViewCell
-         let sliderObj =  sliderAdapter.getSliderObj(index: indexPath.row)
-        collectionCell.configur(slioderObj: sliderObj!)
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "SliderCollectionViewCell" ,
+            for: indexPath) as? SliderCollectionViewCell  else {
+                fatalError("cell empty")
+        }
+        guard  let sliderObj = sliderAdapter.getSliderObj(index: indexPath.row) else { fatalError("no object") }
+        collectionCell.configur(slioderObj: sliderObj)
         return collectionCell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         thisWidth = CGFloat(self.frame.width)
-        return CGSize(width: collectionView.frame.size.width+10 , height: collectionView.frame.size.width+50)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        thisWidth = CGFloat(self.frame.width)
+        return CGSize(width: collectionView.frame.size.width + 10 ,
+                      height: collectionView.frame.size.width + 50)
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
         self.pageControl.currentPage = indexPath.row
     }
     
-    
-    func configurTableViewCell(sliderArray:[Slider])  {
+    func configurTableViewCell(sliderArray: [Slider]) {
         sliderAdapter.add(items: sliderArray)
-
+        
     }
     
     
 }
-
-
-
-

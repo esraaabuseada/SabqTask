@@ -15,8 +15,11 @@ class ImagesAdapter: ListAdapterProtocal {
     
     func add(item: Comics) {}
     
-    func getImagessObj(index: Int)->Comics {
-        return list![index]
+    func getImagessObj(index: Int) -> Comics {
+        guard let listObj = list?[index] else {
+            fatalError("no comics provided")
+        }
+        return listObj
     }
     func add(items: [Comics]) {
         list = [Comics]()

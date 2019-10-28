@@ -38,7 +38,7 @@ class SliderAdapter: ListAdapterProtocal {
     func clear(reload: Bool) {
         
     }
-    func getSliderObj(index: Int) -> Slider?{
+    func getSliderObj(index: Int) -> Slider? {
        
         return list?[index]
     }

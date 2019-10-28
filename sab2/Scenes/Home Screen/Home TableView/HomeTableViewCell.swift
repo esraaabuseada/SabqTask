@@ -9,15 +9,15 @@
 import UIKit
 import SDWebImage
 class HomeTableViewCell: UITableViewCell {
-    @IBOutlet weak var newsImageView: UIImageView!
-    @IBOutlet weak var timeImageView: UIImageView!
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var bookmarkImageView: UIImageView!
-    @IBOutlet weak var newsBlueLabel: UILabel!
-    @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var statisticsLabel: UILabel!
-    let placeHolderImage = UIImage(named: "logo")
+    @IBOutlet weak private var newsImageView: UIImageView!
+    @IBOutlet weak private var timeImageView: UIImageView!
+    @IBOutlet weak private var iconImageView: UIImageView!
+    @IBOutlet weak private var bookmarkImageView: UIImageView!
+    @IBOutlet weak private var newsBlueLabel: UILabel!
+    @IBOutlet weak private var postTitleLabel: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var statisticsLabel: UILabel!
+    let placeHolderImage = #imageLiteral(resourceName: "logo")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,12 +29,14 @@ class HomeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configur(materials : Materials) {
-        var  imageURL = materials.coverPhoto!
-        print(imageURL)
-        let apiUrl:URL = URL(string: imageURL)!
-        newsImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
+    func configur(materials: Materials) {
+        let  imageURL = materials.coverPhoto ?? " "
+        print(imageURL )
+        if let apiUrl: URL = URL(string: imageURL ) {
+            newsImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
+        } else {
+            newsImageView.image = placeHolderImage
+        }
         
-        // actorKnownfor.text = sub
     }
 }

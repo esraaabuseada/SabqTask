@@ -7,24 +7,21 @@
 //
 
 import Foundation
-class ListModel :BaseModel,ListModelProtocal {
+class ListModel: BaseModel, ListModelProtocal {
      var networkManager = NetworkManager()
-    var sliderArray : [Slider] = []
-    var materialsArray : [Materials] = []
-    var videosAraay : [Comics] = []
-    var imagesArray : [Comics] = []
-     var articlesArray : [Materials] = []
-    
+    var sliderArray: [Slider] = []
+    var materialsArray: [Materials] = []
+    var videosAraay: [Comics] = []
+    var imagesArray: [Comics] = []
+     var articlesArray: [Materials] = []
     
     func getSliderResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
-        networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
+        networkManager.getSlider_MaterialResponse(pageNumber: page) { result, _ in
             do {
                 let response = try result.get()
-                guard  self.sliderArray != nil else {return}
-               self.sliderArray = response.slider as! [Slider]
+                self.sliderArray = response.slider ?? []
                 compelation(.success(self.sliderArray) )
-            }
-            catch {
+            } catch {
                 print(error.localizedDescription)
                 compelation(.failure(error))
             }
@@ -34,23 +31,22 @@ class ListModel :BaseModel,ListModelProtocal {
     }
     
     func getMaterialResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void) {
-        networkManager.getSlider_MaterialResponse(pageNumber: page) { result,statusCode  in
+        networkManager.getSlider_MaterialResponse(pageNumber: page) { result, _  in
             do {
                 let response = try result.get()
                 // guard  self.materialsArray != nil else {return}
                 self.materialsArray = response.materials ?? []
-                if (!self.imagesArray.isEmpty){
+                if (!self.imagesArray.isEmpty) {
                     self.materialsArray.insert(Materials(type: "images"), at: 9)
                     }
-                if (!self.videosAraay.isEmpty){
+                if (!self.videosAraay.isEmpty) {
                     self.materialsArray.insert(Materials(type: "videos"), at: 4)
                 }
-                if (!self.articlesArray.isEmpty){
+                if (!self.articlesArray.isEmpty) {
                     self.materialsArray.insert(Materials(type: "articles"), at: 13)
                 }
                 compelation(.success(self.materialsArray) )
-            }
-            catch {
+            } catch {
                 print(error.localizedDescription)
                 compelation(.failure(error))
             }
@@ -60,19 +56,18 @@ class ListModel :BaseModel,ListModelProtocal {
     }
     
     func getVideosResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
-        networkManager.getVideosResponse() { result,statusCode  in
+        networkManager.getVideosResponse { result, _  in
             do {
                 let response = try result.get()
               //  guard  self.videosAraay != nil else {return}
                 self.videosAraay = response.comics ?? []
-                if(!self.materialsArray.isEmpty){
-                    if (self.materialsArray[4].type != "videos"){
+                if(!self.materialsArray.isEmpty) {
+                    if (self.materialsArray[4].type != "videos") {
                         self.materialsArray.insert(Materials(type: "videos"), at: 4)
                     }
                 }
                 compelation(.success(self.videosAraay) )
-            }
-            catch {
+            } catch {
                 print(error.localizedDescription)
                 compelation(.failure(error))
             }
@@ -81,37 +76,31 @@ class ListModel :BaseModel,ListModelProtocal {
     }
     
     func getImagesResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
-        networkManager.getImagesResponse() { result,statusCode  in
+        networkManager.getImagesResponse { result, _  in
             do {
-                if let response =  try? result.get(){
+                if let response = try? result.get() {
 //                guard  self.imagesArray != nil else {return}
                     self.imagesArray = response.comics ?? []
-                    if(!self.materialsArray.isEmpty){
-                if (self.materialsArray[9].type != "images"){
+                    if(!self.materialsArray.isEmpty) {
+                if (self.materialsArray[9].type != "images") {
                     self.materialsArray.insert(Materials(type: "images"), at: 9)
                 }
                     }
-                compelation(.success(self.imagesArray)
-                
-                )
+                compelation(.success(self.imagesArray))
                 }
-            }
-            catch {
-                print(error.localizedDescription)
-                compelation(.failure(error))
-            }
+            } 
             
         }
     }
     
-    func getArticlesResponse(compelation: @escaping (Result<Any, Error>) -> Void) {
-        networkManager.getArticlesResponse{ result,statusCode  in
+    func getArticlesResponse( compelation: @escaping (Result<Any, Error> ) -> Void) {
+        networkManager.getArticlesResponse { result, _  in
             do {
-                if let response =  try? result.get(){
+                if let response = try? result.get() {
                     //                guard  self.imagesArray != nil else {return}
                     self.articlesArray = response.materials ?? []
-                    if(!self.materialsArray.isEmpty){
-                        if (self.materialsArray[13].type != "articles"){
+                    if(!self.materialsArray.isEmpty) {
+                        if (self.materialsArray[13].type != "articles") {
                             self.materialsArray.insert(Materials(type: "articles"), at: 13)
                         }
                     }
@@ -119,11 +108,7 @@ class ListModel :BaseModel,ListModelProtocal {
                         
                     )
                 }
-            }
-            catch {
-                print(error.localizedDescription)
-                compelation(.failure(error))
-            }
+            } 
             
         }
     }

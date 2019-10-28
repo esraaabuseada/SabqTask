@@ -12,16 +12,15 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct ListApiResponse : Codable {
-	let slider : [Slider]?
-	let materials : [Materials]?
-	let code : Int?
+struct ListApiResponse: Codable {
+	let slider: [Slider]?
+	let materials: [Materials]?
+	let code: Int?
 
 	enum CodingKeys: String, CodingKey {
-
-		case slider = "slider"
-		case materials = "materials"
-		case code = "code"
+		case slider
+		case materials 
+		case code 
 	}
 
 	init(from decoder: Decoder) throws {

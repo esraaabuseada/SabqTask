@@ -1,51 +1,75 @@
 disabled_rules: # rule identifiers to exclude from running
-  - colon
-  - comma
-  - control_statement
-opt_in_rules: # some rules are only opt-in
-  - empty_count
-  # Find all the available rules by running:
-  # swiftlint rules
-included: # paths to include during linting. `--path` is ignored if present.
-  #- Source
-excluded: # paths to ignore during linting. Takes precedence over `included`.
-  - Carthage
-  - Pods
-  - Source/ExcludedFolder
-  - Source/ExcludedFile.swift
-  - Source/*/ExcludedFile.swift # Exclude files with a wildcard
-analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
-  - explicit_self
-
-# configurable rules can be customized from this configuration file
-# binary rules can set their severity level
-force_cast: warning # implicitly
-force_try:
-  severity: warning # explicitly
-# rules that have both warning and error levels, can set just the warning level
-# implicitly
-line_length: 110
+- trailing_whitespace
+- todo
+- trailing_semicolon
+- sorted_imports
+- control_statement
+excluded:
+ - Frameworks
+ - Pods
+ - Submodule
+opt_in_rules:
+ - empty_count
+ - explicit_init
+ - closure_spacing
+ - overridden_super_call
+ - redundant_nil_coalescing
+ - private_outlet
+ - nimble_operator
+ - attributes
+ - operator_usage_whitespace
+ - closure_end_indentation
+ - first_where
+ - sorted_imports
+ - object_literal
+ - number_separator
+ - prohibited_super_call
+ - fatal_error_message
+ - force_unwrapping
+ - legacy_constant
+ - vertical_parameter_alignment_on_call
+ - multiline_parameters
+ - notification_center_detachment
+file_name:
+ excluded:
+   - main.swift
+force_cast: error
+force_try: error
+force_unwrapping: error
+legacy_constant: error
+vertical_parameter_alignment_on_call: error
+multiline_parameters: error
+notification_center_detachment: error
+warning_threshold: 12
+line_length:
+ error: 120
+ ignores_comments: true
 # they can set both implicitly with an array
 type_body_length:
-  - 300 # warning
-  - 400 # error
+ - 400 # warning
+ - 600 # error
 # or they can set both explicitly
 file_length:
-  warning: 500
-  error: 1200
-# naming rules can set warnings/errors for min_length and max_length
-# additionally they can set excluded names
+ warning: 1200
+ error: 1600
+number_separator:
+ minimum_length: 5
 type_name:
-  min_length: 4 # only warning
-  max_length: # warning and error
-    warning: 40
-    error: 50
-  excluded: iPhone # excluded via string
+ min_length: 4 # only warning
+ max_length: # warning and error
+   warning: 50
+   error: 60
+ excluded: iPhone # excluded via string
 identifier_name:
-  min_length: # only min_length
-    error: 4 # only error
-  excluded: # excluded via string array
-    - id
-    - URL
-    - GlobalAPIKey
-reporter: "xcode" 
+ min_length: # only min_length
+   error: 3 # only error
+ excluded: # excluded via string array
+   - i
+   - id
+   - URL
+   - vc
+   - stb
+   - hud
+   - HUD
+   - Aya
+   - db

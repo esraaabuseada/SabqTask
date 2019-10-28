@@ -24,10 +24,11 @@ class NewsAdapter: ListAdapterProtocal {
         
         reloadData?()
     }
-    func addSlider(items: [Slider]){
+    func addSlider(items: [Slider]) {
         sliderList = items
         reloadData?()
     }
+    
     func addImages(items: [Comics]) {
         imagesList = items
         reloadData?()
@@ -38,23 +39,25 @@ class NewsAdapter: ListAdapterProtocal {
         reloadData?()
     }
     
-    func addArticles(items: [Materials])  {
+    func addArticles(items: [Materials]) {
         articlesList = items
         reloadData?()
     }
     
-    func getMaterialsObj(index: Int)->Materials {
-        return list![index]
+    func getMaterialsObj(index: Int) -> Materials {
+        guard let listObj = list?[index] else { return Materials(type: "news") }
+        return listObj
     }
     
-    func getMaterialsArray()->[Materials] {
-        return list!
+    func getMaterialsArray() -> [Materials] {
+        guard let allList = list else { return [] }
+        return allList
     }
-    func getSliderArray()-> [Slider]{
+    func getSliderArray() -> [Slider] {
         return sliderList
     }
     
-    func getImagesArray()->[Comics]{
+    func getImagesArray() -> [Comics] {
         return imagesList
     }
     

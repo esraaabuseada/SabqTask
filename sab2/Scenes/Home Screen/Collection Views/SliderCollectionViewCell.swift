@@ -10,29 +10,28 @@ import UIKit
 
 class SliderCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var sliderImageView: UIImageView!
-    @IBOutlet weak var sliderBigTittle: UILabel!
-    @IBOutlet weak var sliderDescription: UILabel!
-    @IBOutlet weak var timeImageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var iconhotImageView: UIImageView!
-    @IBOutlet weak var statisticsLabel: UILabel!
-    @IBOutlet weak var bokmarkImageview: NSLayoutConstraint!
-     let placeHolderImage = UIImage(named: "logo")
-    
-    class var sliderCollectionViewCustomCell : SliderCollectionViewCell {
-        let cell = Bundle.main.loadNibNamed("SliderCollectionViewCell", owner: self, options: nil)?.last
-        return cell as! SliderCollectionViewCell
-    }
+    @IBOutlet weak private var sliderImageView: UIImageView!
+    @IBOutlet weak private var sliderBigTittle: UILabel!
+    @IBOutlet weak private var sliderDescription: UILabel!
+    @IBOutlet weak private var timeImageView: UIImageView!
+    @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var iconhotImageView: UIImageView!
+    @IBOutlet weak private var statisticsLabel: UILabel!
+    @IBOutlet weak private var bokmarkImageview: NSLayoutConstraint!
+     let placeHolderImage = #imageLiteral(resourceName: "logo")
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    func configur(slioderObj : Slider) {
-        var  imageURL = slioderObj.coverPhoto ?? " "
-        print(imageURL)
-        let apiUrl:URL = URL(string: imageURL)!
-       sliderImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
-
+    func configur(slioderObj: Slider) {
+        let  imageURL = slioderObj.coverPhoto
+        print(imageURL ?? "" )
+        if let apiUrl: URL = URL(string: imageURL ?? "" ) {
+            sliderImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
+        } else {
+            sliderImageView.image = placeHolderImage
+        }
+        
     }
 }

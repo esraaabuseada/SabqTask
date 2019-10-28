@@ -12,14 +12,14 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct ArticlesApiResponse : Codable {
-	let materials : [Materials]?
-	let code : Int?
+struct ArticlesApiResponse: Codable {
+	let materials: [Materials]?
+	let code: Int?
 
 	enum CodingKeys: String, CodingKey {
 
-		case materials = "materials"
-		case code = "code"
+		case materials
+		case code 
 	}
 
 	init(from decoder: Decoder) throws {

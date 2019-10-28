@@ -9,19 +9,18 @@
 import UIKit
 import Foundation
 
-class BaseViewController<Presenter:BasePresenterProtocol>: UIViewController, BaseViewProtocal {
+class BaseViewController<Presenter: BasePresenterProtocol>: UIViewController, BaseViewProtocal {
     
     // MARK: - Public Variables
     
     // MARK: - Private Variables
     
-    var presenter:Presenter!
+    var presenter: Presenter!
     
     // MARK: - Computed Variables
     
     // MARK: - IBOutlets
-    
-    
+        
     public func setPresenter (presenter: Presenter) {
         self.presenter = presenter
     }

@@ -18,17 +18,16 @@ var listModule = ListModule()
         setupTabBar()
     }
     
-
-    func setupTabBar(){
+    func setupTabBar() {
         
         let homeViewController = createNaveController( selected: #imageLiteral(resourceName: "ic_newspaper_active"), unselected: #imageLiteral(resourceName: "ic_newspaper"))
         let details = createNaveController( selected: #imageLiteral(resourceName: "ic_search_active"), unselected: #imageLiteral(resourceName: "ic_search"))
-        viewControllers = [homeViewController , details]
+        viewControllers = [homeViewController, details]
         
-        guard let items = tabBar . items else {return}
+        guard let items = tabBar . items else { return }
         
-        for item in items{
-           item.imageInsets =  UIEdgeInsets(top: 4,left: 0,bottom: -4,right: 0)
+        for item in items {
+           item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         }
     }
     
@@ -40,8 +39,4 @@ var listModule = ListModule()
         return navController
     }
     
-
 }
-
-    
-

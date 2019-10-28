@@ -12,14 +12,14 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Tags : Codable {
-	let id : String?
-	let name : String?
+struct Tags: Codable {
+	let id: String?
+	let name: String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case id = "id"
-		case name = "name"
+		case id
+		case name 
 	}
 
 	init(from decoder: Decoder) throws {
@@ -27,5 +27,4 @@ struct Tags : Codable {
 		id = try values.decodeIfPresent(String.self, forKey: .id)
 		name = try values.decodeIfPresent(String.self, forKey: .name)
 	}
-
 }

@@ -26,7 +26,7 @@ class NetworkManager {
         self.networkConfig = config
         
         let headerPlugin = StaticHeaderPlugin(
-			headers: ["X-Api-Key":"64136909d656d1d3201c552d4f3a6af3"])
+			headers: ["X-Api-Key": "64136909d656d1d3201c552d4f3a6af3"])
         
         provider = MoyaProvider<MultiTarget>(//manager: ,
         plugins: [headerPlugin, NetworkLoggerPlugin(verbose: true)])

@@ -8,44 +8,23 @@
 
 import UIKit
 
-class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProtocal,UITableViewDelegate,UITableViewDataSource {
-   
-    @IBOutlet weak var homeTableView: UITableView!
-    var listPresenter :ListPresenter?
+class HomeScreenViewController: BaseViewController<ListPresenter>,
+    ListViewProtocal,
+    UITableViewDelegate,
+UITableViewDataSource {
+    
+    @IBOutlet weak private var homeTableView: UITableView!
+    var listPresenter: ListPresenter?
     var newsAdapter = NewsAdapter()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         _ = self.navigationController?.navigationBar
-        let logImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 27))
-       logImageView.contentMode = .scaleAspectFit
-        let logoImage = UIImage(named: "logo")
-        logImageView.image = logoImage
-        navigationItem.titleView = logImageView
-    
-        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        imageview.image = UIImage(named: "user")
-        imageview.contentMode = UIView.ContentMode.scaleAspectFit
-        imageview.layer.cornerRadius = 20
-        imageview.layer.masksToBounds = true
-        containView.addSubview(imageview)
-        let leftBarButton = UIBarButtonItem(image: UIImage(named: "user")!,
-                                            style: .plain, target: self,
-                                            action:    nil)
-        leftBarButton.tintColor = .red
-        self.navigationItem.leftBarButtonItem = leftBarButton
+        titleNavigationBarItem()
+        leftNavigationBarItem()
+        rightNavigationBarItem()
         
-        let notificationIconContainView = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
-        let notificationIconImageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
-        imageview.image = UIImage(named: "notification-icon.jpg")
-        imageview.contentMode = UIView.ContentMode.scaleAspectFit
-        imageview.layer.cornerRadius = 10
-        imageview.layer.masksToBounds = true
-        containView.addSubview(imageview)
-        let rightBarButton = UIBarButtonItem(customView: containView)
-        self.navigationItem.rightBarButtonItem = rightBarButton
         listPresenter?.loadMaterial()
         listPresenter?.loadSlider()
         listPresenter?.loadVideos()
@@ -58,9 +37,49 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         // datasource and delegate in adapter
         //        self.homeTableView.delegate = newsAdapter
         //        self.homeTableView.dataSource = newsAdapter
-        
+        registerCells()
         homeTableView.rowHeight = UITableView.automaticDimension
+        newsAdapter.reloadData = reloadData
+    }
+    
+    func titleNavigationBarItem() {
+        let logImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 27))
+        logImageView.contentMode = .scaleAspectFit
+        let logoImage = #imageLiteral(resourceName: "logo")
+        logImageView.image = logoImage
+        navigationItem.titleView = logImageView
+    }
+    
+    func leftNavigationBarItem() {
+        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        imageview.image = #imageLiteral(resourceName: "user")
+        imageview.contentMode = UIView.ContentMode.scaleAspectFit
+        imageview.layer.cornerRadius = 20
+        imageview.layer.masksToBounds = true
+        containView.addSubview(imageview)
+        let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "user"),
+                                            style: .plain, target: self,
+                                            action: nil)
+        leftBarButton.tintColor = .red
+        self.navigationItem.leftBarButtonItem = leftBarButton
         
+    }
+    
+    func rightNavigationBarItem() {
+        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
+        _ = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
+        let notificationIconImageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
+        notificationIconImageview.image = #imageLiteral(resourceName: "notification-icon")
+        notificationIconImageview.contentMode = UIView.ContentMode.scaleAspectFit
+        notificationIconImageview.layer.cornerRadius = 10
+        notificationIconImageview.layer.masksToBounds = true
+        containView.addSubview( notificationIconImageview)
+        let rightBarButton = UIBarButtonItem(customView: containView)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    func registerCells() {
         let defaultCellNib = UINib(nibName: "HomeTableViewCell", bundle: nil)
         homeTableView.register(defaultCellNib, forCellReuseIdentifier: "HomeTableViewCell")
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
@@ -68,19 +87,13 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         let imagesCellNib = UINib(nibName: "ImagesTableViewCell", bundle: nil)
         homeTableView.register(imagesCellNib, forCellReuseIdentifier: "ImagesTableViewCell")
         let videosCellNib = UINib(nibName: "VideosTableViewCell", bundle: nil)
-        homeTableView.register(videosCellNib, forCellReuseIdentifier:"VideosTableViewCell")
+        homeTableView.register(videosCellNib, forCellReuseIdentifier: "VideosTableViewCell")
         let articlesCellNib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
-        homeTableView.register(articlesCellNib, forCellReuseIdentifier:"ArticlesTableViewCell")
-        
-      
-        newsAdapter.reloadData = reloadData
-        print(newsAdapter.count())
-       
+        homeTableView.register(articlesCellNib, forCellReuseIdentifier: "ArticlesTableViewCell")
     }
     
     func getMaterial(array: [Materials]) {
         newsAdapter.add(items: array)
-        print(newsAdapter.count())
     }
     
     func getSlider(array: [Slider]) {
@@ -88,19 +101,17 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     }
     
     func getVideos(array: [Comics]) {
-       newsAdapter.addVideos(items: array)
+        newsAdapter.addVideos(items: array)
     }
     
     func getImages(array: [Comics]) {
-       newsAdapter.addImages(items: array)
+        newsAdapter.addImages(items: array)
     }
     func getArticles(array: [Materials]) {
         newsAdapter.addArticles(items: array)
     }
     
-    
-    
-    func reloadData(){
+    func reloadData() {
         homeTableView.reloadData()
     }
     
@@ -110,13 +121,13 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
         case 0:     return 400
         case 1:
             var materialArrayFromAdapter = newsAdapter.getMaterialsArray()
-            if (materialArrayFromAdapter[indexPath.row].type == "images"){
+            if (materialArrayFromAdapter[indexPath.row].type == "images") {
                 return 347
-            } else if (materialArrayFromAdapter[indexPath.row].type == "videos"){
+            } else if (materialArrayFromAdapter[indexPath.row].type == "videos") {
                 return 349
-            }else if (materialArrayFromAdapter[indexPath.row].type == "articles"){
+            } else if (materialArrayFromAdapter[indexPath.row].type == "articles") {
                 return 370
-            }else{return 150}
+            } else { return 150 }
             
         default:    return 0
             
@@ -139,50 +150,54 @@ class HomeScreenViewController:BaseViewController< ListPresenter >,ListViewProto
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0: //Slider
-            guard let  cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as? SliderTableViewCell else { fatalError() }
+            guard let  cell = tableView.dequeueReusableCell(
+                withIdentifier: "SliderTableViewCell")
+            as? SliderTableViewCell else { fatalError("slider cell empty") }
             cell.frame = tableView.bounds
             cell.layoutIfNeeded()
-            var sliderArrayFromNewsAdapter = newsAdapter.getSliderArray()
+            let sliderArrayFromNewsAdapter = newsAdapter.getSliderArray()
             cell.configurTableViewCell(sliderArray: sliderArrayFromNewsAdapter)
-            cell.sliderCollectionView.reloadData()
+            cell.reloadCollectionView()
             return cell
-            
         case 1://first cells
             let materialsObj = newsAdapter.getMaterialsObj(index: indexPath.row)
-            if(materialsObj.type == "images"){
-                let cell : ImagesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ImagesTableViewCell", for: indexPath) as! ImagesTableViewCell
+            if(materialsObj.type == "images") {
+              guard  let cell: ImagesTableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: "ImagesTableViewCell",
+                for: indexPath) as? ImagesTableViewCell else { fatalError("image cell empty") }
                 cell.frame = tableView.bounds
                 cell.layoutIfNeeded()
-                var imagesArrayFromNewsAdapter = newsAdapter.getImagesArray()
+                let imagesArrayFromNewsAdapter = newsAdapter.getImagesArray()
                 cell.configurTableViewCell(imagesArray: imagesArrayFromNewsAdapter)
-                cell.imagesCollectionView.reloadData()
-            
+                cell.reloadCollectionView()
                 return cell
-            } else  if(materialsObj.type == "videos"){
-                let cell : VideosTableViewCell = tableView.dequeueReusableCell(withIdentifier: "VideosTableViewCell", for: indexPath) as! VideosTableViewCell
+            } else  if(materialsObj.type == "videos") {
+               guard let cell: VideosTableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: "VideosTableViewCell",
+                for: indexPath) as? VideosTableViewCell else { fatalError("videos cell empty") }
                 cell.frame = tableView.bounds
                 cell.layoutIfNeeded()
-                var videosArrayFromNewsAdapter = newsAdapter.getVideosArray()
+                let videosArrayFromNewsAdapter = newsAdapter.getVideosArray()
                 cell.configurTableViewCell(videosArray: videosArrayFromNewsAdapter)
-                cell.videosCollectionView.reloadData()
+                cell.reloadCollectionView()
                 return cell
-            } else  if(materialsObj.type == "articles"){
-                let cell : ArticlesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArticlesTableViewCell", for: indexPath) as! ArticlesTableViewCell
+            } else  if(materialsObj.type == "articles") {
+              guard  let cell: ArticlesTableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: "ArticlesTableViewCell",
+                for: indexPath) as? ArticlesTableViewCell else { fatalError("articles cell empty") }
                 cell.frame = tableView.bounds
                 cell.layoutIfNeeded()
-                var articlesArrayFromNewsAdapter = newsAdapter.getArticlesArray()
+                let articlesArrayFromNewsAdapter = newsAdapter.getArticlesArray()
                 cell.configurTableViewCell(articlesArray: articlesArrayFromNewsAdapter)
-                cell.articlesCollectionView.reloadData()
-                
+                cell.reloadCollectionView()
                 return cell
-            }
-            else{
-                guard let  cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { fatalError() }
-                
+            } else {
+                guard let  cell = tableView.dequeueReusableCell(
+                    withIdentifier: "HomeTableViewCell",
+                    for: indexPath) as? HomeTableViewCell else { fatalError("home cell empty") }
                 cell.configur(materials: materialsObj)
                 return cell
-          }
-          
+            }
         default:
             return UITableViewCell()
         }

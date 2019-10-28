@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ImagesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
+class ImagesTableViewCell: UITableViewCell,
+    UICollectionViewDataSource,
+    UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak private var imagesCollectionView: UICollectionView!
     var imagesAdapter = ImagesAdapter()
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,34 +27,45 @@ class ImagesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollect
         self.imagesCollectionView.delegate = self
         
         let cellNib = UINib(nibName: "ImagesCollectionViewCell", bundle: nil)
-        self.imagesCollectionView.register(cellNib, forCellWithReuseIdentifier:"ImagesCollectionViewCell")
+        self.imagesCollectionView.register(cellNib, forCellWithReuseIdentifier: "ImagesCollectionViewCell")
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
+    func reloadCollectionView() {
+        imagesCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = imagesAdapter.count()
+        _ = imagesAdapter.count()
         return imagesAdapter.count()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier:"ImagesCollectionViewCell" , for: indexPath) as! ImagesCollectionViewCell
-       
-        let imagesObj =  imagesAdapter.getImagessObj(index: indexPath.row)
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let  collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "ImagesCollectionViewCell" ,
+            for: indexPath) as? ImagesCollectionViewCell  else {
+            fatalError("cell empty")
+        }
+        
+        let imagesObj = imagesAdapter.getImagessObj(index: indexPath.row)
         collectionCell.configur(imagesObj: imagesObj)
         return collectionCell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height+70)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width,
+                      height: collectionView.frame.size.height + 70)
     }
-    func configurTableViewCell(imagesArray:[Comics])  {
+    func configurTableViewCell(imagesArray: [Comics]) {
         imagesAdapter.add(items: imagesArray)
-        
         
     }
 }

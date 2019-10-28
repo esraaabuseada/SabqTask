@@ -15,8 +15,11 @@ class ArticlesAdapter: ListAdapterProtocal {
     
     func add(item: Materials) {}
     
-    func getArticlesObj(index: Int)->Materials {
-        return list![index]
+    func getArticlesObj(index: Int) -> Materials {
+        guard let listObj = list?[index] else {
+            fatalError("no articles provided")
+        }
+        return listObj
     }
     func add(items: [Materials]) {
         list = [Materials]()
@@ -27,7 +30,6 @@ class ArticlesAdapter: ListAdapterProtocal {
     func update(item: Materials) {}
     
     func count() -> Int {
-        list?.count
         return list?.count ?? 0
     }
     

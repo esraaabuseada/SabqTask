@@ -18,7 +18,7 @@ public struct StaticHeaderPlugin: PluginType {
     public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var request = request
 
-        headers.forEach { (headerKey,value) in
+        headers.forEach { (headerKey, value) in
             request.addValue(value, forHTTPHeaderField: headerKey)
         }
         

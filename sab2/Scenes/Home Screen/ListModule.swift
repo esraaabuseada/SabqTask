@@ -8,9 +8,9 @@
 
 import Foundation
 class  ListModule {
-    func createModule() -> HomeScreenViewController{
+    func createModule() -> HomeScreenViewController {
         let view = HomeScreenViewController()
-        let model =  ListModel()
+        let model = ListModel()
         let presenter = ListPresenter(viewProtocole: view, modelProtocol: model)
         view.setPresenter(presenter: presenter)
         return view

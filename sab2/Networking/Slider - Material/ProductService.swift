@@ -35,8 +35,6 @@ extension ListService: TargetType {
             return "/studio/list-studio"
         case .articles:
             return "/material/articles"
-        
-        
         }
     }
     
@@ -69,27 +67,25 @@ extension ListService: TargetType {
     var task: Task {        
         switch self {
         case .sliderMaterial(let page) :
-			return .requestParameters(
-                parameters: ["page":page],
-				encoding: URLEncoding.default)
+            return .requestParameters(
+                parameters: ["page": page],
+                encoding: URLEncoding.default)
         case .videos :
             return .requestParameters(
-                parameters: ["type":"video"],
+                parameters: ["type": "video"],
                 encoding: URLEncoding.default)
-        
+            
         case .images :
-        return .requestParameters(
-            parameters: ["type":"image"],
-            encoding: URLEncoding.default)
+            return .requestParameters(
+                parameters: ["type": "image"],
+                encoding: URLEncoding.default)
         case .articles :
-        return .requestParameters(
-            parameters: [:],
-            encoding: URLEncoding.default)
+            return .requestParameters(
+                parameters: [:],
+                encoding: URLEncoding.default)
+            
+        }
         
-    }
-        
-        
-    
     }
     
     var headers: [String: String]? {

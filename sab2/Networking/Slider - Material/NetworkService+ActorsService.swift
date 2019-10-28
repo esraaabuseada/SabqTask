@@ -11,7 +11,7 @@ import Moya
 
 extension NetworkManager {
     
-    func getSlider_MaterialResponse(pageNumber:Int, completion: @escaping (
+    func getSlider_MaterialResponse(pageNumber: Int, completion: @escaping (
         _ result: Swift.Result<ListApiResponse, NetworkError>,
         _ statusCode: StatusCode?
         ) -> Void) {
@@ -45,7 +45,6 @@ extension NetworkManager {
         }
         
     }
-    
     
     func getVideosResponse( completion: @escaping (
         _ result: Swift.Result<VideosImagesApiResponse, NetworkError>,
@@ -81,10 +80,6 @@ extension NetworkManager {
         }
         
     }
-    
-   
-    
-
     
     func getImagesResponse( completion: @escaping (
         _ result: Swift.Result<VideosImagesApiResponse, NetworkError>,

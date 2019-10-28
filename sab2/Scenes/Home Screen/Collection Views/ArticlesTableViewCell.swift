@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ArticlesTableViewCell: UITableViewCell,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    @IBOutlet weak var articlesCollectionView: UICollectionView!
+class ArticlesTableViewCell:
+UITableViewCell, UICollectionViewDataSource,
+UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak private var articlesCollectionView: UICollectionView!
     var articlesAdapter = ArticlesAdapter()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +26,7 @@ class ArticlesTableViewCell: UITableViewCell,UICollectionViewDataSource, UIColle
         self.articlesCollectionView.delegate = self
         
         let cellNib = UINib(nibName: "ArticlesCollectionViewCell", bundle: nil)
-        self.articlesCollectionView.register(cellNib, forCellWithReuseIdentifier:"ArticlesCollectionViewCell")
+        self.articlesCollectionView.register(cellNib, forCellWithReuseIdentifier: "ArticlesCollectionViewCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,27 +35,43 @@ class ArticlesTableViewCell: UITableViewCell,UICollectionViewDataSource, UIColle
         // Configure the view for the selected state
     }
     
+    func reloadCollectionView() {
+        articlesCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = articlesAdapter.count()
+        _ = articlesAdapter.count()
         
         return articlesAdapter.count()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier:"ArticlesCollectionViewCell" , for: indexPath) as! ArticlesCollectionViewCell
+    func collectionView (
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard  let collectionCell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: "ArticlesCollectionViewCell",
+        for: indexPath) as? ArticlesCollectionViewCell
+            else {
+           fatalError("cell empty")
+        }
+       
         let articlesObj = articlesAdapter.getArticlesObj(index: indexPath.row)
         
         collectionCell.configur(articlesObj: articlesObj)
-        return collectionCell
+       return collectionCell
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/4, height: collectionView.frame.size.width/2)
+    func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width / 4,
+                      height: collectionView.frame.size.width / 2)
     }
-    func configurTableViewCell(articlesArray:[Materials])  {
+    
+    func configurTableViewCell(articlesArray: [Materials]) {
         articlesAdapter.add(items: articlesArray)
       
     }
 }
-
-
