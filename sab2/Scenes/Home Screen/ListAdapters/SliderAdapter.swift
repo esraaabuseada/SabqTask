@@ -7,7 +7,10 @@
 //
 
 import Foundation
-class SliderAdapter: ListAdapterProtocal {
+import UIKit
+class SliderAdapter: NSObject, ListAdapterProtocal, UICollectionViewDataSource,
+UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout {
     var list: [Slider]?
     typealias DataType = Slider
     
@@ -38,8 +41,37 @@ class SliderAdapter: ListAdapterProtocal {
     func clear(reload: Bool) {
         
     }
-    func getSliderObj(index: Int) -> Slider? {
-       
-        return list?[index]
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return count()
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "SliderCollectionViewCell" ,
+            for: indexPath) as? SliderCollectionViewCell  else {
+                fatalError("cell empty")
+        }
+        guard  let sliderObj = list?[indexPath.row] else { fatalError("no object") }
+       collectionCell.configur(slioderObj: sliderObj)
+        
+        
+        return collectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+ 
+        return CGSize(width: collectionView.frame.size.width + 10 ,
+                      height: collectionView.frame.size.width + 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+       
+    }
+    
 }

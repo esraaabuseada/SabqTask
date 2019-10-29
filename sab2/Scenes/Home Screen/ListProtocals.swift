@@ -20,11 +20,11 @@ protocol ListPresenterProtocal: BasePresenterProtocol {
 }
 
 protocol ListViewProtocal: BaseViewProtocal {
-    func getSlider(array: [Slider])
-    func getMaterial(array: [Materials])
-    func getVideos(array: [Comics])
-    func getImages(array: [Comics])
-    func getArticles(array: [Materials])
+    func setSlider(array: [Slider])
+    func setMaterial(array: [Materials])
+    func setVideos(array: [Comics])
+    func setImages(array: [Comics])
+    func setArticles(array: [Materials])
 }
 
 protocol ListModelProtocal: BaseModelProtocal {

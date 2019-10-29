@@ -7,17 +7,13 @@
 //
 
 import UIKit
-class SliderTableViewCell: UITableViewCell,
-    UICollectionViewDataSource,
-    UICollectionViewDelegate,
-UICollectionViewDelegateFlowLayout {
+class SliderTableViewCell: UITableViewCell
+     {
     @IBOutlet weak private var sliderCollectionView: UICollectionView!
     @IBOutlet weak private var pageControl: UIPageControl!
+ 
     var sliderAdapter = SliderAdapter()
     var thisWidth: CGFloat = 0
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,8 +24,8 @@ UICollectionViewDelegateFlowLayout {
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         self.sliderCollectionView.collectionViewLayout = flowLayout
-        self.sliderCollectionView.dataSource = self
-        self.sliderCollectionView.delegate = self
+        self.sliderCollectionView.dataSource = sliderAdapter
+        self.sliderCollectionView.delegate = sliderAdapter
         
         let cellNib = UINib(nibName: "SliderCollectionViewCell", bundle: nil)
         self.sliderCollectionView.register(cellNib, forCellWithReuseIdentifier: "SliderCollectionViewCell")
@@ -37,44 +33,23 @@ UICollectionViewDelegateFlowLayout {
         
     }
     
+    @IBAction func pagging(_ sender: Any) {
+        pageControl.currentPage = sliderAdapter.count()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
+    
+   
+    
     func reloadCollectionView() {
         sliderCollectionView.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sliderAdapter.count()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let collectionCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "SliderCollectionViewCell" ,
-            for: indexPath) as? SliderCollectionViewCell  else {
-                fatalError("cell empty")
-        }
-        guard  let sliderObj = sliderAdapter.getSliderObj(index: indexPath.row) else { fatalError("no object") }
-        collectionCell.configur(slioderObj: sliderObj)
-        return collectionCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        thisWidth = CGFloat(self.frame.width)
-        return CGSize(width: collectionView.frame.size.width + 10 ,
-                      height: collectionView.frame.size.width + 50)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        willDisplay cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
-        self.pageControl.currentPage = indexPath.row
-    }
-    
     func configurTableViewCell(sliderArray: [Slider]) {
-        sliderAdapter.add(items: sliderArray)
+      sliderAdapter.add(items: sliderArray)
         
     }
-    
-    
 }

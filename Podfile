@@ -7,6 +7,7 @@ target 'sab2' do
  pod 'Moya'
  pod 'SDWebImage', '~> 5.0'
 pod 'SwiftLint'
+pod 'DateToolsSwift'
 
   # Pods for sab2
 
@@ -16,6 +17,7 @@ pod 'SwiftLint'
 pod 'Moya'
 pod 'SDWebImage', '~> 5.0'
 pod 'SwiftLint'
+pod 'DateToolsSwift'
   end
 
   target 'sab2UITests' do
@@ -24,6 +26,7 @@ pod 'SwiftLint'
 pod 'Moya'
 pod 'SDWebImage', '~> 5.0'
 pod 'SwiftLint'
+pod 'DateToolsSwift'
   end
 
 end

@@ -9,9 +9,7 @@
 import UIKit
 
 class HomeScreenViewController: BaseViewController<ListPresenter>,
-    ListViewProtocal,
-    UITableViewDelegate,
-UITableViewDataSource {
+ListViewProtocal {
     
     @IBOutlet weak private var homeTableView: UITableView!
     var listPresenter: ListPresenter?
@@ -31,12 +29,9 @@ UITableViewDataSource {
         listPresenter?.loadImage()
         listPresenter?.loadArticles()
         
-        self.homeTableView.delegate = self
-        self.homeTableView.dataSource = self
-        
         // datasource and delegate in adapter
-        //        self.homeTableView.delegate = newsAdapter
-        //        self.homeTableView.dataSource = newsAdapter
+        self.homeTableView.delegate = newsAdapter
+        self.homeTableView.dataSource = newsAdapter
         registerCells()
         homeTableView.rowHeight = UITableView.automaticDimension
         newsAdapter.reloadData = reloadData
@@ -92,120 +87,29 @@ UITableViewDataSource {
         homeTableView.register(articlesCellNib, forCellReuseIdentifier: "ArticlesTableViewCell")
     }
     
-    func getMaterial(array: [Materials]) {
+    func setMaterial(array: [Materials]) {
         newsAdapter.add(items: array)
     }
     
-    func getSlider(array: [Slider]) {
+    func setSlider(array: [Slider]) {
         newsAdapter.addSlider(items: array)
     }
     
-    func getVideos(array: [Comics]) {
+    func setVideos(array: [Comics]) {
         newsAdapter.addVideos(items: array)
     }
     
-    func getImages(array: [Comics]) {
+    func setImages(array: [Comics]) {
         newsAdapter.addImages(items: array)
     }
-    func getArticles(array: [Materials]) {
+    func setArticles(array: [Materials]) {
         newsAdapter.addArticles(items: array)
     }
     
     func reloadData() {
         homeTableView.reloadData()
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-            
-        case 0:     return 400
-        case 1:
-            var materialArrayFromAdapter = newsAdapter.getMaterialsArray()
-            if (materialArrayFromAdapter[indexPath.row].type == "images") {
-                return 347
-            } else if (materialArrayFromAdapter[indexPath.row].type == "videos") {
-                return 349
-            } else if (materialArrayFromAdapter[indexPath.row].type == "articles") {
-                return 370
-            } else { return 150 }
-            
-        default:    return 0
-            
-        }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:     return 1
-        case 1:     return newsAdapter.count()
-        default:    return 0
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0: //Slider
-            guard let  cell = tableView.dequeueReusableCell(
-                withIdentifier: "SliderTableViewCell")
-            as? SliderTableViewCell else { fatalError("slider cell empty") }
-            cell.frame = tableView.bounds
-            cell.layoutIfNeeded()
-            let sliderArrayFromNewsAdapter = newsAdapter.getSliderArray()
-            cell.configurTableViewCell(sliderArray: sliderArrayFromNewsAdapter)
-            cell.reloadCollectionView()
-            return cell
-        case 1://first cells
-            let materialsObj = newsAdapter.getMaterialsObj(index: indexPath.row)
-            if(materialsObj.type == "images") {
-              guard  let cell: ImagesTableViewCell = tableView.dequeueReusableCell(
-                withIdentifier: "ImagesTableViewCell",
-                for: indexPath) as? ImagesTableViewCell else { fatalError("image cell empty") }
-                cell.frame = tableView.bounds
-                cell.layoutIfNeeded()
-                let imagesArrayFromNewsAdapter = newsAdapter.getImagesArray()
-                cell.configurTableViewCell(imagesArray: imagesArrayFromNewsAdapter)
-                cell.reloadCollectionView()
-                return cell
-            } else  if(materialsObj.type == "videos") {
-               guard let cell: VideosTableViewCell = tableView.dequeueReusableCell(
-                withIdentifier: "VideosTableViewCell",
-                for: indexPath) as? VideosTableViewCell else { fatalError("videos cell empty") }
-                cell.frame = tableView.bounds
-                cell.layoutIfNeeded()
-                let videosArrayFromNewsAdapter = newsAdapter.getVideosArray()
-                cell.configurTableViewCell(videosArray: videosArrayFromNewsAdapter)
-                cell.reloadCollectionView()
-                return cell
-            } else  if(materialsObj.type == "articles") {
-              guard  let cell: ArticlesTableViewCell = tableView.dequeueReusableCell(
-                withIdentifier: "ArticlesTableViewCell",
-                for: indexPath) as? ArticlesTableViewCell else { fatalError("articles cell empty") }
-                cell.frame = tableView.bounds
-                cell.layoutIfNeeded()
-                let articlesArrayFromNewsAdapter = newsAdapter.getArticlesArray()
-                cell.configurTableViewCell(articlesArray: articlesArrayFromNewsAdapter)
-                cell.reloadCollectionView()
-                return cell
-            } else {
-                guard let  cell = tableView.dequeueReusableCell(
-                    withIdentifier: "HomeTableViewCell",
-                    for: indexPath) as? HomeTableViewCell else { fatalError("home cell empty") }
-                cell.configur(materials: materialsObj)
-                return cell
-            }
-        default:
-            return UITableViewCell()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
+
     override func setPresenter(presenter: ListPresenter) {
         listPresenter = presenter
     }

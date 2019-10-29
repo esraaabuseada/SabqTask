@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.0)
+  - DateToolsSwift (4.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -12,6 +13,7 @@ PODS:
   - SwiftLint (0.36.0)
 
 DEPENDENCIES:
+  - DateToolsSwift
   - Moya
   - SDWebImage (~> 5.0)
   - SwiftLint
@@ -23,15 +25,17 @@ SPEC REPOS:
     - Result
     - SDWebImage
   trunk:
+    - DateToolsSwift
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
   SwiftLint: fc9859e4e1752340664851f667bb1898b9c90114
 
-PODFILE CHECKSUM: 8f80a67566d1f25bc9a825c13ae77c6906304bcd
+PODFILE CHECKSUM: 156a9c227132a442b2cac2439362198863dc079d
 
 COCOAPODS: 1.8.4

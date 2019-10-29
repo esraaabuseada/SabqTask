@@ -7,7 +7,11 @@
 //
 
 import Foundation
-class NewsAdapter: ListAdapterProtocal {
+import UIKit
+
+class NewsAdapter: NSObject, ListAdapterProtocal, UITableViewDelegate,
+UITableViewDataSource {
+    
     typealias DataType = Materials
     var list: [Materials]?
     var sliderList = [Slider]()
@@ -44,30 +48,6 @@ class NewsAdapter: ListAdapterProtocal {
         reloadData?()
     }
     
-    func getMaterialsObj(index: Int) -> Materials {
-        guard let listObj = list?[index] else { return Materials(type: "news") }
-        return listObj
-    }
-    
-    func getMaterialsArray() -> [Materials] {
-        guard let allList = list else { return [] }
-        return allList
-    }
-    func getSliderArray() -> [Slider] {
-        return sliderList
-    }
-    
-    func getImagesArray() -> [Comics] {
-        return imagesList
-    }
-    
-    func getVideosArray() -> [Comics] {
-        return videosList
-    }
-    func getArticlesArray() -> [Materials] {
-        return articlesList
-    }
-    
     func update(item: Materials) {}
     
     func count() -> Int {
@@ -82,5 +62,94 @@ class NewsAdapter: ListAdapterProtocal {
     
     func clear(reload: Bool) {
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+            
+        case 0:     return 420
+        case 1:
+            if (list?[indexPath.row].type == "images") {
+                return 347
+            } else if (list?[indexPath.row].type == "videos") {
+                return 349
+            } else if (list?[indexPath.row].type == "articles") {
+                return 370
+            } else { return 150 }
+            
+        default:    return 0
+            
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:     return 1
+        case 1:     return count()
+        default:    return 0
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0: //Slider
+            guard let  cell = tableView.dequeueReusableCell(
+                withIdentifier: "SliderTableViewCell")
+                as? SliderTableViewCell else { fatalError("slider cell empty") }
+            cell.frame = tableView.bounds
+            cell.layoutIfNeeded()
+            cell.configurTableViewCell(sliderArray: sliderList)
+            cell.reloadCollectionView()
+            return cell
+        case 1://first cells
+            let materialsObj = list?[indexPath.row]
+            if(materialsObj?.type == "images") {
+                guard  let cell: ImagesTableViewCell = tableView.dequeueReusableCell(
+                    withIdentifier: "ImagesTableViewCell",
+                    for: indexPath) as? ImagesTableViewCell else { fatalError("image cell empty") }
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+               
+                cell.configurTableViewCell(imagesArray: imagesList)
+                cell.reloadCollectionView()
+                return cell
+            } else  if(materialsObj?.type == "videos") {
+                guard let cell: VideosTableViewCell = tableView.dequeueReusableCell(
+                    withIdentifier: "VideosTableViewCell",
+                    for: indexPath) as? VideosTableViewCell else { fatalError("videos cell empty") }
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+                cell.configurTableViewCell(videosArray: videosList)
+                cell.reloadCollectionView()
+                return cell
+            } else  if(materialsObj?.type == "articles") {
+                guard  let cell: ArticlesTableViewCell = tableView.dequeueReusableCell(
+                    withIdentifier: "ArticlesTableViewCell",
+                    for: indexPath) as? ArticlesTableViewCell else { fatalError("articles cell empty") }
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+                cell.configurTableViewCell(articlesArray: articlesList)
+                cell.reloadCollectionView()
+                return cell
+            } else {
+                guard let  cell = tableView.dequeueReusableCell(
+                    withIdentifier: "HomeTableViewCell",
+                    for: indexPath) as? HomeTableViewCell else { fatalError("home cell empty") }
+                
+                cell.configur(materials: materialsObj ?? Materials(type: "news"))
+                return cell
+            }
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
     }
 }

@@ -29,7 +29,7 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
             case .success(let sliderResponse):
                 
                 //print(sliderResponse)
-                self.view?.getSlider(array: sliderResponse as? [Slider] ?? [] )
+                self.view?.setSlider(array: sliderResponse as? [Slider] ?? [] )
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -42,7 +42,7 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
             case .success(let materialResponse):
                 
                 // print(materialResponse)
-                self.view?.getMaterial(array: materialResponse as? [Materials] ?? [])
+                self.view?.setMaterial(array: materialResponse as? [Materials] ?? [])
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -55,7 +55,7 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
             case .success(let imagesResponse):
                 
                 // print(imagesResponse)
-                self.view?.getImages(array: imagesResponse as? [Comics] ?? [])
+                self.view?.setImages(array: imagesResponse as? [Comics] ?? [])
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -69,7 +69,7 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
             case .success(let videosResponse):
                 
                 // print(videosResponse)
-                self.view?.getVideos(array: videosResponse as? [Comics] ?? [])
+                self.view?.setVideos(array: videosResponse as? [Comics] ?? [])
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -81,7 +81,7 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
         model?.getArticlesResponse { result in
             switch result {
             case .success(let articlesResponse):
-                self.view?.getArticles(array: articlesResponse as? [Materials] ?? [])
+                self.view?.setArticles(array: articlesResponse as? [Materials] ?? [])
             case .failure(let error):
                 print(error.localizedDescription)
             }
