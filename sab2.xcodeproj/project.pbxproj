@@ -28,6 +28,7 @@
 		CE02D4152369E34D00E30C48 /* SectionsScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02D4132369E34D00E30C48 /* SectionsScreenViewController.xib */; };
 		CE02D4182369E4FE00E30C48 /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D4162369E4FE00E30C48 /* SearchScreenViewController.swift */; };
 		CE02D4192369E4FE00E30C48 /* SearchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02D4172369E4FE00E30C48 /* SearchScreenViewController.xib */; };
+		CE02D41D2369E96400E30C48 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE02D41C2369E96400E30C48 /* Localizable.strings */; };
 		CE05CE7A235DAF1E009355A9 /* SliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE78235DAF1E009355A9 /* SliderTableViewCell.swift */; };
 		CE05CE7B235DAF1E009355A9 /* SliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE05CE79235DAF1E009355A9 /* SliderTableViewCell.xib */; };
 		CE05CE90235DEE6F009355A9 /* StaticHeaderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05CE8F235DEE6F009355A9 /* StaticHeaderPlugin.swift */; };
@@ -131,6 +132,7 @@
 		CE02D4132369E34D00E30C48 /* SectionsScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionsScreenViewController.xib; sourceTree = "<group>"; };
 		CE02D4162369E4FE00E30C48 /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		CE02D4172369E4FE00E30C48 /* SearchScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchScreenViewController.xib; sourceTree = "<group>"; };
+		CE02D41C2369E96400E30C48 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CE05CE78235DAF1E009355A9 /* SliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
 		CE05CE79235DAF1E009355A9 /* SliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderTableViewCell.xib; sourceTree = "<group>"; };
 		CE05CE8F235DEE6F009355A9 /* StaticHeaderPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticHeaderPlugin.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				84476B8F2358295E00DF393F /* Assets.xcassets */,
+				CE02D41C2369E96400E30C48 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				CE0E1614235C5A5400ACDD7D /* HomeTableViewCell.xib in Resources */,
 				84476B902358295E00DF393F /* Assets.xcassets in Resources */,
 				CE15883123654E3F009E758E /* ArticlesCollectionViewCell.xib in Resources */,
+				CE02D41D2369E96400E30C48 /* Localizable.strings in Resources */,
 				CE00CE7A236224E800C089A3 /* VideosCollectionViewCell.xib in Resources */,
 				CE02D4102369E2C600E30C48 /* ChoicesScreenViewController.xib in Resources */,
 				CE05CE7B235DAF1E009355A9 /* SliderTableViewCell.xib in Resources */,

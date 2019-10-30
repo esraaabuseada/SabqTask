@@ -24,22 +24,22 @@ var listModule = ListModule()
             tabsViewCotroller: HomeScreenViewController() ,
             selected: #imageLiteral(resourceName: "ic_newspaper_active"),
             unselected: #imageLiteral(resourceName: "ic_newspaper"),
-            title: "news")
+            title: NSLocalizedString("news", comment: ""))
         let searchController = createNaveController( tabsViewCotroller: SearchScreenViewController(),
                                                      selected: #imageLiteral(resourceName: "ic_search_active"),
                                                      unselected: #imageLiteral(resourceName: "ic_search"),
-                                                     title: "search")
+                                                     title: NSLocalizedString("search", comment: ""))
         let popularController = createNaveController( tabsViewCotroller: PopularsScreenViewController(),
                                                       selected: #imageLiteral(resourceName: "ic_star_active"),
                                                       unselected: #imageLiteral(resourceName: "ic_star"),
-                                                      title: "pop")
+                                                      title: NSLocalizedString("popular", comment: ""))
         let sectionsController = createNaveController( tabsViewCotroller: SectionsScreenViewController(),
                                                        selected: #imageLiteral(resourceName: "ic_list_active"),
                                                        unselected: #imageLiteral(resourceName: "ic_list"),
-                                                       title: "sections")
+                                                       title: NSLocalizedString("sections", comment: ""))
         let choicesController = createNaveController( tabsViewCotroller: ChoicesScreenViewController(),
                                                       selected: #imageLiteral(resourceName: "ic_bookmark_active"),
-                                                      unselected: #imageLiteral(resourceName: "ic_save_1"), title: "choices")
+                                                      unselected: #imageLiteral(resourceName: "ic_save_1"), title:  NSLocalizedString("choices", comment: ""))
         
         viewControllers = [choicesController,
                            searchController,
