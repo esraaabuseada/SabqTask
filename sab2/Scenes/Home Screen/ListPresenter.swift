@@ -8,61 +8,69 @@
 
 import Foundation
 
-class ListPresenter: BasePresenter,ListPresenterProtocal {
-    
-    
-    
+class ListPresenter: BasePresenter, ListPresenterProtocal {
     var model: ListModelProtocal?
     var view: ListViewProtocal?
     var currentPage: Int = 1
     
-   
-    init(viewProtocole :ListViewProtocal , modelProtocol: ListModelProtocal ){
-    
+    init(viewProtocole: ListViewProtocal, modelProtocol: ListModelProtocal ) {
         view = viewProtocole
         model = modelProtocol
-  
+        
     }
     
     required init(view: BaseViewProtocal, model: BaseModelProtocal) {
         fatalError("init(view:model:) has not been implemented")
     }
-    
-    
-    
-    func loadSlider() -> [Slider] {
-        model?.getSliderResponse(forPage: currentPage) { result in
-            switch result {
-            case .success(let sliderResponse):
+    func loadResponse() {
+        model?.getResponse(forPage: currentPage) { success in
+            if success {
+                let sliderArray = self.model?.getSlider()
+                self.view?.setSlider(array: sliderArray ?? [] )
+                let materialsArray = self.model?.getMaterials()
+                self.view?.setMaterial(array: materialsArray ?? [])
                 
-                print(sliderResponse)
-                self.view?.getSlider(array: sliderResponse as! [Slider] )
+            } else {
+                print("error")
+            }
+            
+        }
+    }
+    func loadImage() {
+        model?.getImagesResponse { result in
+            switch result {
+            case .success(let imagesResponse):
+                
+                // print(imagesResponse)
+                self.view?.setImages(array: imagesResponse as? [Comics] ?? [])
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
     
-    func loadMaterial() -> [Materials] {
-        model?.getSliderResponse(forPage: currentPage) { result in
+    func loadVideos() {
+        model?.getVideosResponse { result in
             switch result {
-            case .success(let materialResponse):
+            case .success(let videosResponse):
+                self.view?.setVideos(array: videosResponse as? [Comics] ?? [])
                 
-                print(materialResponse)
-                self.view?.getMaterial(array: materialResponse as! [Materials] )
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
+    
+    func loadArticles() {
+        model?.getArticlesResponse { result in
+            switch result {
+            case .success(let articlesResponse):
+                self.view?.setArticles(array: articlesResponse as? [Materials] ?? [])
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }
-    
-
-
-
-
-
-
-
-
-

@@ -9,24 +9,49 @@
 import UIKit
 
 class SliderCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var sliderImageView: UIImageView!
     
-    @IBOutlet weak var sliderBigTittle: UILabel!
-    @IBOutlet weak var sliderDescription: UILabel!
-    @IBOutlet weak var timeImageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var iconhotImageView: UIImageView!
-    @IBOutlet weak var statisticsLabel: UILabel!
-    @IBOutlet weak var bokmarkImageview: NSLayoutConstraint!
+    @IBOutlet weak private var sliderImageView: UIImageView!
+    @IBOutlet weak private var sliderBigTittle: UILabel!
+    @IBOutlet weak private var sliderDescription: UILabel!
+    @IBOutlet weak private var timeImageView: UIImageView!
+    @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var iconhotImageView: UIImageView!
+    @IBOutlet weak private var statisticsLabel: UILabel!
     
-    class var sliderCollectionViewCustomCell : SliderCollectionViewCell {
-        let cell = Bundle.main.loadNibNamed("SliderCollectionViewCell", owner: self, options: nil)?.last
-        return cell as! SliderCollectionViewCell
-    }
+    let placeHolderImage = #imageLiteral(resourceName: "logo")
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-   
+    func configur(slioderObj: Slider) {
+        let  imageURL = slioderObj.coverPhoto
+        let secondryTitle = slioderObj.secondaryTitle ?? " "
+        let description = slioderObj.description ?? " "
+        let date = slioderObj.publishDate ?? " "
+        var asDate: Date {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm ss"
+            return formatter.date(from: date) ?? Date()
+        }
+        let timeApart = asDate.timeAgoSinceNow
+        let noOfViews = slioderObj.noOfViews ?? 0
+        if let apiUrl: URL = URL(string: imageURL ?? "" ) {
+            sliderImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
+        } else {
+            sliderImageView.image = placeHolderImage
+        }
+        sliderBigTittle.text = secondryTitle
+        guard  let data = description.data(using: String.Encoding.unicode) else {
+            fatalError("nodata")
+        }
+        let attrStr = try? NSAttributedString(
+            data: data,
+            options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
+            documentAttributes: nil)
+        sliderDescription .attributedText = attrStr
+        statisticsLabel.text = "\(noOfViews)"
+        dateLabel.text = timeApart
+    
+    }
 }

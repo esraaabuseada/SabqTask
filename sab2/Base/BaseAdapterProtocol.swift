@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol BaseAdapterProtocal:class {
+protocol BaseAdapterProtocal: class {
     associatedtype DataType
     //    associatedtype AdapterDelegate where AdapterDelegate:listAdapterDelegate
-    var list: [DataType]? { get set}
+    var list: [DataType]? { get set }
     
     //    var delegate:AdapterDelegate? { get set }
     
-    var reloadData:(() -> Void)? { get set}
+    var reloadData:(() -> Void)? { get set }
     
-    var showEmptyState: ((Bool) -> Void)? { get set}
+    var showEmptyState: ((Bool) -> Void)? { get set }
     
     func add(item: DataType)
     func add(items: [DataType])

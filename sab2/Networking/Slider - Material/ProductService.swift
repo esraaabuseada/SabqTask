@@ -12,10 +12,13 @@ import Moya
 //swiftlint:disable  force_unwrapping
 
 enum  ListService {
-    case slider_material( page : Int)
+    case sliderMaterial( page : Int)
+    case videos
+    case images
+    case articles
     
 }
-//https://sabq.org/api/material/homepage-light-version/
+
 extension ListService: TargetType {
     var baseURL: URL {
         
@@ -24,32 +27,65 @@ extension ListService: TargetType {
     
     var path: String {
         switch self {
-        case .slider_material:
+        case .sliderMaterial:
             return "/material/homepage-light-version"
+        case .videos:
+            return "/studio/list-studio"
+        case .images:
+            return "/studio/list-studio"
+        case .articles:
+            return "/material/articles"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .slider_material:
+        case .sliderMaterial:
+            return .get
+        case .videos:
+            return .get
+        case .images:
+            return .get
+        case .articles:
             return .get
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .slider_material:
+        case .sliderMaterial:
+            return Data()
+        case .videos:
+            return Data()
+        case .images:
+            return Data()
+        case .articles:
             return Data()
         }
     }
     
     var task: Task {        
         switch self {
-        case .slider_material(let page) :
-			return .requestParameters(
-                parameters: ["page":page],
-				encoding: URLEncoding.default)
+        case .sliderMaterial(let page) :
+            return .requestParameters(
+                parameters: ["page": page],
+                encoding: URLEncoding.default)
+        case .videos :
+            return .requestParameters(
+                parameters: ["type": "video"],
+                encoding: URLEncoding.default)
+            
+        case .images :
+            return .requestParameters(
+                parameters: ["type": "image"],
+                encoding: URLEncoding.default)
+        case .articles :
+            return .requestParameters(
+                parameters: [:],
+                encoding: URLEncoding.default)
+            
         }
+        
     }
     
     var headers: [String: String]? {

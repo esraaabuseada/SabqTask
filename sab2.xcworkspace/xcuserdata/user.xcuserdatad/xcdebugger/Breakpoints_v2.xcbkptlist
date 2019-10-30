@@ -9,29 +9,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "sab2/Networking/Slider - Material/NetworkService+ActorsService.swift"
-            timestampString = "593365465.4509161"
+            filePath = "sab2/Scenes/Home Screen/Collection Views/ArticlesTableViewCell.swift"
+            timestampString = "594145276.058951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "getSlider_MaterialResponse(pageNumber:completion:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "setSelected(_:animated:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "sab2/Networking/Slider - Material/NetworkService+ActorsService.swift"
-            timestampString = "593365465.450991"
+            filePath = "sab2/Scenes/Home Screen/ListAdapters/NewsAdapter.swift"
+            timestampString = "594145276.059014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "getSlider_MaterialResponse(pageNumber:completion:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "addSlider(items:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sab2/Scenes/Home Screen/ListAdapters/NewsAdapter.swift"
+            timestampString = "594145276.059069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "add(items:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

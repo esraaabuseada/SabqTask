@@ -10,27 +10,31 @@ import Foundation
 
 protocol ListPresenterProtocal: BasePresenterProtocol {
     
-    var currentPage:Int { get set }
+    var currentPage: Int { get set }
     
-    func loadSlider()->[Slider]
-    func loadMaterial()->[Materials]
-    
-    
+    func loadImage()
+    func loadVideos()
+    func loadArticles()
+    func loadResponse()
 }
 
-protocol ListViewProtocal:BaseViewProtocal {
-    func getSlider(array: [Slider])
-    func getMaterial(array: [Materials])
+protocol ListViewProtocal: BaseViewProtocal {
+    func setSlider(array: [Slider])
+    func setMaterial(array: [Materials])
+    func setVideos(array: [Comics])
+    func setImages(array: [Comics])
+    func setArticles(array: [Materials])
+}
+
+protocol ListModelProtocal: BaseModelProtocal {
+    func getVideosResponse( compelation: @escaping (Result<Any, Error>) -> Void)
+    func getImagesResponse( compelation: @escaping (Result<Any, Error>) -> Void)
+    func getArticlesResponse( compelation: @escaping (Result<Any, Error>) -> Void)
+ func getResponse(forPage page: Int, compelation: @escaping (Bool) -> Void)
+   func  getMaterials() -> [Materials]
+     func getSlider() -> [Slider]
+}
+
+protocol ListAdapterProtocal: BaseAdapterProtocal {
     
 }
-
-protocol ListModelProtocal:BaseModelProtocal {
-    func getSliderResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
-     func getMaterialResponse(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
-}
-
-
-protocol ListAdapterProtocal:BaseAdapterProtocal  {
-    
-}
-

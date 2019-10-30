@@ -18,7 +18,7 @@ protocol ViewLoadable {
     
     // MARK: - Load Indicator
     @objc
-    optional func showLoading(allowNavigation:Bool)
+    optional func showLoading(allowNavigation: Bool)
     @objc
     optional func hideLoading()
 }
@@ -28,7 +28,7 @@ protocol ViewFetchable {
     
     // MARK: - Load Data
     @objc
-    optional func loadDataSuccess(date:Any)
+    optional func loadDataSuccess(date: Any)
     @objc
     optional func loadDataFailed(with error: Error?)
     
