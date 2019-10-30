@@ -21,25 +21,27 @@ struct Materials: Codable {
     let coverPhoto: String?
     var type = "news"
     let authorImg: String?
+    let parentCategoryName: String?
+    let videosCount: Int?
+    let noOfViews: Int?
+    let authorName: String?
     
     //let publishDateHijryDate : String?
     //    let updateDate : String?
     //    let updateDateHijryDate : String?
     //    let categoryName : String?
-    //    let parentCategoryName : String?
-    
     //    let coverPhotoCaption : String?
-    //    let authorName : String?
+    
     //    let url : String?
     //    let materialType : String?
     
     //    let authorCity : String?
     //    let multipleAuthors : Bool?
     //    let imagesCount : Int?
-    let videosCount : Int?
+    
     //    let noOfLikes : Int?
     //    let noOfShares : Int?
-    //    let noOfViews : Int?
+    
     //    let noOfComments : Int?
     //    let liked : Bool?
     //    let readLater : Bool?
@@ -69,25 +71,27 @@ struct Materials: Codable {
         case description
         case publishDate
         case coverPhoto
-        case authorImg 
+        case authorImg
+        case parentCategoryName
+        case videosCount
+        case noOfViews
+       case authorName
         //        case publishDateHijryDate = "publishDateHijryDate"
         //        case updateDate = "updateDate"
         //        case updateDateHijryDate = "updateDateHijryDate"
         //        case categoryName = "categoryName"
-        //        case parentCategoryName = "parentCategoryName"
-        
         //        case coverPhotoCaption = "coverPhotoCaption"
-        //        case authorName = "authorName"
+        
         //        case url = "url"
         //        case materialType = "materialType"
         
         //        case authorCity = "authorCity"
         //        case multipleAuthors = "multipleAuthors"
         //        case imagesCount = "imagesCount"
-        case videosCount
+        
         //        case noOfLikes = "noOfLikes"
         //        case noOfShares = "noOfShares"
-        //        case noOfViews = "noOfViews"
+        
         //        case noOfComments = "noOfComments"
         //        case liked = "liked"
         //        case readLater = "readLater"
@@ -118,24 +122,27 @@ struct Materials: Codable {
         description = try values.decodeIfPresent(String.self, forKey: .description)
         publishDate = try values.decodeIfPresent(String.self, forKey: .publishDate)
         coverPhoto = try values.decodeIfPresent(String.self, forKey: .coverPhoto)
+        parentCategoryName = try values.decodeIfPresent(String.self, forKey: .parentCategoryName)
+        authorImg = try values.decodeIfPresent(String.self, forKey: .authorImg)
+        videosCount = try values.decodeIfPresent(Int.self, forKey: .videosCount)
+        noOfViews = try values.decodeIfPresent(Int.self, forKey: .noOfViews)
+       authorName = try values.decodeIfPresent(String.self, forKey: .authorName)
         //        publishDateHijryDate = try values.decodeIfPresent(String.self, forKey: .publishDateHijryDate)
         //        updateDate = try values.decodeIfPresent(String.self, forKey: .updateDate)
         //        updateDateHijryDate = try values.decodeIfPresent(String.self, forKey: .updateDateHijryDate)
         //        categoryName = try values.decodeIfPresent(String.self, forKey: .categoryName)
-        //        parentCategoryName = try values.decodeIfPresent(String.self, forKey: .parentCategoryName)
-        
         //        coverPhotoCaption = try values.decodeIfPresent(String.self, forKey: .coverPhotoCaption)
-        //        authorName = try values.decodeIfPresent(String.self, forKey: .authorName)
+        
         //        url = try values.decodeIfPresent(String.self, forKey: .url)
         //        materialType = try values.decodeIfPresent(String.self, forKey: .materialType)
-        authorImg = try values.decodeIfPresent(String.self, forKey: .authorImg)
+        
         //        authorCity = try values.decodeIfPresent(String.self, forKey: .authorCity)
         //        multipleAuthors = try values.decodeIfPresent(Bool.self, forKey: .multipleAuthors)
         //        imagesCount = try values.decodeIfPresent(Int.self, forKey: .imagesCount)
-        videosCount = try values.decodeIfPresent(Int.self, forKey: .videosCount)
+        
         //        noOfLikes = try values.decodeIfPresent(Int.self, forKey: .noOfLikes)
         //        noOfShares = try values.decodeIfPresent(Int.self, forKey: .noOfShares)
-        //        noOfViews = try values.decodeIfPresent(Int.self, forKey: .noOfViews)
+        
         //        noOfComments = try values.decodeIfPresent(Int.self, forKey: .noOfComments)
         //        liked = try values.decodeIfPresent(Bool.self, forKey: .liked)
         //        readLater = try values.decodeIfPresent(Bool.self, forKey: .readLater)
@@ -168,6 +175,9 @@ struct Materials: Codable {
         coverPhoto = "coverPhoto"
         authorImg = "authorImg"
         videosCount = 0
+        parentCategoryName = "parentCategoryName"
+        noOfViews = 0
+        authorName = "authorName"
     }
     
 }

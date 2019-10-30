@@ -8,10 +8,7 @@
 
 import UIKit
 
-class ArticlesTableViewCell:
-UITableViewCell, UICollectionViewDataSource,
-UICollectionViewDelegate,
-UICollectionViewDelegateFlowLayout {
+class ArticlesTableViewCell: UITableViewCell {
     @IBOutlet weak private var articlesCollectionView: UICollectionView!
     var articlesAdapter = ArticlesAdapter()
     override func awakeFromNib() {
@@ -19,11 +16,11 @@ UICollectionViewDelegateFlowLayout {
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
         self.articlesCollectionView.collectionViewLayout = flowLayout
-        self.articlesCollectionView.dataSource = self
-        self.articlesCollectionView.delegate = self
+        self.articlesCollectionView.dataSource = articlesAdapter
+        self.articlesCollectionView.delegate = articlesAdapter
         
         let cellNib = UINib(nibName: "ArticlesCollectionViewCell", bundle: nil)
         self.articlesCollectionView.register(cellNib, forCellWithReuseIdentifier: "ArticlesCollectionViewCell")
@@ -38,38 +35,7 @@ UICollectionViewDelegateFlowLayout {
     func reloadCollectionView() {
         articlesCollectionView.reloadData()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        _ = articlesAdapter.count()
-        
-        return articlesAdapter.count()
-    }
-    
-    func collectionView (
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard  let collectionCell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: "ArticlesCollectionViewCell",
-        for: indexPath) as? ArticlesCollectionViewCell
-            else {
-           fatalError("cell empty")
-        }
-       
-        let articlesObj = articlesAdapter.getArticlesObj(index: indexPath.row)
-        
-        collectionCell.configur(articlesObj: articlesObj)
-       return collectionCell
-        
-    }
-    
-    func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width / 4,
-                      height: collectionView.frame.size.width / 2)
-    }
-    
+
     func configurTableViewCell(articlesArray: [Materials]) {
         articlesAdapter.add(items: articlesArray)
       

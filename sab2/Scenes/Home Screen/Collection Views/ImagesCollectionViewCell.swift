@@ -22,12 +22,25 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     }
     func configur(imagesObj: Comics) {
         let  imageURL = imagesObj.coverPhoto
-        print(imageURL ?? "")
+         let publishDate = imagesObj.publishDate ?? " "
+       
         if let apiUrl: URL = URL(string: imageURL ?? "") {
             coverPhoto.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
         } else {
              coverPhoto.image = placeHolderImage
         }
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        
+        if let date = dateFormatterGet.date(from: publishDate ) {
+           timeLabel.text = "\(date)"
+        } else {
+            print("There was an error decoding the string")
+        }
+        titleLabel.text = imagesObj.title
+
     }
 }

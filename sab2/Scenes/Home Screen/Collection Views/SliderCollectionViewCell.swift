@@ -9,7 +9,7 @@
 import UIKit
 
 class SliderCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak private var sliderImageView: UIImageView!
     @IBOutlet weak private var sliderBigTittle: UILabel!
     @IBOutlet weak private var sliderDescription: UILabel!
@@ -17,9 +17,9 @@ class SliderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var dateLabel: UILabel!
     @IBOutlet weak private var iconhotImageView: UIImageView!
     @IBOutlet weak private var statisticsLabel: UILabel!
-   
-     let placeHolderImage = #imageLiteral(resourceName: "logo")
-
+    
+    let placeHolderImage = #imageLiteral(resourceName: "logo")
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,27 +29,29 @@ class SliderCollectionViewCell: UICollectionViewCell {
         let secondryTitle = slioderObj.secondaryTitle ?? " "
         let description = slioderObj.description ?? " "
         let date = slioderObj.publishDate ?? " "
-        print(imageURL ?? "" )
+        var asDate: Date {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm ss"
+            return formatter.date(from: date) ?? Date()
+        }
+        let timeApart = asDate.timeAgoSinceNow
+        let noOfViews = slioderObj.noOfViews ?? 0
         if let apiUrl: URL = URL(string: imageURL ?? "" ) {
             sliderImageView.sd_setImage(with: apiUrl, placeholderImage: placeHolderImage)
         } else {
             sliderImageView.image = placeHolderImage
         }
-        
         sliderBigTittle.text = secondryTitle
-        sliderBigTittle.lineBreakMode = .byClipping
-        
         guard  let data = description.data(using: String.Encoding.unicode) else {
             fatalError("nodata")
-        } // mind "!"
-        let attrStr = try? NSAttributedString( // do catch
+        }
+        let attrStr = try? NSAttributedString(
             data: data,
             options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil)
-        // suppose we have an UILabel, but any element with NSAttributedString will do
-       sliderDescription .attributedText = attrStr
-        
+        sliderDescription .attributedText = attrStr
+        statisticsLabel.text = "\(noOfViews)"
+        dateLabel.text = timeApart
     
-        
     }
 }

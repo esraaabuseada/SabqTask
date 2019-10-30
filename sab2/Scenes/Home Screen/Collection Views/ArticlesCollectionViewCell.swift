@@ -28,6 +28,8 @@ class ArticlesCollectionViewCell: UICollectionViewCell {
         } else {
             userImageView.image = placeHolderImage
         }
+        titleLabel.text = articlesObj.title
+        subTitleLabel.text = articlesObj.authorName
         
     }
 

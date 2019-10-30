@@ -8,10 +8,7 @@
 
 import UIKit
 
-class ImagesTableViewCell: UITableViewCell,
-    UICollectionViewDataSource,
-    UICollectionViewDelegate,
-UICollectionViewDelegateFlowLayout {
+class ImagesTableViewCell: UITableViewCell {
     @IBOutlet weak private var imagesCollectionView: UICollectionView!
     var imagesAdapter = ImagesAdapter()
     
@@ -20,11 +17,11 @@ UICollectionViewDelegateFlowLayout {
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 3
+        flowLayout.minimumInteritemSpacing = 3
         self.imagesCollectionView.collectionViewLayout = flowLayout
-        self.imagesCollectionView.dataSource = self
-        self.imagesCollectionView.delegate = self
+        self.imagesCollectionView.dataSource = imagesAdapter
+        self.imagesCollectionView.delegate = imagesAdapter
         
         let cellNib = UINib(nibName: "ImagesCollectionViewCell", bundle: nil)
         self.imagesCollectionView.register(cellNib, forCellWithReuseIdentifier: "ImagesCollectionViewCell")
@@ -40,30 +37,6 @@ UICollectionViewDelegateFlowLayout {
         imagesCollectionView.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        _ = imagesAdapter.count()
-        return imagesAdapter.count()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let  collectionCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "ImagesCollectionViewCell" ,
-            for: indexPath) as? ImagesCollectionViewCell  else {
-            fatalError("cell empty")
-        }
-        
-        let imagesObj = imagesAdapter.getImagessObj(index: indexPath.row)
-        collectionCell.configur(imagesObj: imagesObj)
-        return collectionCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width,
-                      height: collectionView.frame.size.height + 70)
-    }
     func configurTableViewCell(imagesArray: [Comics]) {
         imagesAdapter.add(items: imagesArray)
         

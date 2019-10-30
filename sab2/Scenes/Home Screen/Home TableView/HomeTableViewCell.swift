@@ -33,9 +33,15 @@ class HomeTableViewCell: UITableViewCell {
     func configur(materials: Materials) {
         let  imageURL = materials.coverPhoto ?? " "
         let videosCount = materials.videosCount ?? 0
-        let  bluelabel = materials.title
-        let description = materials.description ?? " "
+        let  bluelabel = materials.parentCategoryName
         let date = materials.publishDate ?? " "
+         let noOfViews = materials.noOfViews ?? 0
+        var asDate: Date {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm ss"
+            return formatter.date(from: date) ?? Date()
+        }
+        let timeApart = asDate.timeAgoSinceNow
         if ( videosCount > 0 ) {
             playImageView.isHidden = false
         } else {
@@ -48,21 +54,17 @@ class HomeTableViewCell: UITableViewCell {
             newsImageView.image = placeHolderImage
         }
         
-//        if (bluelabel?.isEmpty ?? true ) {
-//            newsBlueLabel.isHidden = true
-//        } else {
-//            newsBlueLabel.isHidden = false
-//            newsBlueLabel.text = "ffff"
-//        }
-    newsBlueLabel.text = bluelabel
-        guard  let data = description.data(using: String.Encoding.unicode) else {
-            fatalError("nodata")
-        } // mind "!"
-        let attrStr = try? NSAttributedString( // do catch
-            data: data,
-            options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil)
-        // suppose we have an UILabel, but any element with NSAttributedString will do
-        postTitleLabel.attributedText = attrStr
+        if (bluelabel?.isEmpty ?? true ) {
+            newsBlueLabel.isHidden = true
+        } else {
+            newsBlueLabel.isHidden = false
+            newsBlueLabel.text = bluelabel
+        }
+        
+        postTitleLabel.text = materials.title
+     
+        dateLabel.text = timeApart
+        statisticsLabel.text = "\(noOfViews)"
     }
+    
 }

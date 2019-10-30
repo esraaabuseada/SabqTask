@@ -12,11 +12,10 @@ protocol ListPresenterProtocal: BasePresenterProtocol {
     
     var currentPage: Int { get set }
     
-    func loadSlider()
-    func loadMaterial()
     func loadImage()
     func loadVideos()
     func loadArticles()
+    func loadResponse()
 }
 
 protocol ListViewProtocal: BaseViewProtocal {
@@ -28,11 +27,12 @@ protocol ListViewProtocal: BaseViewProtocal {
 }
 
 protocol ListModelProtocal: BaseModelProtocal {
-    func getSliderResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void)
-    func getMaterialResponse(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void)
     func getVideosResponse( compelation: @escaping (Result<Any, Error>) -> Void)
     func getImagesResponse( compelation: @escaping (Result<Any, Error>) -> Void)
     func getArticlesResponse( compelation: @escaping (Result<Any, Error>) -> Void)
+ func getResponse(forPage page: Int, compelation: @escaping (Bool) -> Void)
+   func  getMaterials() -> [Materials]
+     func getSlider() -> [Slider]
 }
 
 protocol ListAdapterProtocal: BaseAdapterProtocal {

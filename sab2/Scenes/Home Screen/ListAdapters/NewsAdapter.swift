@@ -24,7 +24,7 @@ UITableViewDataSource {
     func add(item: Materials) {}
     
     func add(items: [Materials]) {
-     list = items
+        list = items
         
         reloadData?()
     }
@@ -45,7 +45,7 @@ UITableViewDataSource {
     
     func addArticles(items: [Materials]) {
         articlesList = items
-        reloadData?()
+       reloadData?()
     }
     
     func update(item: Materials) {}
@@ -72,10 +72,10 @@ UITableViewDataSource {
             if (list?[indexPath.row].type == "images") {
                 return 347
             } else if (list?[indexPath.row].type == "videos") {
-                return 349
+                return 348
             } else if (list?[indexPath.row].type == "articles") {
                 return 370
-            } else { return 150 }
+            } else { return UITableView.automaticDimension }
             
         default:    return 0
             
@@ -101,8 +101,8 @@ UITableViewDataSource {
             guard let  cell = tableView.dequeueReusableCell(
                 withIdentifier: "SliderTableViewCell")
                 as? SliderTableViewCell else { fatalError("slider cell empty") }
-            cell.frame = tableView.bounds
-            cell.layoutIfNeeded()
+//            cell.frame = tableView.bounds
+//            cell.layoutIfNeeded()
             cell.configurTableViewCell(sliderArray: sliderList)
             cell.reloadCollectionView()
             return cell
@@ -112,29 +112,29 @@ UITableViewDataSource {
                 guard  let cell: ImagesTableViewCell = tableView.dequeueReusableCell(
                     withIdentifier: "ImagesTableViewCell",
                     for: indexPath) as? ImagesTableViewCell else { fatalError("image cell empty") }
-                cell.frame = tableView.bounds
-                cell.layoutIfNeeded()
+//                cell.frame = tableView.bounds
+//                cell.layoutIfNeeded()
                
                 cell.configurTableViewCell(imagesArray: imagesList)
-                cell.reloadCollectionView()
+                //cell.reloadCollectionView()
                 return cell
             } else  if(materialsObj?.type == "videos") {
                 guard let cell: VideosTableViewCell = tableView.dequeueReusableCell(
                     withIdentifier: "VideosTableViewCell",
                     for: indexPath) as? VideosTableViewCell else { fatalError("videos cell empty") }
-                cell.frame = tableView.bounds
-                cell.layoutIfNeeded()
+//                cell.frame = tableView.bounds
+//                cell.layoutIfNeeded()
                 cell.configurTableViewCell(videosArray: videosList)
-                cell.reloadCollectionView()
+                //cell.reloadCollectionView()
                 return cell
             } else  if(materialsObj?.type == "articles") {
                 guard  let cell: ArticlesTableViewCell = tableView.dequeueReusableCell(
                     withIdentifier: "ArticlesTableViewCell",
                     for: indexPath) as? ArticlesTableViewCell else { fatalError("articles cell empty") }
-                cell.frame = tableView.bounds
-                cell.layoutIfNeeded()
+//                cell.frame = tableView.bounds
+//                cell.layoutIfNeeded()
                 cell.configurTableViewCell(articlesArray: articlesList)
-                cell.reloadCollectionView()
+                //cell.reloadCollectionView()
                 return cell
             } else {
                 guard let  cell = tableView.dequeueReusableCell(

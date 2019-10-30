@@ -22,33 +22,20 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
     required init(view: BaseViewProtocal, model: BaseModelProtocal) {
         fatalError("init(view:model:) has not been implemented")
     }
-    
-    func loadSlider() {
-        model?.getSliderResponse(forPage: currentPage) { result in
-            switch result {
-            case .success(let sliderResponse):
+    func loadResponse() {
+        model?.getResponse(forPage: currentPage) { success in
+            if success {
+                let sliderArray = self.model?.getSlider()
+                self.view?.setSlider(array: sliderArray ?? [] )
+                let materialsArray = self.model?.getMaterials()
+                self.view?.setMaterial(array: materialsArray ?? [])
                 
-                //print(sliderResponse)
-                self.view?.setSlider(array: sliderResponse as? [Slider] ?? [] )
-            case .failure(let error):
-                print(error.localizedDescription)
+            } else {
+                print("error")
             }
+            
         }
     }
-    
-    func loadMaterial() {
-        model?.getMaterialResponse(forPage: currentPage) { result in
-            switch result {
-            case .success(let materialResponse):
-                
-                // print(materialResponse)
-                self.view?.setMaterial(array: materialResponse as? [Materials] ?? [])
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
     func loadImage() {
         model?.getImagesResponse { result in
             switch result {
@@ -67,8 +54,6 @@ class ListPresenter: BasePresenter, ListPresenterProtocal {
         model?.getVideosResponse { result in
             switch result {
             case .success(let videosResponse):
-                
-                // print(videosResponse)
                 self.view?.setVideos(array: videosResponse as? [Comics] ?? [])
                 
             case .failure(let error):

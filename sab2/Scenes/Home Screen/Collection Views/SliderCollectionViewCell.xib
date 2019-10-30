@@ -28,26 +28,26 @@
                                     <constraint firstAttribute="height" constant="241" id="zPk-yh-MwZ"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_time" translatesAutoresizingMaskIntoConstraints="NO" id="eTY-QL-UnX">
-                                <rect key="frame" x="340" y="403" width="15" height="15"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="ic_time" translatesAutoresizingMaskIntoConstraints="NO" id="eTY-QL-UnX">
+                                <rect key="frame" x="335" y="403" width="15" height="15"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="منذ ساعة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qn1-LB-yxN">
-                                <rect key="frame" x="280" y="403" width="54" height="14.5"/>
+                                <rect key="frame" x="280" y="403" width="53" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_views_icon_hot" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-2s-Gce">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="ic_views_icon_hot" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-2s-Gce">
                                 <rect key="frame" x="247" y="402" width="11" height="15"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="١٢٣٤٥" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-5h-U0w">
-                                <rect key="frame" x="185" y="402" width="54" height="14.5"/>
+                                <rect key="frame" x="180" y="402" width="57" height="14.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bB-hE-Drb">
-                                <rect key="frame" x="8" y="397" width="60" height="24"/>
+                                <rect key="frame" x="8" y="397" width="19" height="24"/>
                                 <state key="normal" image="ic_bookmark"/>
                             </button>
                         </subviews>
@@ -56,19 +56,18 @@
                             <constraint firstItem="Tdh-Dd-i32" firstAttribute="leading" secondItem="J03-ey-yIJ" secondAttribute="leading" id="13s-xe-eb4"/>
                             <constraint firstItem="Tdh-Dd-i32" firstAttribute="top" secondItem="J03-ey-yIJ" secondAttribute="top" id="1OK-eC-sGB"/>
                             <constraint firstItem="8s8-2s-Gce" firstAttribute="top" secondItem="J03-ey-yIJ" secondAttribute="top" constant="402" id="6Dl-pK-Tux"/>
+                            <constraint firstItem="eTY-QL-UnX" firstAttribute="leading" secondItem="qn1-LB-yxN" secondAttribute="trailing" constant="2" id="7aX-if-hqb"/>
                             <constraint firstItem="qn1-LB-yxN" firstAttribute="top" secondItem="J03-ey-yIJ" secondAttribute="top" constant="403" id="Ayq-Km-PRe"/>
-                            <constraint firstAttribute="trailing" secondItem="8s8-2s-Gce" secondAttribute="trailing" constant="117" id="Loo-G9-1E9"/>
                             <constraint firstItem="ifn-5h-U0w" firstAttribute="top" secondItem="J03-ey-yIJ" secondAttribute="top" constant="402" id="MPM-M8-ZD9"/>
                             <constraint firstAttribute="trailing" secondItem="Tdh-Dd-i32" secondAttribute="trailing" id="UED-Yw-zm1"/>
-                            <constraint firstAttribute="trailing" secondItem="qn1-LB-yxN" secondAttribute="trailing" constant="41" id="WAM-Ya-rhg"/>
-                            <constraint firstAttribute="trailing" secondItem="8bB-hE-Drb" secondAttribute="trailing" constant="307" id="Xgk-Yd-OOR"/>
                             <constraint firstItem="8bB-hE-Drb" firstAttribute="leading" secondItem="J03-ey-yIJ" secondAttribute="leading" constant="8" id="Ynh-Br-XD7"/>
-                            <constraint firstAttribute="trailing" secondItem="eTY-QL-UnX" secondAttribute="trailing" constant="20" id="aKU-fE-b6P"/>
+                            <constraint firstAttribute="trailing" secondItem="eTY-QL-UnX" secondAttribute="trailing" constant="25" id="aKU-fE-b6P"/>
                             <constraint firstItem="eTY-QL-UnX" firstAttribute="top" secondItem="J03-ey-yIJ" secondAttribute="top" constant="403" id="bca-qX-YbZ"/>
-                            <constraint firstItem="ifn-5h-U0w" firstAttribute="leading" secondItem="J03-ey-yIJ" secondAttribute="leading" constant="185" id="hJc-Hd-uKa"/>
+                            <constraint firstItem="qn1-LB-yxN" firstAttribute="leading" secondItem="8s8-2s-Gce" secondAttribute="trailing" constant="22" id="cSL-Ya-dk7"/>
+                            <constraint firstItem="ifn-5h-U0w" firstAttribute="leading" secondItem="J03-ey-yIJ" secondAttribute="leading" constant="180" id="hJc-Hd-uKa"/>
+                            <constraint firstItem="8s8-2s-Gce" firstAttribute="leading" secondItem="ifn-5h-U0w" secondAttribute="trailing" constant="10" id="lYy-ZO-6vX"/>
                             <constraint firstItem="8bB-hE-Drb" firstAttribute="top" secondItem="J03-ey-yIJ" secondAttribute="top" constant="397" id="pID-yu-Tu2"/>
                             <constraint firstItem="qn1-LB-yxN" firstAttribute="leading" secondItem="J03-ey-yIJ" secondAttribute="leading" constant="280" id="tjb-5U-DHs"/>
-                            <constraint firstAttribute="trailing" secondItem="ifn-5h-U0w" secondAttribute="trailing" constant="136" id="yjO-gZ-dqJ"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgr-MN-kpr" userLabel="Slider big title">

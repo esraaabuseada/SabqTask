@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class VideosAdapter: ListAdapterProtocal {
+class VideosAdapter: NSObject, ListAdapterProtocal, UICollectionViewDataSource,
+UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     typealias DataType = Comics
     var list: [Comics]?
     var reloadData: (() -> Void)?
@@ -41,6 +43,29 @@ class VideosAdapter: ListAdapterProtocal {
     
     func clear(reload: Bool) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return count()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "VideosCollectionViewCell" ,
+            for: indexPath) as? VideosCollectionViewCell else {
+                fatalError("cell empty")
+        }
+        guard  let viodeosObj = list?[indexPath.row] else { fatalError("no object") }
+        collectionCell.configur(videosObj: viodeosObj)
+        return collectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 0.3 * collectionView.frame.size.width,
+                      height: 0.9 * collectionView.frame.size.height)
     }
     
 }

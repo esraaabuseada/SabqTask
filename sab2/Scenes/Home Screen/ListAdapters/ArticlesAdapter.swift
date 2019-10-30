@@ -7,7 +7,10 @@
 //
 
 import Foundation
-class ArticlesAdapter: ListAdapterProtocal {
+import UIKit
+class ArticlesAdapter: NSObject, ListAdapterProtocal, UICollectionViewDataSource,
+    UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout {
     typealias DataType = Materials
     var list: [Materials]?
     var reloadData: (() -> Void)?
@@ -40,6 +43,35 @@ class ArticlesAdapter: ListAdapterProtocal {
     
     func clear(reload: Bool) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return count()
+    }
+    
+    func collectionView (
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard  let collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "ArticlesCollectionViewCell",
+            for: indexPath) as? ArticlesCollectionViewCell
+            else {
+                fatalError("cell empty")
+        }
+        
+       guard let articlesObj = list?[indexPath.row] else { fatalError("no object") }
+        
+        collectionCell.configur(articlesObj: articlesObj)
+        return collectionCell
+        
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 0.7 * collectionView.frame.size.width ,
+                      height: 0.7 * collectionView.frame.size.width )
     }
     
 }

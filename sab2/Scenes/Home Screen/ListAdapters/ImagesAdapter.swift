@@ -7,7 +7,11 @@
 //
 
 import Foundation
-class ImagesAdapter: ListAdapterProtocal {
+import UIKit
+
+class ImagesAdapter: NSObject, ListAdapterProtocal, UICollectionViewDataSource,
+UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout {
     typealias DataType = Comics
     var list: [Comics]?
     var reloadData: (() -> Void)?
@@ -41,6 +45,30 @@ class ImagesAdapter: ListAdapterProtocal {
     
     func clear(reload: Bool) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return count()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let  collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "ImagesCollectionViewCell" ,
+            for: indexPath) as? ImagesCollectionViewCell  else {
+                fatalError("cell empty")
+        }
+        
+      guard  let imagesObj = list?[indexPath.row] else { fatalError("no object") }
+        collectionCell.configur(imagesObj: imagesObj)
+        return collectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width,
+                      height: collectionView.frame.size.height)
     }
     
 }

@@ -23,8 +23,8 @@ ListViewProtocal {
         leftNavigationBarItem()
         rightNavigationBarItem()
         
-        listPresenter?.loadMaterial()
-        listPresenter?.loadSlider()
+        listPresenter?.loadResponse()
+//        listPresenter?.loadSlider()
         listPresenter?.loadVideos()
         listPresenter?.loadImage()
         listPresenter?.loadArticles()

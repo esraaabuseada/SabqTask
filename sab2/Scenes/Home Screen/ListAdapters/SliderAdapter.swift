@@ -13,12 +13,14 @@ UICollectionViewDelegate,
 UICollectionViewDelegateFlowLayout {
     var list: [Slider]?
     typealias DataType = Slider
-    
+    var pageControl: UIPageControl!
     var reloadData: (() -> Void)?
     var showEmptyState: ((Bool) -> Void)?
     func add(item: Slider) {}
     
-    //func setAdaptor
+    func setAdaptor(pageControl: UIPageControl) {
+        self.pageControl = pageControl
+    }
     
     func add(items: [Slider]) {
        list = [Slider]()
@@ -55,7 +57,7 @@ UICollectionViewDelegateFlowLayout {
         }
         guard  let sliderObj = list?[indexPath.row] else { fatalError("no object") }
        collectionCell.configur(slioderObj: sliderObj)
-        
+        pageControl.currentPage = indexPath.row
         
         return collectionCell
     }
