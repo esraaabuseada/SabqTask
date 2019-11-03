@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,46 +20,45 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WA-UM-FIA">
                         <rect key="frame" x="0.0" y="0.0" width="301" height="349"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02-News detalise_dark-3" translatesAutoresizingMaskIntoConstraints="NO" id="tsN-tn-2aT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tsN-tn-2aT">
                                 <rect key="frame" x="0.0" y="0.0" width="301" height="349"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZn-Lr-anE">
-                                <rect key="frame" x="8" y="284" width="231" height="35"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="block_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="AUB-xi-X5a">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="349"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gallery" translatesAutoresizingMaskIntoConstraints="NO" id="stK-pp-zT0">
+                                <rect key="frame" x="17" y="290" width="25" height="25"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQr-u1-Lxs">
+                                <rect key="frame" x="61" y="304" width="231" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="block_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="AUB-xi-X5a">
-                                <rect key="frame" x="0.0" y="0.0" width="301" height="349"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfe-rr-U8X">
-                                <rect key="frame" x="197" y="237" width="42" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="61" y="257" width="33" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gallery" translatesAutoresizingMaskIntoConstraints="NO" id="stK-pp-zT0">
-                                <rect key="frame" x="259" y="284" width="25" height="25"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="tsN-tn-2aT" secondAttribute="bottom" id="0Y5-O2-mB1"/>
-                            <constraint firstItem="RZn-Lr-anE" firstAttribute="top" secondItem="stK-pp-zT0" secondAttribute="top" id="1qK-ED-yco"/>
+                            <constraint firstItem="stK-pp-zT0" firstAttribute="leading" secondItem="1WA-UM-FIA" secondAttribute="leading" constant="17" id="1WX-az-6DK"/>
+                            <constraint firstItem="Yfe-rr-U8X" firstAttribute="top" secondItem="1WA-UM-FIA" secondAttribute="top" constant="257" id="2ai-Sv-cNC"/>
+                            <constraint firstAttribute="trailing" secondItem="iQr-u1-Lxs" secondAttribute="trailing" constant="9" id="806-Wh-jE6"/>
                             <constraint firstItem="tsN-tn-2aT" firstAttribute="leading" secondItem="1WA-UM-FIA" secondAttribute="leading" id="A8j-Ke-Ner"/>
                             <constraint firstItem="tsN-tn-2aT" firstAttribute="top" secondItem="1WA-UM-FIA" secondAttribute="top" id="DrA-qI-44H"/>
+                            <constraint firstAttribute="bottom" secondItem="stK-pp-zT0" secondAttribute="bottom" constant="34" id="I7Z-wA-QmY"/>
                             <constraint firstItem="AUB-xi-X5a" firstAttribute="leading" secondItem="1WA-UM-FIA" secondAttribute="leading" id="J5x-5a-1IG"/>
                             <constraint firstItem="AUB-xi-X5a" firstAttribute="top" secondItem="1WA-UM-FIA" secondAttribute="top" id="LHL-In-CxP"/>
-                            <constraint firstAttribute="trailing" secondItem="Yfe-rr-U8X" secondAttribute="trailing" constant="62" id="b3y-st-vuN"/>
-                            <constraint firstAttribute="bottom" secondItem="stK-pp-zT0" secondAttribute="bottom" constant="40" id="bER-vM-c4v"/>
-                            <constraint firstAttribute="bottom" secondItem="RZn-Lr-anE" secondAttribute="bottom" constant="30" id="dwf-st-BN0"/>
-                            <constraint firstItem="RZn-Lr-anE" firstAttribute="leading" secondItem="1WA-UM-FIA" secondAttribute="leadingMargin" id="eZS-So-Opx"/>
-                            <constraint firstItem="Yfe-rr-U8X" firstAttribute="top" secondItem="1WA-UM-FIA" secondAttribute="top" constant="237" id="fRr-Ef-kVz"/>
-                            <constraint firstAttribute="trailing" secondItem="stK-pp-zT0" secondAttribute="trailing" constant="17" id="fmt-9d-uTI"/>
+                            <constraint firstItem="iQr-u1-Lxs" firstAttribute="leading" secondItem="stK-pp-zT0" secondAttribute="trailing" constant="19" id="Wwc-A5-t40"/>
+                            <constraint firstItem="iQr-u1-Lxs" firstAttribute="top" secondItem="Yfe-rr-U8X" secondAttribute="bottom" constant="8" id="fNP-FS-gfg"/>
                             <constraint firstAttribute="trailing" secondItem="AUB-xi-X5a" secondAttribute="trailing" id="hhc-KY-yCy"/>
-                            <constraint firstItem="Yfe-rr-U8X" firstAttribute="leading" secondItem="1WA-UM-FIA" secondAttribute="leading" constant="197" id="l7T-pw-r2J"/>
                             <constraint firstAttribute="bottom" secondItem="AUB-xi-X5a" secondAttribute="bottom" id="lrQ-uK-ipS"/>
-                            <constraint firstItem="RZn-Lr-anE" firstAttribute="trailing" secondItem="Yfe-rr-U8X" secondAttribute="trailing" id="vgu-Fm-jFd"/>
+                            <constraint firstAttribute="bottom" secondItem="iQr-u1-Lxs" secondAttribute="bottom" constant="24.5" id="s5R-I0-zkF"/>
+                            <constraint firstItem="Yfe-rr-U8X" firstAttribute="leading" secondItem="1WA-UM-FIA" secondAttribute="leading" constant="61" id="x6j-nO-hgJ"/>
                             <constraint firstAttribute="trailing" secondItem="tsN-tn-2aT" secondAttribute="trailing" id="xYH-TA-eMN"/>
                         </constraints>
                     </view>
@@ -78,14 +75,14 @@
                 <outlet property="blockOverlayImage" destination="stK-pp-zT0" id="uVI-Ck-S2J"/>
                 <outlet property="coverPhoto" destination="tsN-tn-2aT" id="EsI-Se-TwB"/>
                 <outlet property="timeLabel" destination="Yfe-rr-U8X" id="juc-rt-Sv9"/>
-                <outlet property="titleLabel" destination="RZn-Lr-anE" id="i4C-dP-Rhb"/>
+                <outlet property="titleLabel" destination="iQr-u1-Lxs" id="230-uD-aSg"/>
             </connections>
             <point key="canvasLocation" x="44.20289855072464" y="49.21875"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="02-News detalise_dark-3" width="577" height="662"/>
         <image name="block_overlay" width="301" height="349"/>
         <image name="ic_gallery" width="25" height="25"/>
+        <image name="placeholder" width="375" height="241"/>
     </resources>
 </document>

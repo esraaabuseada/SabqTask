@@ -57,7 +57,7 @@ UICollectionViewDelegateFlowLayout {
         }
         guard  let sliderObj = list?[indexPath.row] else { fatalError("no object") }
        collectionCell.configur(slioderObj: sliderObj)
-        pageControl.currentPage = indexPath.row
+        pageControl.currentPage = indexPath.row 
         
         return collectionCell
     }
@@ -66,8 +66,8 @@ UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
  
-        return CGSize(width: collectionView.frame.size.width + 10 ,
-                      height: collectionView.frame.size.width + 50)
+        return CGSize(width: collectionView.frame.size.width ,
+                      height: collectionView.frame.size.height )
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -75,5 +75,5 @@ UICollectionViewDelegateFlowLayout {
                         forItemAt indexPath: IndexPath) {
        
     }
-    
+        
 }

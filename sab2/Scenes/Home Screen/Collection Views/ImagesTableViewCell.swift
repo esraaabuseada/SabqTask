@@ -17,8 +17,9 @@ class ImagesTableViewCell: UITableViewCell {
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 3
-        flowLayout.minimumInteritemSpacing = 3
+        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.minimumLineSpacing = 71
+        flowLayout.minimumInteritemSpacing = 71
         self.imagesCollectionView.collectionViewLayout = flowLayout
         self.imagesCollectionView.dataSource = imagesAdapter
         self.imagesCollectionView.delegate = imagesAdapter

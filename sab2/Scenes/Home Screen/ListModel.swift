@@ -77,7 +77,9 @@ class ListModel: BaseModel, ListModelProtocal {
                     }
                     compelation(.success(self.imagesArray))
                 }
-            } }
+            }
+            
+        }
     }
     func getArticlesResponse( compelation: @escaping (Result<Any, Error> ) -> Void) {
         networkManager.getArticlesResponse { result, _  in

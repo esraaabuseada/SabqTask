@@ -16,6 +16,7 @@ var listModule = ListModule()
         // Do any additional setup after loading the view.
         
         setupTabBar()
+        self.selectedIndex = 4
     }
     
     func setupTabBar() {
@@ -58,7 +59,7 @@ var listModule = ListModule()
                               selected: UIImage,
                               unselected: UIImage,
                               title: String) -> UINavigationController {
-        if (title == "news" ) {
+        if (title == NSLocalizedString("news", comment: "") ) {
             let viewController = listModule.createModule()
             let navController = UINavigationController(rootViewController: viewController)
             navController.tabBarItem.title = title

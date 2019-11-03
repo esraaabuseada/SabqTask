@@ -17,7 +17,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak private var postTitleLabel: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!
     @IBOutlet weak private var statisticsLabel: UILabel!
-    let placeHolderImage = #imageLiteral(resourceName: "logo")
+    let placeHolderImage = #imageLiteral(resourceName: "placeholder")
     
     @IBOutlet weak private var playImageView: UIImageView!
     override func awakeFromNib() {

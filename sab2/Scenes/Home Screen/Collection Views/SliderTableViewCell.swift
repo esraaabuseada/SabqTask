@@ -16,8 +16,9 @@ class SliderTableViewCell: UITableViewCell {
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 70, height: 80)
-        flowLayout.minimumLineSpacing = 5
+        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+    
+        flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         self.sliderCollectionView.collectionViewLayout = flowLayout
         self.sliderCollectionView.dataSource = sliderAdapter

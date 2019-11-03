@@ -33,6 +33,7 @@ ListViewProtocal {
         self.homeTableView.delegate = newsAdapter
         self.homeTableView.dataSource = newsAdapter
         registerCells()
+        homeTableView.estimatedRowHeight = 145
         homeTableView.rowHeight = UITableView.automaticDimension
         newsAdapter.reloadData = reloadData
     }
@@ -46,22 +47,6 @@ ListViewProtocal {
     }
     
     func leftNavigationBarItem() {
-        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        imageview.image = #imageLiteral(resourceName: "user")
-        imageview.contentMode = UIView.ContentMode.scaleAspectFit
-        imageview.layer.cornerRadius = 20
-        imageview.layer.masksToBounds = true
-        containView.addSubview(imageview)
-        let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "user"),
-                                            style: .plain, target: self,
-                                            action: nil)
-        leftBarButton.tintColor = .red
-        self.navigationItem.leftBarButtonItem = leftBarButton
-        
-    }
-    
-    func rightNavigationBarItem() {
         let containView = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
         _ = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
         let notificationIconImageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 21))
@@ -70,8 +55,27 @@ ListViewProtocal {
         notificationIconImageview.layer.cornerRadius = 10
         notificationIconImageview.layer.masksToBounds = true
         containView.addSubview( notificationIconImageview)
-        let rightBarButton = UIBarButtonItem(customView: containView)
+        let leftBarButton = UIBarButtonItem(customView: containView)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
+    }
+    
+    func rightNavigationBarItem() {
+        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        imageview.image = #imageLiteral(resourceName: "user")
+        imageview.contentMode = UIView.ContentMode.scaleAspectFit
+        imageview.layer.cornerRadius = 20
+        imageview.layer.masksToBounds = true
+        containView.addSubview(imageview)
+        let rightBarButton = UIBarButtonItem(
+            image: #imageLiteral(resourceName: "user"),
+            style: .plain,
+            target: self,
+            action: nil)
+     
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
     }
     
     func registerCells() {

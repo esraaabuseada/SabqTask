@@ -67,12 +67,12 @@ UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
             
-        case 0:     return 420
+        case 0:     return UITableView.automaticDimension 
         case 1:
             if (list?[indexPath.row].type == "images") {
-                return 347
+                return UITableView.automaticDimension
             } else if (list?[indexPath.row].type == "videos") {
-                return 348
+                return UITableView.automaticDimension
             } else if (list?[indexPath.row].type == "articles") {
                 return 370
             } else { return UITableView.automaticDimension }

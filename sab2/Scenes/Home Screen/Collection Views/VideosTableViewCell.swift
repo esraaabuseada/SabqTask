@@ -16,8 +16,9 @@ class VideosTableViewCell: UITableViewCell {
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+         flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.minimumLineSpacing = 14
+        flowLayout.minimumInteritemSpacing = 14
         self.videosCollectionView.collectionViewLayout = flowLayout
         self.videosCollectionView.dataSource = videosAdapter
         self.videosCollectionView.delegate = videosAdapter

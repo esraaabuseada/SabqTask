@@ -15,9 +15,10 @@ class ArticlesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.minimumLineSpacing = 12
+        flowLayout.minimumInteritemSpacing = 12
         self.articlesCollectionView.collectionViewLayout = flowLayout
         self.articlesCollectionView.dataSource = articlesAdapter
         self.articlesCollectionView.delegate = articlesAdapter

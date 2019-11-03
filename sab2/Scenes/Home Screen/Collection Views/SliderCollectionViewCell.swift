@@ -18,7 +18,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var iconhotImageView: UIImageView!
     @IBOutlet weak private var statisticsLabel: UILabel!
     
-    let placeHolderImage = #imageLiteral(resourceName: "logo")
+    let placeHolderImage = #imageLiteral(resourceName: "placeholder")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,5 +53,15 @@ class SliderCollectionViewCell: UICollectionViewCell {
         statisticsLabel.text = "\(noOfViews)"
         dateLabel.text = timeApart
     
+    }
+override func preferredLayoutAttributesFitting(
+        _ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        return layoutAttributes
     }
 }

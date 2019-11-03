@@ -12,7 +12,7 @@ import Moya
 //swiftlint:disable  force_unwrapping
 
 enum  ListService {
-    case sliderMaterial( page : Int)
+    case sliderMaterial( page: Int)
     case videos
     case images
     case articles
